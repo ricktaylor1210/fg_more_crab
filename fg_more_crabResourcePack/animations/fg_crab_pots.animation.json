@@ -1,0 +1,56 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fg_crab_pots.drop_down": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5833,
+			"bones": {
+				"fg_crab_pots": {
+					"rotation": {
+						"0.125": [0, 0, -2],
+						"0.1667": [0, 0, -0.5],
+						"0.2083": [0, 0, 1.25],
+						"0.2917": [0, 0, 2.5],
+						"0.3333": [0, 0, 2],
+						"0.4167": [0, 0, -0.43],
+						"0.4583": [0, 0, -0.8],
+						"0.5417": [0, 0, -0.3],
+						"0.5833": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 12, 0],
+						"0.1667": [0, 0, 0],
+						"0.25": [0, 2.6, 0],
+						"0.2917": [0, 2.5, 0],
+						"0.375": [0, 0, 0],
+						"0.4583": [0, 0.9, 0],
+						"0.5": [0, 0.85, 0],
+						"0.5833": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_crab_pots.shake": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.0417,
+			"bones": {
+				"fg_crab_pots": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, 0, "math.sin(query.anim_time * 2160) * 10"],
+						"0.375": [0, 0, "math.sin(query.anim_time * 2160) * 20"],
+						"0.5": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_crab_pots.holding": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"fg_crab_pots": {
+					"rotation": ["-math.sin(query.anim_time * 60) * 3", 0, "math.sin(query.anim_time * 120) * 5"]
+				}
+			}
+		}
+	}
+}

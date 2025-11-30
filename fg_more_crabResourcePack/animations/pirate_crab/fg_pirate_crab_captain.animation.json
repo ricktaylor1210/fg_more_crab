@@ -1,0 +1,624 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fg_pirate_crab_captain.scale_small": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.scale_medium": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 0.7
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.scale_large": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 1.2
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.idle": {
+			"loop": true,
+			"animation_length": 2.875,
+			"bones": {
+				"rightmouth": {
+					"rotation": {
+						"1.0": [0, 0, 0],
+						"1.25": [0, 10, -30],
+						"1.375": [0, 0, 0]
+					}
+				},
+				"leftmouth": {
+					"rotation": {
+						"1.0": [0, 0, 0],
+						"1.25": [0, -10, 30],
+						"1.375": [0, 0, 0]
+					}
+				},
+				"righteye": {
+					"rotation": {
+						"0.0": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0],
+						"0.125": ["10+math.cos(query.anim_time * 250 - 60) * 3", 0, 0],
+						"0.25": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0]
+					}
+				},
+				"lefteye": {
+					"rotation": {
+						"0.0": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0],
+						"0.25": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0],
+						"0.375": ["10+math.cos(query.anim_time * 250 - 60) * 3", 0, 0],
+						"0.5": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0]
+					}
+				},
+				"leftbeard": {
+					"rotation": {
+						"1.5": [0, 0, 0],
+						"1.625": [0, 0, 10],
+						"1.75": [0, 0, 0],
+						"1.875": [0, 0, 10],
+						"2.0": [0, 0, 0]
+					}
+				},
+				"rightbeard": {
+					"rotation": {
+						"1.5": [0, 0, 0],
+						"1.625": [0, 0, -10],
+						"1.75": [0, 0, 0],
+						"1.875": [0, 0, -10],
+						"2.0": [0, 0, 0]
+					}
+				},
+				"leftpliers": {
+					"rotation": ["math.cos(query.anim_time * 250 - 60) * 3", 0, "math.cos(query.anim_time * 250 - 60) * -4"],
+					"position": [0, "math.sin(query.anim_time * 250) * 0.2", 0]
+				},
+				"bone4": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.625": [0, 0, 10],
+						"0.75": [0, 0, 0],
+						"0.875": [0, 0, 10],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"rightleg": {
+					"position": [0, "math.sin(query.anim_time * 250) * -0.2", 0]
+				},
+				"leftleg": {
+					"position": [0, "math.sin(query.anim_time * 250) * -0.2", 0]
+				},
+				"bone5": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.625": [0, 0, -5],
+						"0.75": [0, 0, 0],
+						"0.875": [0, 0, -5],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone6": {
+					"rotation": ["math.cos(query.anim_time * 250 - 60) * 3", 0, "math.cos(query.anim_time * 250 - 60) * 4"],
+					"position": [0, "math.sin(query.anim_time * 250) * 0.2", 0]
+				},
+				"fg_pirate_crab_captain": {
+					"position": [0, "math.sin(query.anim_time * 250) * 0.2", 0]
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.walk": {
+			"loop": true,
+			"anim_time_update": "1.1 * query.delta_time + query.anim_time",
+			"bones": {
+				"body": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600) * 2"],
+					"position": [0, "math.sin(query.anim_time * 600) * 0.2", 0]
+				},
+				"leftbeard": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-200) * 3"]
+				},
+				"rightbeard": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-200) * 3"]
+				},
+				"leftpliers": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-300) * 2"],
+					"position": [0, "-math.sin(query.anim_time * 600) * 0.2", 0]
+				},
+				"rightleg": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600+200) * -10"],
+					"position": ["math.sin(query.anim_time * 600-200) * -0.5", "math.sin(query.anim_time * 600-200) * 0.5", 0]
+				},
+				"leftleg": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600+200) * -10"],
+					"position": ["math.sin(query.anim_time * 600-200) * 0.5", "math.sin(query.anim_time * 600-200) * -0.5", 0]
+				},
+				"rightpliers_hook": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-200) * 3"],
+					"position": [0, "math.sin(query.anim_time * 600) * 0.2", 0]
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.walk_attack": {
+			"loop": true,
+			"anim_time_update": "1.5 * query.delta_time + query.anim_time",
+			"bones": {
+				"body": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600) * 2"],
+					"position": [0, "math.sin(query.anim_time * 600) * 0.2", 0]
+				},
+				"leftbeard": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-200) * 3"]
+				},
+				"rightbeard": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-200) * 3"]
+				},
+				"leftpliers": {
+					"rotation": [149.74091, -6.63275, "-158.6935+math.sin(query.anim_time * 600-300) * 3"],
+					"position": [0.04726, 1.70246, -1.76051]
+				},
+				"rightleg": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600+200) * -10"],
+					"position": ["math.sin(query.anim_time * 600-200) * -0.5", "math.sin(query.anim_time * 600-200) * 0.5", 0]
+				},
+				"leftleg": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600+200) * -10"],
+					"position": ["math.sin(query.anim_time * 600-200) * 0.5", "math.sin(query.anim_time * 600-200) * -0.5", 0]
+				},
+				"bone4": {
+					"rotation": [0, 0, 30]
+				},
+				"rightpliers_hook": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 600-200) * 4"],
+					"position": [-0.90384, 1.70551, 0.24444]
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-17.5, 0, 0],
+						"0.4167": [-17.5, 0, 0],
+						"0.5": [-5, 0, 0],
+						"0.75": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0.77447, 0.71529],
+						"0.4167": [0, 0.69929, 0.95372],
+						"0.5": [0, 1.08716, -0.99619],
+						"0.75": [0, 1.08716, -0.99619],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"leftpliers": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, -70, 0],
+						"0.4167": [0, -80, 0],
+						"0.5": [0, -15, 0],
+						"0.75": [0, -15, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0.4954, 0.1899, 5.07134],
+						"0.4167": [1.2538, 0.05393, 6.5609],
+						"0.5": [-1.31612, -0.15517, -3.82679],
+						"0.75": [-2.6998, -0.06964, -4.10617],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone4": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 35],
+						"0.5": [0, 0, 35],
+						"0.5417": [0, 0, 0],
+						"0.75": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone5": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 0, -20],
+						"0.5417": [0, 0, 0]
+					}
+				},
+				"rightpliers_hook": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, -32.5],
+						"0.4167": [-7.5, 0, -37.5],
+						"0.5": [67.5, -62.5, 0],
+						"0.75": [67.5, -62.5, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [-2, 2, 2],
+						"0.4167": [-3, 3, 3],
+						"0.5": [2, 0, -5],
+						"0.75": [3, 0, -6],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.attack_left": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-17.5, 0, 0],
+						"0.4167": [-17.5, 0, 0],
+						"0.5": [-5, 0, 0],
+						"0.75": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0.77447, 0.71529],
+						"0.4167": [0, 0.69929, 0.95372],
+						"0.5": [0, 1.08716, -0.99619],
+						"0.75": [0, 1.08716, -0.99619],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"leftpliers": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, -70, 0],
+						"0.4167": [0, -80, 0],
+						"0.5": [0, -15, 0],
+						"0.75": [0, -15, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0.4954, 0.1899, 5.07134],
+						"0.4167": [1.2538, 0.05393, 6.5609],
+						"0.5": [-2.69982, -0.06961, -4.10617],
+						"0.75": [-2.6998, -0.06964, -4.10617],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone4": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 35],
+						"0.5": [0, 0, 35],
+						"0.5417": [0, 0, 0],
+						"0.75": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone5": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 0, -20],
+						"0.5417": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.attack_right": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-17.5, 0, 0],
+						"0.4167": [-17.5, 0, 0],
+						"0.5": [-5, 0, 0],
+						"0.75": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0.77447, 0.71529],
+						"0.4167": [0, 0.69929, 0.95372],
+						"0.5": [0, 1.08716, -0.99619],
+						"0.75": [0, 1.08716, -0.99619],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"rightpliers_hook": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, -32.5],
+						"0.4167": [-9.04581, -29.84612, -40.93688],
+						"0.5": [73.72645, -63.84926, -16.17834],
+						"0.75": [73.72645, -63.84926, -16.17834],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [-2, 2, 2],
+						"0.4167": [-3, 3, 3],
+						"0.5": [2, 0, -5],
+						"0.75": [3, 0, -6],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.attack_steal": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-17.5, 0, 0],
+						"0.4167": [-17.5, 0, 0],
+						"0.5": [-5, 0, 0],
+						"0.75": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0.77447, 0.71529],
+						"0.4167": [0, 0.69929, 0.95372],
+						"0.5": [0, 1.08716, -0.99619],
+						"0.75": [0, 1.08716, -0.99619],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone4": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, 35],
+						"0.6667": [0, 0, 40],
+						"0.75": [0, 0, 0],
+						"0.875": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone5": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.6667": [0, 0, -20],
+						"0.75": [0, 0, 0]
+					}
+				},
+				"rightpliers_hook": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-14.88318, -14.99897, -104.78834],
+						"0.4167": [-29.4233, -19.35084, -99.06],
+						"0.5": [91.14387, -39.88004, -100.41595],
+						"0.75": [131.14387, -39.88004, -100.41595],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 0],
+						"0.4167": [0, 0, 0],
+						"0.5": [2, -1, -8],
+						"0.75": [3, -1, -9],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.eat": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"rightmouth": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 0],
+						"0.5": [-1.74511, 10.68992, -44.25768],
+						"0.6667": [0, 0, 0]
+					}
+				},
+				"leftmouth": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5833": [0, 0, 0],
+						"0.8333": [-1.74511, -10.68992, 44.25768],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"righteye": {
+					"rotation": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0]
+				},
+				"lefteye": {
+					"rotation": ["math.cos(query.anim_time * 250 - 60) * 3", 0, 0]
+				},
+				"leftbeard": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5833": [0, 0, 0],
+						"0.8333": [0, 0, 10],
+						"0.9583": [0, 0, 0]
+					}
+				},
+				"rightbeard": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, 0, -10],
+						"0.5833": [0, 0, 0]
+					}
+				},
+				"leftpliers": {
+					"rotation": {
+						"0.0": ["math.cos(query.anim_time * 250 - 60) * 3", 0, "math.cos(query.anim_time * 250 - 60) * -4"],
+						"0.3333": ["math.cos(query.anim_time * 250 - 60) * 3", 0, "math.cos(query.anim_time * 250 - 60) * -4"],
+						"0.5": [6.2937, -30.927, -4.19424],
+						"0.8333": [4.313, 38.732, 11.0446],
+						"1.0": ["math.cos(query.anim_time * 250 - 60) * 3", 0, "math.cos(query.anim_time * 250 - 60) * -4"]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, 0, 0],
+						"0.5": [-0.9408, 0.4289, -2.80266],
+						"0.8333": [-0.90334, -0.2052, -0.87815],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone4": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, 0, 0],
+						"0.5": [0, 0, 15],
+						"0.5833": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"rightleg": {
+					"position": [0, "math.sin(query.anim_time * 250) * -0.2", 0]
+				},
+				"leftleg": {
+					"position": [0, "math.sin(query.anim_time * 250) * -0.2", 0]
+				},
+				"bone5": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, 0, 0],
+						"0.5": [0, 0, -5],
+						"0.5833": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"bone6": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [7.5, 0, 0],
+						"0.5": [9.99294, -0.32621, 2.47864],
+						"0.5833": [9.99527, -0.21782, 2.4905],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"fg_pirate_crab_captain": {
+					"position": [0, "math.sin(query.anim_time * 250) * 0.2", 0]
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.dead": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"righteye": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [85, 0, 0]
+					}
+				},
+				"lefteye": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [85, 0, 0]
+					}
+				},
+				"leftpliers": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [80, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.4167": [1.27434, 0.50201, -1.54079]
+					}
+				},
+				"rightleg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 15]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0.96593, -0.25882, 0]
+					}
+				},
+				"leftleg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, -15]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [-0.96593, -0.25882, 0]
+					}
+				},
+				"hat": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, -77.5],
+						"0.4167": [0, 0, -127.5]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [-8, 0, 0],
+						"0.4167": [-12, 3, 0]
+					}
+				},
+				"bone6": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [75, 0, 0],
+						"0.4167": [89.34754, 7.51315, -87.6704]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 1],
+						"0.4167": [2, 0, 1]
+					}
+				},
+				"fg_pirate_crab_captain": {
+					"rotation": [0, 0, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, -1.25, 0]
+					}
+				}
+			}
+		},
+		"animation.fg_pirate_crab_captain.defense": {
+			"loop": true,
+			"bones": {
+				"righteye": {
+					"position": [0, -1, 0]
+				},
+				"lefteye": {
+					"position": [0, -1, 0]
+				},
+				"leftpliers": {
+					"rotation": [0, 35, 0]
+				},
+				"rightleg": {
+					"rotation": [0, 0, -115],
+					"position": [-0.5, 0.75, 0]
+				},
+				"leftleg": {
+					"rotation": [0, 0, 115],
+					"position": [0.5, 0.75, 0]
+				},
+				"rightpliers_hook": {
+					"rotation": [-0.66066, -47.81266, 48.43705]
+				}
+			}
+		}
+	}
+}

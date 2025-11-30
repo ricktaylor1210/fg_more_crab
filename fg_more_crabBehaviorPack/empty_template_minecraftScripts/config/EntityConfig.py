@@ -1,7 +1,0 @@
-DoNotInstanceEntityList = [""]
-
-ServerLoadInstanceEntityMap = {
-}
-
-ClientLoadInstanceEntityMap = {
-}

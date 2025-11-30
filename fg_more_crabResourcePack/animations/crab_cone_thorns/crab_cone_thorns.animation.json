@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.crab_cone_thorns.attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.125,
+			"bones": {
+				"crab_cone_thorns": {
+					"scale": {
+						"0.0": [1, 0, 1],
+						"0.125": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.crab_cone_thorns.hide": {
+			"loop": true,
+			"bones": {
+				"crab_cone_thorns": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

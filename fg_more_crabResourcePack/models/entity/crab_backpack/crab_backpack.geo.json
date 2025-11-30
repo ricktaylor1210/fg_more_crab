@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.crab_backpack",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "crab_backpack",
+					"pivot": [0, 6.09808, 3.09808],
+					"rotation": [-30, 0, 0],
+					"cubes": [
+						{"origin": [6, 4.09808, 0.09808], "size": [1, 4, 6], "uv": [22, 14]},
+						{"origin": [-6, 3.09808, -0.90192], "size": [12, 6, 8], "uv": [0, 0]},
+						{"origin": [2, 2.59808, -1.40192], "size": [2, 7, 9], "uv": [0, 14]},
+						{"origin": [-4, 2.59808, -1.40192], "size": [2, 7, 9], "uv": [0, 14], "mirror": true},
+						{"origin": [-7, 4.09808, 0.09808], "size": [1, 4, 6], "uv": [22, 14], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}
