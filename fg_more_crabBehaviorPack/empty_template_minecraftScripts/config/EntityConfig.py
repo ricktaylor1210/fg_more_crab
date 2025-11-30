@@ -1,0 +1,7 @@
+DoNotInstanceEntityList = [""]
+
+ServerLoadInstanceEntityMap = {
+}
+
+ClientLoadInstanceEntityMap = {
+}

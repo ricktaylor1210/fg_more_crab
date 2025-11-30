@@ -1,0 +1,24 @@
+{
+   "dependencies" : [
+      {
+         "uuid": "df54568a-3dc1-49ac-b910-99e419c07cab",
+         "version" : [ 1, 0, 0 ]
+      }
+   ],
+   "format_version" : 1,
+   "header" : {
+      "description" : "By empty",
+      "min_engine_version" : [ 1, 18, 0 ],
+      "name" : "fg_more_crabResourcePack",
+      "uuid": "0ad951de-33cc-4d88-8da3-0058a2c1b452",
+      "version" : [ 1, 0, 0 ]
+   },
+   "modules" : [
+      {
+         "min_engine_version" : [ 1, 18, 0 ],
+         "type" : "resources",
+         "uuid": "ef89b8b0-ccee-4d23-9d82-9501ad91e4d5",
+         "version" : [ 1, 0, 0 ]
+      }
+   ]
+}
