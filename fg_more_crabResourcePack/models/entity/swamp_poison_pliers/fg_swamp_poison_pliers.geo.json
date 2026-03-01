@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_swamp_poison_pliers",
+				"identifier": "geometry.swamp_poison_pliers",
 				"texture_width": 32,
 				"texture_height": 32,
 				"visible_bounds_width": 3,
@@ -12,7 +12,7 @@
 			},
 			"bones": [
 				{
-					"name": "fg_swamp_poison_pliers",
+					"name": "swamp_poison_pliers",
 					"pivot": [0, 19.99753, 0.00156],
 					"rotation": [0, 0, -180],
 					"cubes": [

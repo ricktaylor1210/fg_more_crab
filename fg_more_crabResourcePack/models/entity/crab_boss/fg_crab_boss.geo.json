@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_crab_boss",
+				"identifier": "geometry.crab_boss",
 				"texture_width": 256,
 				"texture_height": 256,
 				"visible_bounds_width": 10,
@@ -16,13 +16,13 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "fg_crab_boss",
+					"name": "crab_boss",
 					"parent": "root",
 					"pivot": [0, 0.25, 0]
 				},
 				{
 					"name": "body",
-					"parent": "fg_crab_boss",
+					"parent": "crab_boss",
 					"pivot": [0, 10.25, 3.01154],
 					"cubes": [
 						{"origin": [-11, 3.25, -8], "size": [22, 14, 22], "uv": [0, 0]},
@@ -162,7 +162,7 @@
 				},
 				{
 					"name": "leftleg",
-					"parent": "fg_crab_boss",
+					"parent": "crab_boss",
 					"pivot": [15, 5.25, 1]
 				},
 				{
@@ -199,7 +199,7 @@
 				},
 				{
 					"name": "rightleg",
-					"parent": "fg_crab_boss",
+					"parent": "crab_boss",
 					"pivot": [-15, 5.25, 1]
 				},
 				{

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_frost_crystal_crab_spear",
+				"identifier": "geometry.frost_crystal_crab_spear",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,
@@ -12,7 +12,7 @@
 			},
 			"bones": [
 				{
-					"name": "fg_frost_crystal_crab_spear",
+					"name": "frost_crystal_crab_spear",
 					"pivot": [0, -2, 0],
 					"cubes": [
 						{"origin": [-1, 7, -1], "size": [2, 27, 2], "uv": [0, 0]},

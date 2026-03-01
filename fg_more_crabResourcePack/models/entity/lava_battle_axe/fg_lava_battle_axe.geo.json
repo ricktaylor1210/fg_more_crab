@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_lava_battle_axe",
+				"identifier": "geometry.lava_battle_axe",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,
@@ -12,7 +12,7 @@
 			},
 			"bones": [
 				{
-					"name": "fg_lava_battle_axe",
+					"name": "lava_battle_axe",
 					"pivot": [0, 1, 0],
 					"cubes": [
 						{"origin": [-1, 0.5, -1], "size": [2, 2, 2], "pivot": [0, 1.5, 0], "rotation": [0, 0, 45], "uv": [0, 18]},

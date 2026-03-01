@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_pirate_crab_sailor",
+				"identifier": "geometry.pirate_crab_sailor",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 4,
@@ -16,13 +16,13 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "fg_pirate_crab_sailor",
+					"name": "pirate_crab_sailor",
 					"parent": "root",
 					"pivot": [0, 0, 0]
 				},
 				{
 					"name": "body",
-					"parent": "fg_pirate_crab_sailor",
+					"parent": "pirate_crab_sailor",
 					"pivot": [0, 3.5, 0.5],
 					"cubes": [
 						{"origin": [-5.5, 1, -4], "size": [11, 5, 9], "uv": [0, 0]}
@@ -164,7 +164,7 @@
 				},
 				{
 					"name": "rightleg",
-					"parent": "fg_pirate_crab_sailor",
+					"parent": "pirate_crab_sailor",
 					"pivot": [-5, 2, 0.5]
 				},
 				{
@@ -201,7 +201,7 @@
 				},
 				{
 					"name": "leftleg",
-					"parent": "fg_pirate_crab_sailor",
+					"parent": "pirate_crab_sailor",
 					"pivot": [5, 2, 0.5]
 				},
 				{

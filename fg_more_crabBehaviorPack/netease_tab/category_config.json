@@ -1,8 +1,8 @@
 {
     "category":[
     {
-        "name":"fg_more_crab",
-        "labelText":"itemCategory.name.fg_more_crab",
+        "name":"more_crab",
+        "labelText":"itemCategory.name.more_crab",
         "icon": "textures/items/apple"
     }
     ]

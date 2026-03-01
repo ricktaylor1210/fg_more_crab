@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.fg_pirate_crab_sailor.scale_small": {
+		"animation.pirate_crab_sailor.scale_small": {
 			"loop": true,
 			"bones": {
 				"root": {
@@ -9,7 +9,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.scale_medium": {
+		"animation.pirate_crab_sailor.scale_medium": {
 			"loop": true,
 			"bones": {
 				"root": {
@@ -17,7 +17,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.scale_large": {
+		"animation.pirate_crab_sailor.scale_large": {
 			"loop": true,
 			"bones": {
 				"root": {
@@ -25,11 +25,11 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.idle": {
+		"animation.pirate_crab_sailor.idle": {
 			"loop": true,
 			"animation_length": 2.875,
 			"bones": {
-				"fg_pirate_crab_sailor": {
+				"pirate_crab_sailor": {
 					"position": [0, "math.sin(query.anim_time * 250) * 0.2", 0]
 				},
 				"rightmouth": {
@@ -131,7 +131,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.walk": {
+		"animation.pirate_crab_sailor.walk": {
 			"loop": true,
 			"anim_time_update": "1.1 * query.delta_time + query.anim_time",
 			"bones": {
@@ -163,7 +163,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.walk_attack": {
+		"animation.pirate_crab_sailor.walk_attack": {
 			"loop": true,
 			"anim_time_update": "1.5 * query.delta_time + query.anim_time",
 			"bones": {
@@ -201,7 +201,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.attack": {
+		"animation.pirate_crab_sailor.attack": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
@@ -296,7 +296,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.attack_left": {
+		"animation.pirate_crab_sailor.attack_left": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
@@ -356,7 +356,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.attack_right": {
+		"animation.pirate_crab_sailor.attack_right": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"anim_time_update": "1.2 * query.delta_time + query.anim_time",
@@ -416,11 +416,11 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.eat": {
+		"animation.pirate_crab_sailor.eat": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
-				"fg_pirate_crab_sailor": {
+				"pirate_crab_sailor": {
 					"position": [0, "math.sin(query.anim_time * 250) * 0.2", 0]
 				},
 				"rightmouth": {
@@ -534,11 +534,11 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.dead": {
+		"animation.pirate_crab_sailor.dead": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.75,
 			"bones": {
-				"fg_pirate_crab_sailor": {
+				"pirate_crab_sailor": {
 					"rotation": [0, 0, 0],
 					"position": {
 						"0.0": [0, 0, 0],
@@ -611,7 +611,7 @@
 				}
 			}
 		},
-		"animation.fg_pirate_crab_sailor.defense": {
+		"animation.pirate_crab_sailor.defense": {
 			"loop": true,
 			"bones": {
 				"righteye": {

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_tidal_armor",
+				"identifier": "geometry.tidal_armor",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 3,
@@ -36,7 +36,7 @@
 					"pivot": [0, 24, 0]
 				},
 				{
-					"name": "fg_tidal_armor_helmet",
+					"name": "tidal_armor_helmet",
 					"parent": "hat",
 					"pivot": [6, 24, 1],
 					"cubes": [
@@ -62,7 +62,7 @@
 					"pivot": [-5, 22, 0]
 				},
 				{
-					"name": "fg_tidal_armor_rightarm",
+					"name": "tidal_armor_rightarm",
 					"parent": "rightSleeve",
 					"pivot": [-5, 22, 0],
 					"cubes": [
@@ -100,7 +100,7 @@
 					"pivot": [5, 22, 0]
 				},
 				{
-					"name": "fg_tidal_armor_leftarm",
+					"name": "tidal_armor_leftarm",
 					"parent": "leftSleeve",
 					"pivot": [5, 22, 0],
 					"cubes": [
@@ -133,7 +133,7 @@
 					"pivot": [0, 24, 0]
 				},
 				{
-					"name": "fg_tidal_armor_chestplate",
+					"name": "tidal_armor_chestplate",
 					"parent": "jacket",
 					"pivot": [0, 24, 0],
 					"cubes": [
@@ -160,7 +160,7 @@
 				},
 				{
 					"name": "bone16",
-					"parent": "fg_tidal_armor_chestplate",
+					"parent": "tidal_armor_chestplate",
 					"pivot": [0, 13.3425, 5.50856],
 					"cubes": [
 						{"origin": [-0.99375, 16.0228, 0.95119], "size": [2, 7, 2], "pivot": [0, 13.3425, 5.50856], "rotation": [-17.5, 0, 0], "uv": [60, 79]},
@@ -174,7 +174,7 @@
 				},
 				{
 					"name": "bone2",
-					"parent": "fg_tidal_armor_chestplate",
+					"parent": "tidal_armor_chestplate",
 					"pivot": [4.85436, 17.96411, 6.17054],
 					"rotation": [2.65428, 25.33401, -5.51248],
 					"cubes": [
@@ -196,7 +196,7 @@
 				},
 				{
 					"name": "bone15",
-					"parent": "fg_tidal_armor_chestplate",
+					"parent": "tidal_armor_chestplate",
 					"pivot": [-4.85436, 17.96411, 6.17054],
 					"rotation": [2.65428, -25.33401, 5.51248],
 					"cubes": [
@@ -227,7 +227,7 @@
 					"pivot": [-1.9, 12, 0]
 				},
 				{
-					"name": "fg_tidal_armor_rightleg",
+					"name": "tidal_armor_rightleg",
 					"parent": "rightPants",
 					"pivot": [-2, 5.63333, -0.04167],
 					"cubes": [
@@ -237,8 +237,8 @@
 					]
 				},
 				{
-					"name": "fg_tidal_armor_rightboot",
-					"parent": "fg_tidal_armor_rightleg",
+					"name": "tidal_armor_rightboot",
+					"parent": "tidal_armor_rightleg",
 					"pivot": [-2, 1.76667, -0.08333],
 					"cubes": [
 						{"origin": [-3.025, 2.67424, -3.68066], "size": [2.05, 3, 1.25], "pivot": [-2, 3.61913, -3.4993], "rotation": [45, 0, 0], "uv": [90, 79], "mirror": true},
@@ -264,7 +264,7 @@
 					"pivot": [1.9, 12, 0]
 				},
 				{
-					"name": "fg_tidal_armor_leftleg",
+					"name": "tidal_armor_leftleg",
 					"parent": "leftPants",
 					"pivot": [2, 5.63333, -0.04167],
 					"cubes": [
@@ -274,8 +274,8 @@
 					]
 				},
 				{
-					"name": "fg_tidal_armor_leftboot",
-					"parent": "fg_tidal_armor_leftleg",
+					"name": "tidal_armor_leftboot",
+					"parent": "tidal_armor_leftleg",
 					"pivot": [2, 1.76667, -0.08333],
 					"cubes": [
 						{"origin": [0.975, 2.67424, -3.68066], "size": [2.05, 3, 1.25], "pivot": [2, 3.61913, -3.4993], "rotation": [45, 0, 0], "uv": [90, 79]},

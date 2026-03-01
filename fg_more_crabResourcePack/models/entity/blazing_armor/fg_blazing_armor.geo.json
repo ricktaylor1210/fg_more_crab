@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_blazing_armor",
+				"identifier": "geometry.blazing_armor",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 3,
@@ -36,7 +36,7 @@
 					"pivot": [0, 24, 0]
 				},
 				{
-					"name": "fg_blazing_armor_helmet",
+					"name": "blazing_armor_helmet",
 					"parent": "hat",
 					"pivot": [6, 24, 1],
 					"cubes": [
@@ -78,7 +78,7 @@
 					"pivot": [-5, 22, 0]
 				},
 				{
-					"name": "fg_blazing_armor_rightarm",
+					"name": "blazing_armor_rightarm",
 					"parent": "rightSleeve",
 					"pivot": [-5, 22, 0],
 					"cubes": [
@@ -125,7 +125,7 @@
 					"pivot": [5, 22, 0]
 				},
 				{
-					"name": "fg_blazing_armor_leftarm",
+					"name": "blazing_armor_leftarm",
 					"parent": "leftSleeve",
 					"pivot": [5, 22, 0],
 					"cubes": [
@@ -167,7 +167,7 @@
 					"pivot": [0, 24, 0]
 				},
 				{
-					"name": "fg_blazing_armor_chestplate",
+					"name": "blazing_armor_chestplate",
 					"parent": "jacket",
 					"pivot": [0, 24, 0],
 					"cubes": [
@@ -199,7 +199,7 @@
 					"pivot": [-1.9, 12, 0]
 				},
 				{
-					"name": "fg_blazing_armor_rightleg",
+					"name": "blazing_armor_rightleg",
 					"parent": "rightPants",
 					"pivot": [-2, 5.63333, -0.04167],
 					"cubes": [
@@ -208,8 +208,8 @@
 					]
 				},
 				{
-					"name": "fg_blazing_armor_rightboot",
-					"parent": "fg_blazing_armor_rightleg",
+					"name": "blazing_armor_rightboot",
+					"parent": "blazing_armor_rightleg",
 					"pivot": [-2, 1.76667, -0.08333],
 					"cubes": [
 						{"origin": [-6.10953, 4.68712, -1.025], "size": [1, 2.25, 2.05], "pivot": [-5.68361, 4.81521, 0], "rotation": [0, 0, -15], "uv": [60, 86], "mirror": true},
@@ -236,7 +236,7 @@
 					"pivot": [1.9, 12, 0]
 				},
 				{
-					"name": "fg_blazing_armor_leftleg",
+					"name": "blazing_armor_leftleg",
 					"parent": "leftPants",
 					"pivot": [2, 5.63333, -0.04167],
 					"cubes": [
@@ -245,8 +245,8 @@
 					]
 				},
 				{
-					"name": "fg_blazing_armor_leftboot",
-					"parent": "fg_blazing_armor_leftleg",
+					"name": "blazing_armor_leftboot",
+					"parent": "blazing_armor_leftleg",
 					"pivot": [2, 1.76667, -0.08333],
 					"cubes": [
 						{"origin": [5.10953, 4.68712, -1.025], "size": [1, 2.25, 2.05], "pivot": [5.68361, 4.81521, 0], "rotation": [0, 0, 15], "uv": [60, 86]},

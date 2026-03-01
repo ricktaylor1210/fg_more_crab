@@ -1,11 +1,11 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.fg_crab_pots.drop_down": {
+		"animation.crab_pots.drop_down": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5833,
 			"bones": {
-				"fg_crab_pots": {
+				"crab_pots": {
 					"rotation": {
 						"0.125": [0, 0, -2],
 						"0.1667": [0, 0, -0.5],
@@ -30,11 +30,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_pots.shake": {
+		"animation.crab_pots.shake": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.0417,
 			"bones": {
-				"fg_crab_pots": {
+				"crab_pots": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.125": [0, 0, "math.sin(query.anim_time * 2160) * 10"],
@@ -44,10 +44,10 @@
 				}
 			}
 		},
-		"animation.fg_crab_pots.holding": {
+		"animation.crab_pots.holding": {
 			"loop": "hold_on_last_frame",
 			"bones": {
-				"fg_crab_pots": {
+				"crab_pots": {
 					"rotation": ["-math.sin(query.anim_time * 60) * 3", 0, "math.sin(query.anim_time * 120) * 5"]
 				}
 			}

@@ -1,35 +1,35 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.fg_crab_boss.scale_small": {
+		"animation.crab_boss.scale_small": {
 			"loop": true,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"scale": 0.5
 				}
 			}
 		},
-		"animation.fg_crab_boss.scale_medium": {
+		"animation.crab_boss.scale_medium": {
 			"loop": true,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"scale": 0.8
 				}
 			}
 		},
-		"animation.fg_crab_boss.scale_large": {
+		"animation.crab_boss.scale_large": {
 			"loop": true,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"scale": 1.2
 				}
 			}
 		},
-		"animation.fg_crab_boss.idle": {
+		"animation.crab_boss.idle": {
 			"loop": true,
 			"animation_length": 2.875,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"position": [0, "math.sin(query.anim_time * 250) * 0.5", 0]
 				},
 				"rightmouth": {
@@ -131,7 +131,7 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.walk": {
+		"animation.crab_boss.walk": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -156,7 +156,7 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.walk_attack": {
+		"animation.crab_boss.walk_attack": {
 			"loop": true,
 			"anim_time_update": "1.5 * query.delta_time + query.anim_time",
 			"bones": {
@@ -196,11 +196,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.attack_pincer": {
+		"animation.crab_boss.attack_pincer": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.25,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"position": {
 						"0.0": [0, 0, 0],
 						"0.25": [0, 0, 0]
@@ -477,11 +477,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.attack_pincer_left": {
+		"animation.crab_boss.attack_pincer_left": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.25,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.25": [0, 0, 0],
@@ -656,11 +656,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.attack_pincer_right": {
+		"animation.crab_boss.attack_pincer_right": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.25,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.25": [0, 0, 0],
@@ -835,11 +835,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.heavy_attack": {
+		"animation.crab_boss.heavy_attack": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.4583": [-40, 0, 0],
@@ -926,11 +926,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.attack_combo_1": {
+		"animation.crab_boss.attack_combo_1": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.25,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.0833": [-2.18558, 9.76061, -12.68664],
@@ -1232,11 +1232,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.attack_combo_2": {
+		"animation.crab_boss.attack_combo_2": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.25,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, -40, 0],
 						"0.2083": [0, -40, 0],
@@ -1545,11 +1545,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.attack_sound_waves": {
+		"animation.crab_boss.attack_sound_waves": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 2.5,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"position": {
 						"0.0": [0, 0, 0],
 						"0.25": [0, 0, 0],
@@ -1850,11 +1850,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.eat": {
+		"animation.crab_boss.eat": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"position": [0, "math.sin(query.anim_time * 250) * 0.5", 0]
 				},
 				"rightmouth": {
@@ -1977,11 +1977,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.defense": {
+		"animation.crab_boss.defense": {
 			"loop": true,
 			"animation_length": 2.875,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"position": [0, "math.sin(query.anim_time * 250) * 0.5", 0]
 				},
 				"rightmouth": {
@@ -2047,11 +2047,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.dead": {
+		"animation.crab_boss.dead": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.75,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": [0, 0, 0],
 					"position": {
 						"0.0": [0, 0, 0],
@@ -2118,11 +2118,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.lying_on_sand": {
+		"animation.crab_boss.lying_on_sand": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.125": [0, 15, 0],
@@ -2155,11 +2155,11 @@
 				}
 			}
 		},
-		"animation.fg_crab_boss.climb_out": {
+		"animation.crab_boss.climb_out": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
-				"fg_crab_boss": {
+				"crab_boss": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.25": [-17.5, 0, 0],

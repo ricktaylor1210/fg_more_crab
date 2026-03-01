@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_poisonous_swamp_armor",
+				"identifier": "geometry.poisonous_swamp_armor",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 3,
@@ -36,7 +36,7 @@
 					"pivot": [0, 24, 0]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_helmet",
+					"name": "poisonous_swamp_armor_helmet",
 					"parent": "hat",
 					"pivot": [6, 24, 1],
 					"cubes": [
@@ -101,7 +101,7 @@
 					"pivot": [-5, 22, 0]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_rightarm",
+					"name": "poisonous_swamp_armor_rightarm",
 					"parent": "rightSleeve",
 					"pivot": [-5, 22, 0],
 					"cubes": [
@@ -138,7 +138,7 @@
 					"pivot": [5, 22, 0]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_leftarm",
+					"name": "poisonous_swamp_armor_leftarm",
 					"parent": "leftSleeve",
 					"pivot": [5, 22, 0],
 					"cubes": [
@@ -170,7 +170,7 @@
 					"pivot": [0, 24, 0]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_chestplate",
+					"name": "poisonous_swamp_armor_chestplate",
 					"parent": "jacket",
 					"pivot": [0, 24, 0],
 					"cubes": [
@@ -202,7 +202,7 @@
 					"pivot": [-1.9, 12, 0]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_rightleg",
+					"name": "poisonous_swamp_armor_rightleg",
 					"parent": "rightPants",
 					"pivot": [-2, 5.63333, -0.04167],
 					"cubes": [
@@ -211,8 +211,8 @@
 					]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_rightboot",
-					"parent": "fg_poisonous_swamp_armor_rightleg",
+					"name": "poisonous_swamp_armor_rightboot",
+					"parent": "poisonous_swamp_armor_rightleg",
 					"pivot": [-2, 1.76667, -0.08333],
 					"cubes": [
 						{"origin": [-4.09892, 4.26332, -4.95], "size": [2.5, 1, 1.9], "pivot": [-2.00796, 4.89534, -4], "rotation": [90, -27.5, 90], "uv": [20, 69], "mirror": true},
@@ -233,7 +233,7 @@
 					"pivot": [1.9, 12, 0]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_leftleg",
+					"name": "poisonous_swamp_armor_leftleg",
 					"parent": "leftPants",
 					"pivot": [2, 5.63333, -0.04167],
 					"cubes": [
@@ -242,8 +242,8 @@
 					]
 				},
 				{
-					"name": "fg_poisonous_swamp_armor_leftboot",
-					"parent": "fg_poisonous_swamp_armor_leftleg",
+					"name": "poisonous_swamp_armor_leftboot",
+					"parent": "poisonous_swamp_armor_leftleg",
 					"pivot": [2, 1.76667, -0.08333],
 					"cubes": [
 						{"origin": [1.59892, 4.26332, -4.95], "size": [2.5, 1, 1.9], "pivot": [2.00796, 4.89534, -4], "rotation": [90, 27.5, -90], "uv": [20, 69]},

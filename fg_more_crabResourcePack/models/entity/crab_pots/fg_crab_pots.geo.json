@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.fg_crab_pots",
+				"identifier": "geometry.crab_pots",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 4,
@@ -12,7 +12,7 @@
 			},
 			"bones": [
 				{
-					"name": "fg_crab_pots",
+					"name": "crab_pots",
 					"pivot": [0, 8.95425, 0.00305],
 					"cubes": [
 						{"origin": [-9, 1, -11], "size": [18, 16, 22], "uv": [0, 0]},
