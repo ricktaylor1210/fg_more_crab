@@ -14,27 +14,27 @@
                     "adjust_for_weather": false
                 },
                 "minecraft:weight": {
-                    "default": 6
+                    "default": 10
                 },
                 "minecraft:herd": {
-                    "min_size": 1,
-                    "max_size": 2
+                    "min_size": 2,
+                    "max_size": 4
                 },
                 "minecraft:biome_filter": [
                     {
                         "test": "has_biome_tag",
                         "operator": "==",
-                        "value": "plains"
+                        "value": "beach"
                     },
                     {
                         "test": "has_biome_tag",
                         "operator": "==",
-                        "value": "sunflower_plains"
+                        "value": "stony_shores"
                     },
                     {
                         "test": "has_biome_tag",
                         "operator": "==",
-                        "value": "flower_forest"
+                        "value": "ocean"
                     }
                 ]
             }

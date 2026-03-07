@@ -10,46 +10,19 @@
                     ],
                     "transitions": [
                         {
-                            "jump": "q.property('fg:is_in_jump')"
+                            "attack_left": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_left')"
                         },
                         {
-                            "move": "query.ground_speed>0"
+                            "attack_right": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_right')"
                         },
                         {
-                            "head_attack": "(q.property('fg:attack_type') == 'head') && (query.is_delayed_attacking)"
+                            "attack": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack')"
                         },
                         {
-                            "leg_attack": "(q.property('fg:attack_type') == 'leg') && (query.is_delayed_attacking)"
-                        },
-                        {
-                            "sit": "query.is_sitting"
+                            "move": "query.ground_speed > 0.01"
                         }
                     ],
-                    "blend_transition": 0.2,
-                    "blend_via_shortest_path": true
-                },
-                "sit": {
-                    "animations": [
-                        "sit"
-                    ],
-                    "transitions": [
-                        {
-                            "standup": "!query.is_sitting"
-                        }
-                    ],
-                    "blend_transition": 0.2,
-                    "blend_via_shortest_path": true
-                },
-                "standup": {
-                    "animations": [
-                        "standup"
-                    ],
-                    "transitions": [
-                        {
-                            "idle": "query.any_animation_finished"
-                        }
-                    ],
-                    "blend_transition": 0.2,
+                    "blend_transition": 0.12,
                     "blend_via_shortest_path": true
                 },
                 "move": {
@@ -58,64 +31,64 @@
                     ],
                     "transitions": [
                         {
-                            "jump": "q.property('fg:is_in_jump')"
+                            "attack_left": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_left')"
                         },
                         {
-                            "idle": "query.ground_speed<=0"
+                            "attack_right": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_right')"
                         },
                         {
-                            "head_attack": "(q.property('fg:attack_type') == 'head') && (query.is_delayed_attacking)"
+                            "attack": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack')"
                         },
                         {
-                            "leg_attack": "(q.property('fg:attack_type') == 'leg') && (query.is_delayed_attacking)"
-                        },
-                        {
-                            "sit": "query.is_sitting"
+                            "idle": "query.ground_speed <= 0.01"
                         }
                     ],
-                    "blend_transition": 0.2,
+                    "blend_transition": 0.12,
                     "blend_via_shortest_path": true
                 },
-                "jump": {
+                "attack_left": {
                     "animations": [
-                        "jump"
+                        "attack_left"
                     ],
                     "transitions": [
                         {
-                            "idle": "query.any_animation_finished"
+                            "move": "query.any_animation_finished && (query.ground_speed > 0.01)"
                         },
-                        {
-                            "head_attack": "(q.property('fg:attack_type') == 'head') && (query.is_delayed_attacking)"
-                        },
-                        {
-                            "leg_attack": "(q.property('fg:attack_type') == 'leg') && (query.is_delayed_attacking)"
-                        }
-                    ],
-                    "blend_transition": 0.2,
-                    "blend_via_shortest_path": true
-                },
-                "head_attack": {
-                    "animations": [
-                        "head_attack"
-                    ],
-                    "transitions": [
                         {
                             "idle": "query.any_animation_finished"
                         }
                     ],
-                    "blend_transition": 0.2,
+                    "blend_transition": 0.08,
                     "blend_via_shortest_path": true
                 },
-                "leg_attack": {
+                "attack_right": {
                     "animations": [
-                        "leg_attack"
+                        "attack_right"
                     ],
                     "transitions": [
+                        {
+                            "move": "query.any_animation_finished && (query.ground_speed > 0.01)"
+                        },
                         {
                             "idle": "query.any_animation_finished"
                         }
                     ],
-                    "blend_transition": 0.2,
+                    "blend_transition": 0.08,
+                    "blend_via_shortest_path": true
+                },
+                "attack": {
+                    "animations": [
+                        "attack"
+                    ],
+                    "transitions": [
+                        {
+                            "move": "query.any_animation_finished && (query.ground_speed > 0.01)"
+                        },
+                        {
+                            "idle": "query.any_animation_finished"
+                        }
+                    ],
+                    "blend_transition": 0.08,
                     "blend_via_shortest_path": true
                 }
             }

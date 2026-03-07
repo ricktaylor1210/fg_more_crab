@@ -1,23 +1,50 @@
 {
     "format_version": "1.10.0",
     "animation_controllers": {
-        "controller.animation.fg_frog.attack_switch": {
+        "controller.animation.fg_crab.attack_switch": {
+            "initial_state": "default",
             "states": {
                 "default": {
                     "transitions": [
                         {
-                            "in_attack": "q.is_delayed_attacking"
+                            "attack_left": "q.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_left')"
+                        },
+                        {
+                            "attack_right": "q.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_right')"
+                        },
+                        {
+                            "attack": "q.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack')"
                         }
                     ]
                 },
-                "in_attack": {
+                "attack_left": {
                     "transitions": [
                         {
                             "default": "q.is_delayed_attacking == 0"
                         }
                     ],
                     "on_exit": [
-                        "@s fg:random_attack_function_event"
+                        "@s fg:on_attack_left_complete"
+                    ]
+                },
+                "attack_right": {
+                    "transitions": [
+                        {
+                            "default": "q.is_delayed_attacking == 0"
+                        }
+                    ],
+                    "on_exit": [
+                        "@s fg:on_attack_right_complete"
+                    ]
+                },
+                "attack": {
+                    "transitions": [
+                        {
+                            "default": "q.is_delayed_attacking == 0"
+                        }
+                    ],
+                    "on_exit": [
+                        "@s fg:on_attack_complete"
                     ]
                 }
             }

@@ -2,10 +2,10 @@
     "format_version": "1.10",
     "minecraft:item": {
         "description": {
-            "identifier": "fg:raw_crab_meat"
+            "identifier": "fg:crab_shell_powder"
         },
         "components": {
-            "minecraft:icon": "fg:raw_crab_meat"
+            "minecraft:icon": "fg:crab_shell_powder"
         }
     }
 }

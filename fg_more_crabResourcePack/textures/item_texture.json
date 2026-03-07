@@ -5,11 +5,11 @@
         "fg:fg_crab": {
             "textures": "textures/items/crab/fg_crab_orange"
         },
-        "fg:crab_shell_fragment": {
-            "textures": "textures/items/foods/crab_shell_fragment"
+        "fg:crab_shell_powder": {
+            "textures": "textures/items/foods/crab_shell_powder"
         },
-        "fg:raw_crab_meat": {
-            "textures": "textures/items/foods/raw_crab_meat"
+        "fg:crab_claws": {
+            "textures": "textures/items/foods/crab_claws"
         }
     }
 }

@@ -2,10 +2,10 @@
     "format_version": "1.10",
     "minecraft:item": {
         "description": {
-            "identifier": "fg:crab_shell_fragment"
+            "identifier": "fg:crab_claws"
         },
         "components": {
-            "minecraft:icon": "fg:crab_shell_fragment"
+            "minecraft:icon": "fg:crab_claws"
         }
     }
 }

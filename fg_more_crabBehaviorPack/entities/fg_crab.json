@@ -16,522 +16,266 @@
                 "fg:attack_switch": "controller.animation.fg_crab.attack_switch"
             },
             "properties": {
-                "fg:attack_type": {
+                "fg:attack_mode": {
                     "type": "enum",
                     "values": [
-                        "head",
-                        "leg",
-                        "special"
+                        "attack_left",
+                        "attack_right",
+                        "attack"
                     ],
-                    "default": "head",
+                    "default": "attack_left",
                     "client_sync": true
                 },
-                "fg:cached_difficulty": {
+                "fg:attack_pattern": {
                     "type": "enum",
                     "values": [
-                        "unknown",
-                        "peaceful",
-                        "easy",
-                        "normal",
-                        "hard"
+                        "standard",
+                        "aggressive"
                     ],
-                    "default": "unknown",
-                    "client_sync": false
+                    "default": "standard",
+                    "client_sync": true
                 },
-                "fg:cached_sit_state": {
+                "fg:temper_state": {
                     "type": "enum",
                     "values": [
-                        "unknown",
-                        "sitting",
-                        "standing"
+                        "calm",
+                        "warning",
+                        "enraged"
                     ],
-                    "default": "unknown",
+                    "default": "calm",
                     "client_sync": false
                 }
             }
         },
         "components": {
-            "minecraft:behavior.tempt": {
-                "priority": 4,
-                "speed_multiplier": 1.5,
-                "items": [
-                    "fg:cricket_item",
-                    "fg:mosquito_item",
-                    "fg:star_fly_item"
-                ]
-            },
             "minecraft:type_family": {
                 "family": [
                     "mob",
-                    "bee",
+                    "animal",
                     "crab",
                     "fg_crab"
                 ]
             },
-            "minecraft:tameable": {
-                "probability": 0.33,
-                "tame_items": [
-                    "fg:star_fly_item"
-                ],
-                "tame_event": {
-                    "event": "fg:crab_tameable_event",
-                    "target": "self"
-                }
+            "minecraft:nameable": {},
+            "minecraft:collision_box": {
+                "width": 0.425,
+                "height": 0.3
             },
-            "minecraft:behavior.avoid_mob_type": {
-                "priority": 6,
-                "entity_types": [
-                    {
-                        "filters": {
-                            "any_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "lonely_crab"
-                                }
-                            ]
-                        },
-                        "max_dist": 16,
-                        "max_flee": 16,
-                        "walk_speed_multiplier": 2.0,
-                        "sprint_speed_multiplier": 3.0
-                    }
-                ]
+            "minecraft:health": {
+                "value": 10,
+                "max": 10
             },
             "minecraft:movement": {
-                "value": 0.125
+                "value": 0.18
             },
             "minecraft:movement.basic": {},
             "minecraft:jump.static": {},
-            "minecraft:navigation.walk": {},
-            "minecraft:nameable": {},
-            "minecraft:collision_box": {
-                "width": 0.8,
-                "height": 1.0
+            "minecraft:navigation.generic": {
+                "can_path_over_water": true,
+                "avoid_water": false,
+                "can_sink": false
             },
-            "minecraft:health": {
-                "value": 40,
-                "max": 40
-            },
-            "minecraft:healable": {
-                "items": [
-                    {
-                        "item": "porkchop",
-                        "heal_amount": 6
-                    },
-                    {
-                        "item": "cooked_porkchop",
-                        "heal_amount": 16
-                    },
-                    {
-                        "item": "fish",
-                        "heal_amount": 4
-                    },
-                    {
-                        "item": "salmon",
-                        "heal_amount": 4
-                    },
-                    {
-                        "item": "clownfish",
-                        "heal_amount": 2
-                    },
-                    {
-                        "item": "pufferfish",
-                        "heal_amount": 2
-                    },
-                    {
-                        "item": "cooked_fish",
-                        "heal_amount": 10
-                    },
-                    {
-                        "item": "cooked_salmon",
-                        "heal_amount": 12
-                    },
-                    {
-                        "item": "beef",
-                        "heal_amount": 6
-                    },
-                    {
-                        "item": "cooked_beef",
-                        "heal_amount": 16
-                    },
-                    {
-                        "item": "chicken",
-                        "heal_amount": 4
-                    },
-                    {
-                        "item": "cooked_chicken",
-                        "heal_amount": 12
-                    },
-                    {
-                        "item": "muttonRaw",
-                        "heal_amount": 4
-                    },
-                    {
-                        "item": "muttonCooked",
-                        "heal_amount": 12
-                    },
-                    {
-                        "item": "rotten_flesh",
-                        "heal_amount": 8
-                    },
-                    {
-                        "item": "rabbit",
-                        "heal_amount": 6
-                    },
-                    {
-                        "item": "cooked_rabbit",
-                        "heal_amount": 10
-                    },
-                    {
-                        "item": "rabbit_stew",
-                        "heal_amount": 20
-                    }
-                ]
-            },
-            "minecraft:behavior.random_stroll": {
-                "priority": 7,
-                "speed_multiplier": 1
-            },
-            "minecraft:behavior.look_at_player": {
-                "priority": 8,
-                "look_distance": 6,
-                "probability": 0.02
-            },
-            "minecraft:behavior.random_look_around": {
-                "priority": 9
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "inhale_time": 0,
+                "breathes_air": true,
+                "breathes_water": true,
+                "generates_bubbles": false
             },
             "minecraft:physics": {},
             "minecraft:pushable": {
                 "is_pushable": true,
                 "is_pushable_by_piston": true
             },
-            "minecraft:environment_sensor": {
+            "minecraft:loot": {
+                "table": "loot_tables/entities/fg_crab.json"
+            },
+            "minecraft:damage_sensor": {
                 "triggers": [
                     {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "peaceful"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:cached_difficulty",
-                                    "operator": "!=",
-                                    "value": "peaceful"
-                                }
-                            ]
-                        },
-                        "event": "fg:on_difficulty_peaceful"
+                        "on_damage": {
+                            "filters": {
+                                "test": "enum_property",
+                                "domain": "fg:temper_state",
+                                "value": "calm"
+                            },
+                            "event": "fg:on_first_hit"
+                        }
                     },
                     {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "easy"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:cached_difficulty",
-                                    "operator": "!=",
-                                    "value": "easy"
-                                }
-                            ]
-                        },
-                        "event": "fg:on_difficulty_easy"
+                        "on_damage": {
+                            "filters": {
+                                "test": "enum_property",
+                                "domain": "fg:temper_state",
+                                "value": "warning"
+                            },
+                            "event": "fg:on_second_hit"
+                        }
                     },
                     {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "normal"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:cached_difficulty",
-                                    "operator": "!=",
-                                    "value": "normal"
-                                }
-                            ]
-                        },
-                        "event": "fg:on_difficulty_normal"
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "hard"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:cached_difficulty",
-                                    "operator": "!=",
-                                    "value": "hard"
-                                }
-                            ]
-                        },
-                        "event": "fg:on_difficulty_hard"
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_sitting",
-                                    "value": true
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:cached_sit_state",
-                                    "operator": "!=",
-                                    "value": "sitting"
-                                }
-                            ]
-                        },
-                        "event": "fg:on_sit_state_sitting"
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_sitting",
-                                    "value": false
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:cached_sit_state",
-                                    "operator": "!=",
-                                    "value": "standing"
-                                }
-                            ]
-                        },
-                        "event": "fg:on_sit_state_standing"
+                        "on_damage": {
+                            "filters": {
+                                "test": "enum_property",
+                                "domain": "fg:temper_state",
+                                "value": "enraged"
+                            },
+                            "event": "fg:refresh_enrage"
+                        }
                     }
                 ]
             },
-            "minecraft:conditional_bandwidth_optimization": {}
+            "minecraft:behavior.random_stroll": {
+                "priority": 8,
+                "speed_multiplier": 1.0
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 9,
+                "look_distance": 6,
+                "probability": 0.08
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 10
+            },
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:behavior.float": {
+                "priority": 0
+            }
         },
         "component_groups": {
-            "groups:retaliate_tamed": {
-                "minecraft:behavior.hurt_by_target": {
-                    "priority": 2,
-                    "alert_same_type": false
-                }
-            },
-            "groups:crab_adult": {
-                "minecraft:behavior.breed": {
-                    "priority": 5,
-                    "speed_multiplier": 1.0
-                },
-                "minecraft:breedable": {
-                    "require_tame": true,
-                    "inherit_tamed": true,
-                    "allow_sitting": true,
-                    "breeds_with": {
-                        "mate_type": "fg:fg_crab",
-                        "baby_type": "fg:fg_crab",
-                        "breed_event": {
-                            "event": "minecraft:entity_born",
-                            "target": "baby"
+            "groups:calm": {
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 3,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            "max_dist": 6,
+                            "max_flee": 8,
+                            "walk_speed_multiplier": 1.15,
+                            "sprint_speed_multiplier": 1.35
                         }
-                    },
-                    "breed_items": [
-                        "fg:cricket_item"
                     ]
                 }
             },
-            "groups:crab_baby": {
-                "minecraft:is_baby": {},
-                "minecraft:scale_by_age": {
-                    "start_scale": 0.3
+            "groups:warning": {
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 2,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            "max_dist": 10,
+                            "max_flee": 12,
+                            "walk_speed_multiplier": 1.25,
+                            "sprint_speed_multiplier": 1.55
+                        }
+                    ]
                 },
-                "minecraft:ageable": {
-                    "duration": 1200,
-                    "feed_items": [
-                        "fg:cricket_item"
-                    ],
-                    "grow_up": {
-                        "event": "minecraft:ageable_grow_up",
+                "minecraft:behavior.panic": {
+                    "priority": 1,
+                    "speed_multiplier": 1.45
+                }
+            },
+            "groups:warning_reset_timer": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": 8.0,
+                    "time_down_event": {
+                        "event": "fg:reset_warning",
                         "target": "self"
                     }
                 }
             },
-            "groups:retaliate": {
+            "groups:enraged": {
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 2,
+                    "priority": 1,
                     "alert_same_type": true
-                }
-            },
-            "groups:untamed_anger": {
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 2,
+                    "must_see": true,
+                    "persist_time": 20,
+                    "reselect_targets": true,
+                    "within_radius": 10,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            "max_dist": 10
+                        }
+                    ]
+                },
                 "minecraft:angry": {
-                    "duration": 25,
+                    "duration": 15,
                     "broadcast_anger": true,
+                    "broadcast_anger_on_attack": true,
                     "broadcast_anger_on_being_attacked": true,
-                    "broadcast_range": 20,
+                    "broadcast_range": 16,
                     "broadcast_targets": [
                         "fg_crab"
                     ]
                 }
             },
-            "groups:post_tame_refresh_timer": {
+            "groups:enrage_reset_timer": {
                 "minecraft:timer": {
                     "looping": false,
-                    "time": 0.05,
+                    "time": 15.0,
                     "time_down_event": {
-                        "event": "fg:post_tame_refresh",
+                        "event": "fg:calm_down",
                         "target": "self"
                     }
                 }
             },
-            "groups:tamed_assist": {
-                "minecraft:behavior.owner_hurt_target": {
-                    "priority": 2
-                },
-                "minecraft:behavior.owner_hurt_by_target": {
-                    "priority": 0
-                }
-            },
-            "groups:attack_easy_head": {
-                "minecraft:attack": {
-                    "damage": 1
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 2.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.375,
-                    "hit_delay_pct": 0.56
-                }
-            },
-            "groups:attack_easy_leg": {
+            "groups:attack_left": {
                 "minecraft:attack": {
                     "damage": 2
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 3.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.5,
-                    "hit_delay_pct": 0.5
-                }
-            },
-            "groups:attack_easy_special": {
-                "minecraft:attack": {
-                    "damage": 4
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 3.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.5,
-                    "hit_delay_pct": 0.5
-                }
-            },
-            "groups:attack_normal_head": {
-                "minecraft:attack": {
-                    "damage": 2
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 2.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.375,
-                    "hit_delay_pct": 0.56
-                }
-            },
-            "groups:attack_normal_leg": {
-                "minecraft:attack": {
-                    "damage": 4
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 3.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.5,
-                    "hit_delay_pct": 0.5
-                }
-            },
-            "groups:attack_normal_special": {
-                "minecraft:attack": {
-                    "damage": 6
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 3.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.5,
-                    "hit_delay_pct": 0.5
-                }
-            },
-            "groups:attack_hard_head": {
-                "minecraft:attack": {
-                    "damage": 3
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 2.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.375,
-                    "hit_delay_pct": 0.56
-                }
-            },
-            "groups:attack_hard_leg": {
-                "minecraft:attack": {
-                    "damage": 6
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 3.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.5,
-                    "hit_delay_pct": 0.5
-                }
-            },
-            "groups:attack_hard_special": {
-                "minecraft:attack": {
-                    "damage": 8
-                },
-                "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
-                    "reach_multiplier": 3.0,
-                    "speed_multiplier": 2.2,
-                    "can_spread_on_fire": true,
-                    "attack_once": false,
-                    "attack_duration": 0.5,
-                    "hit_delay_pct": 0.5
-                }
-            },
-            "groups:crab_tameable": {
-                "minecraft:is_tamed": {},
-                "minecraft:behavior.follow_owner": {
-                    "priority": 6,
+                    "priority": 4,
+                    "reach_multiplier": 1.7,
                     "speed_multiplier": 1.2,
-                    "start_distance": 10,
-                    "stop_distance": 2
+                    "attack_once": false,
+                    "attack_duration": 0.45,
+                    "hit_delay_pct": 0.5,
+                    "can_spread_on_fire": false
+                }
+            },
+            "groups:attack_right": {
+                "minecraft:attack": {
+                    "damage": 2
                 },
-                "minecraft:behavior.stay_while_sitting": {
-                    "priority": 3
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 4,
+                    "reach_multiplier": 1.7,
+                    "speed_multiplier": 1.2,
+                    "attack_once": false,
+                    "attack_duration": 0.45,
+                    "hit_delay_pct": 0.5,
+                    "can_spread_on_fire": false
+                }
+            },
+            "groups:attack": {
+                "minecraft:attack": {
+                    "damage": 4
                 },
-                "minecraft:sittable": {
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 4,
+                    "reach_multiplier": 1.9,
+                    "speed_multiplier": 1.15,
+                    "attack_once": false,
+                    "attack_duration": 0.58,
+                    "hit_delay_pct": 0.5,
+                    "can_spread_on_fire": false
                 }
             }
         },
@@ -541,542 +285,274 @@
                     {
                         "add": {
                             "component_groups": [
-                                "groups:untamed_anger",
-                                "groups:crab_adult"
+                                "groups:calm"
                             ]
                         }
                     },
                     {
                         "set_property": {
-                            "fg:attack_type": "head"
+                            "fg:temper_state": "calm",
+                            "fg:attack_pattern": "standard",
+                            "fg:attack_mode": "attack_left"
                         }
                     },
                     {
-                        "trigger": "fg:refresh_combat_groups"
+                        "trigger": "fg:refresh_attack_group"
                     }
                 ]
             },
-            "minecraft:entity_born": {
+            "fg:set_pattern_standard": {
                 "sequence": [
                     {
-                        "add": {
-                            "component_groups": [
-                                "groups:crab_baby",
-                                "groups:crab_tameable"
-                            ]
+                        "set_property": {
+                            "fg:attack_pattern": "standard"
                         }
                     },
                     {
-                        "filters": {
-                            "test": "has_component",
-                            "value": "minecraft:is_tamed"
-                        },
-                        "trigger": "fg:crab_tameable_event"
-                    },
-                    {
-                        "filters": {
-                            "test": "has_component",
-                            "operator": "!=",
-                            "value": "minecraft:is_tamed"
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:untamed_anger"
-                            ]
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
+                        "trigger": "fg:reset_attack_mode"
                     }
                 ]
             },
-            "minecraft:ageable_grow_up": {
+            "fg:set_pattern_aggressive": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:attack_pattern": "aggressive"
+                        }
+                    },
+                    {
+                        "trigger": "fg:reset_attack_mode"
+                    }
+                ]
+            },
+            "fg:reset_attack_mode": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_pattern",
+                            "value": "standard"
+                        },
+                        "set_property": {
+                            "fg:attack_mode": "attack_left"
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_pattern",
+                            "value": "aggressive"
+                        },
+                        "set_property": {
+                            "fg:attack_mode": "attack"
+                        }
+                    },
+                    {
+                        "trigger": "fg:refresh_attack_group"
+                    }
+                ]
+            },
+            "fg:on_attack_left_complete": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:attack_mode": "attack_right"
+                        }
+                    },
+                    {
+                        "trigger": "fg:refresh_attack_group"
+                    }
+                ]
+            },
+            "fg:on_attack_right_complete": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:attack_mode": "attack"
+                        }
+                    },
+                    {
+                        "trigger": "fg:refresh_attack_group"
+                    }
+                ]
+            },
+            "fg:on_attack_complete": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:attack_mode": "attack_left"
+                        }
+                    },
+                    {
+                        "trigger": "fg:refresh_attack_group"
+                    }
+                ]
+            },
+            "fg:refresh_attack_group": {
                 "sequence": [
                     {
                         "remove": {
                             "component_groups": [
-                                "groups:crab_baby"
+                                "groups:attack_left",
+                                "groups:attack_right",
+                                "groups:attack"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_mode",
+                            "value": "attack_left"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "groups:attack_left"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_mode",
+                            "value": "attack_right"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "groups:attack_right"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_mode",
+                            "value": "attack"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "groups:attack"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:on_first_hit": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:calm",
+                                "groups:warning",
+                                "groups:warning_reset_timer",
+                                "groups:enraged",
+                                "groups:enrage_reset_timer"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "fg:temper_state": "warning"
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "groups:warning",
+                                "groups:warning_reset_timer"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:on_second_hit": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:calm",
+                                "groups:warning",
+                                "groups:warning_reset_timer",
+                                "groups:enraged",
+                                "groups:enrage_reset_timer"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "fg:temper_state": "enraged"
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "groups:enraged",
+                                "groups:enrage_reset_timer"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:refresh_enrage": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:enrage_reset_timer"
                             ]
                         }
                     },
                     {
                         "add": {
                             "component_groups": [
-                                "groups:crab_adult"
+                                "groups:enrage_reset_timer"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:reset_warning": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:temper_state",
+                            "value": "warning"
+                        },
+                        "trigger": "fg:calm_down"
+                    }
+                ]
+            },
+            "fg:calm_down": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:calm",
+                                "groups:warning",
+                                "groups:warning_reset_timer",
+                                "groups:enraged",
+                                "groups:enrage_reset_timer"
                             ]
                         }
                     },
                     {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:on_sit_state_sitting": {
-                "sequence": [
-                    {
                         "set_property": {
-                            "fg:cached_sit_state": "sitting"
+                            "fg:temper_state": "calm"
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "groups:calm"
+                            ]
                         }
                     },
                     {
                         "reset_target": {}
                     },
                     {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:on_sit_state_standing": {
-                "sequence": [
-                    {
-                        "set_property": {
-                            "fg:cached_sit_state": "standing"
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:on_difficulty_peaceful": {
-                "sequence": [
-                    {
-                        "set_property": {
-                            "fg:cached_difficulty": "peaceful"
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:on_difficulty_easy": {
-                "sequence": [
-                    {
-                        "set_property": {
-                            "fg:cached_difficulty": "easy"
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:on_difficulty_normal": {
-                "sequence": [
-                    {
-                        "set_property": {
-                            "fg:cached_difficulty": "normal"
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:on_difficulty_hard": {
-                "sequence": [
-                    {
-                        "set_property": {
-                            "fg:cached_difficulty": "hard"
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:crab_tameable_event": {
-                "sequence": [
-                    {
-                        "add": {
-                            "component_groups": [
-                                "groups:crab_tameable",
-                                "groups:post_tame_refresh_timer"
-                            ]
-                        }
-                    },
-                    {
-                        "remove": {
-                            "component_groups": [
-                                "groups:untamed_anger"
-                            ]
-                        }
-                    }
-                ]
-            },
-            "fg:post_tame_refresh": {
-                "sequence": [
-                    {
-                        "remove": {
-                            "component_groups": [
-                                "groups:post_tame_refresh_timer"
-                            ]
-                        }
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:random_attack_function_event": {
-                "sequence": [
-                    {
-                        "randomize": [
-                            {
-                                "weight": 70,
-                                "set_property": {
-                                    "fg:attack_type": "head"
-                                }
-                            },
-                            {
-                                "weight": 50,
-                                "set_property": {
-                                    "fg:attack_type": "leg"
-                                }
-                            },
-                            {
-                                "weight": 30,
-                                "set_property": {
-                                    "fg:attack_type": "special"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "trigger": "fg:refresh_combat_groups"
-                    }
-                ]
-            },
-            "fg:refresh_combat_groups": {
-                "sequence": [
-                    {
-                        "remove": {
-                            "component_groups": [
-                                "groups:retaliate",
-                                "groups:tamed_assist",
-                                "groups:attack_easy_head",
-                                "groups:attack_easy_leg",
-                                "groups:attack_easy_special",
-                                "groups:attack_normal_head",
-                                "groups:attack_normal_leg",
-                                "groups:attack_normal_special",
-                                "groups:attack_hard_head",
-                                "groups:attack_hard_leg",
-                                "groups:attack_hard_special"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "test": "is_sitting",
-                            "value": true
-                        },
-                        "reset_target": {}
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "operator": "!=",
-                                    "value": "peaceful"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                },
-                                {
-                                    "test": "has_component",
-                                    "subject": "self",
-                                    "operator": "!=",
-                                    "value": "minecraft:is_tamed"
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:retaliate"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "operator": "!=",
-                                    "value": "peaceful"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                },
-                                {
-                                    "test": "has_component",
-                                    "subject": "self",
-                                    "value": "minecraft:is_tamed"
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:retaliate_tamed"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_component",
-                                    "subject": "self",
-                                    "value": "minecraft:is_tamed"
-                                },
-                                {
-                                    "test": "is_difficulty",
-                                    "operator": "!=",
-                                    "value": "peaceful"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:tamed_assist"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "easy"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "head"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_easy_head"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "easy"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "leg"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_easy_leg"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "easy"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "special"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_easy_special"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "normal"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "head"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_normal_head"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "normal"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "leg"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_normal_leg"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "normal"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "special"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_normal_special"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "hard"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "head"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_hard_head"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "hard"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "leg"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_hard_leg"
-                            ]
-                        }
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_difficulty",
-                                    "value": "hard"
-                                },
-                                {
-                                    "test": "enum_property",
-                                    "domain": "fg:attack_type",
-                                    "value": "special"
-                                },
-                                {
-                                    "test": "is_sitting",
-                                    "operator": "!=",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "add": {
-                            "component_groups": [
-                                "groups:attack_hard_special"
-                            ]
-                        }
+                        "trigger": "fg:reset_attack_mode"
                     }
                 ]
             }

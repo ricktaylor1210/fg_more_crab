@@ -7,35 +7,27 @@
                 "default": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/entity/fg_fg_crab",
-                "fg_taming_necklace": "textures/entity/fg_taming_necklace"
+                "default": "textures/entity/crab/fg_crab_orange"
             },
             "geometry": {
-                "default": "geometry.fg_fg_crab",
-                "fg_taming_necklace": "geometry.fg_taming_necklace"
+                "default": "geometry.crab"
             },
             "scripts": {
-                "scale": "1.0",
+                "scale": "0.65",
                 "animate": [
-                    "frog_base_ac"
+                    "crab_base_controller"
                 ]
             },
             "animations": {
-                "frog_base_ac": "controller.animation.fg_frog_with_special_attack.controller",
-                "idle": "animation.fg_fg_crab.idle",
-                "move": "animation.fg_fg_crab.move",
-                "jump": "animation.fg_fg_crab.jump",
-                "sit": "animation.fg_fg_crab.sit",
-                "standup": "animation.fg_fg_crab.standup",
-                "special_attack": "animation.fg_fg_crab.special_attack",
-                "head_attack": "animation.fg_fg_crab.head_attack",
-                "leg_attack": "animation.fg_fg_crab.leg_attack"
+                "crab_base_controller": "controller.animation.fg_crab.controller",
+                "idle": "animation.crab.idle",
+                "move": "animation.crab.walk",
+                "attack_left": "animation.crab.attack_left",
+                "attack_right": "animation.crab.attack_right",
+                "attack": "animation.crab.attack"
             },
             "render_controllers": [
-                "controller.render.mc_default",
-                {
-                    "controller.render.fg_frog_taming_necklace": "query.is_tamed"
-                }
+                "controller.render.mc_default"
             ],
             "spawn_egg": {
                 "texture": "fg:fg_crab",
