@@ -1,7 +1,15 @@
 {
-  "resource_pack_name": "team_items",
-  "texture_name": "atlas.items",
-  "texture_data": {
-
-  }
+    "resource_pack_name": "team_items",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "fg:fg_crab": {
+            "textures": "textures/items/crab/fg_crab_orange"
+        },
+        "fg:crab_shell_fragment": {
+            "textures": "textures/items/foods/crab_shell_fragment"
+        },
+        "fg:raw_crab_meat": {
+            "textures": "textures/items/foods/raw_crab_meat"
+        }
+    }
 }

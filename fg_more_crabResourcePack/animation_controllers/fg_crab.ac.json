@@ -1,0 +1,124 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.fg_crab.controller": {
+            "initial_state": "idle",
+            "states": {
+                "idle": {
+                    "animations": [
+                        "idle"
+                    ],
+                    "transitions": [
+                        {
+                            "jump": "q.property('fg:is_in_jump')"
+                        },
+                        {
+                            "move": "query.ground_speed>0"
+                        },
+                        {
+                            "head_attack": "(q.property('fg:attack_type') == 'head') && (query.is_delayed_attacking)"
+                        },
+                        {
+                            "leg_attack": "(q.property('fg:attack_type') == 'leg') && (query.is_delayed_attacking)"
+                        },
+                        {
+                            "sit": "query.is_sitting"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                },
+                "sit": {
+                    "animations": [
+                        "sit"
+                    ],
+                    "transitions": [
+                        {
+                            "standup": "!query.is_sitting"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                },
+                "standup": {
+                    "animations": [
+                        "standup"
+                    ],
+                    "transitions": [
+                        {
+                            "idle": "query.any_animation_finished"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                },
+                "move": {
+                    "animations": [
+                        "move"
+                    ],
+                    "transitions": [
+                        {
+                            "jump": "q.property('fg:is_in_jump')"
+                        },
+                        {
+                            "idle": "query.ground_speed<=0"
+                        },
+                        {
+                            "head_attack": "(q.property('fg:attack_type') == 'head') && (query.is_delayed_attacking)"
+                        },
+                        {
+                            "leg_attack": "(q.property('fg:attack_type') == 'leg') && (query.is_delayed_attacking)"
+                        },
+                        {
+                            "sit": "query.is_sitting"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                },
+                "jump": {
+                    "animations": [
+                        "jump"
+                    ],
+                    "transitions": [
+                        {
+                            "idle": "query.any_animation_finished"
+                        },
+                        {
+                            "head_attack": "(q.property('fg:attack_type') == 'head') && (query.is_delayed_attacking)"
+                        },
+                        {
+                            "leg_attack": "(q.property('fg:attack_type') == 'leg') && (query.is_delayed_attacking)"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                },
+                "head_attack": {
+                    "animations": [
+                        "head_attack"
+                    ],
+                    "transitions": [
+                        {
+                            "idle": "query.any_animation_finished"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                },
+                "leg_attack": {
+                    "animations": [
+                        "leg_attack"
+                    ],
+                    "transitions": [
+                        {
+                            "idle": "query.any_animation_finished"
+                        }
+                    ],
+                    "blend_transition": 0.2,
+                    "blend_via_shortest_path": true
+                }
+            }
+        }
+    }
+}

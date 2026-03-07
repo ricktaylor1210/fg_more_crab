@@ -1,0 +1,11 @@
+{
+    "format_version": "1.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fg:raw_crab_meat"
+        },
+        "components": {
+            "minecraft:icon": "fg:raw_crab_meat"
+        }
+    }
+}

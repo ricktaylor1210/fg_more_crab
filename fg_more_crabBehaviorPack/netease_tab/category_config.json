@@ -3,7 +3,7 @@
     {
         "name":"more_crab",
         "labelText":"itemCategory.name.more_crab",
-        "icon": "textures/items/apple"
+        "icon": "textures/items/pirate_crab/fg_pirate_crab_captain"
     }
     ]
 }
