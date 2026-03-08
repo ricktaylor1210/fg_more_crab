@@ -68,6 +68,11 @@
           "type": "bool",
           "default": false,
           "client_sync": true
+        },
+        "fg:attack_visual": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
         }
       },
       "animations": {
@@ -529,7 +534,8 @@
           },
           {
             "set_property": {
-              "fg:hurt_chain": "zero"
+              "fg:hurt_chain": "zero",
+              "fg:attack_visual": false
             }
           }
         ]
@@ -552,7 +558,8 @@
           {
             "set_property": {
               "fg:hurt_chain": "zero",
-              "fg:combat_visual": true
+              "fg:combat_visual": true,
+              "fg:attack_visual": false
             }
           },
           {
@@ -602,7 +609,8 @@
           {
             "set_property": {
               "fg:combat_posture": "sideways",
-              "fg:combat_visual": false
+              "fg:combat_visual": false,
+              "fg:attack_visual": false
             }
           }
         ]
@@ -620,7 +628,8 @@
           {
             "set_property": {
               "fg:combat_posture": "sideways",
-              "fg:combat_visual": false
+              "fg:combat_visual": false,
+              "fg:attack_visual": false
             }
           },
           {
@@ -647,7 +656,8 @@
           {
             "set_property": {
               "fg:combat_posture": "combat",
-              "fg:combat_visual": true
+              "fg:combat_visual": true,
+              "fg:attack_visual": false
             },
             "filters": {
               "test": "has_component",
@@ -659,6 +669,11 @@
       },
       "fg:on_target_escape": {
         "sequence": [
+          {
+            "set_property": {
+              "fg:attack_visual": false
+            }
+          },
           {
             "remove": {
               "component_groups": [
@@ -702,7 +717,8 @@
             "set_property": {
               "fg:combat_posture": "sideways",
               "fg:hurt_chain": "zero",
-              "fg:combat_visual": false
+              "fg:combat_visual": false,
+              "fg:attack_visual": false
             }
           },
           {
@@ -723,7 +739,8 @@
           },
           {
             "set_property": {
-              "fg:hurt_chain": "zero"
+              "fg:hurt_chain": "zero",
+              "fg:attack_visual": false
             }
           },
           {
@@ -765,7 +782,8 @@
               "value": "calm"
             },
             "set_property": {
-              "fg:attack_mode": "attack_left"
+              "fg:attack_mode": "attack_left",
+              "fg:attack_visual": false
             }
           },
           {
@@ -812,7 +830,8 @@
           },
           {
             "set_property": {
-              "fg:attack_mode": "attack_left"
+              "fg:attack_mode": "attack_left",
+              "fg:attack_visual": false
             }
           }
         ]
@@ -837,7 +856,8 @@
           },
           {
             "set_property": {
-              "fg:attack_mode": "attack_right"
+              "fg:attack_mode": "attack_right",
+              "fg:attack_visual": false
             }
           }
         ]
@@ -862,10 +882,21 @@
           },
           {
             "set_property": {
-              "fg:attack_mode": "attack"
+              "fg:attack_mode": "attack",
+              "fg:attack_visual": false
             }
           }
         ]
+      },
+      "fg:show_attack_visual": {
+        "set_property": {
+          "fg:attack_visual": true
+        }
+      },
+      "fg:hide_attack_visual": {
+        "set_property": {
+          "fg:attack_visual": false
+        }
       }
     }
   }

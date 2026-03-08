@@ -4,24 +4,42 @@
     "animation.fg_crab.switch_attack_left": {
       "animation_length": 0.5,
       "timeline": {
+        "0.0": [
+          "@s fg:show_attack_visual"
+        ],
         "0.43": [
           "@s fg:switch_to_attack_right"
+        ],
+        "0.49": [
+          "@s fg:hide_attack_visual"
         ]
       }
     },
     "animation.fg_crab.switch_attack_right": {
       "animation_length": 0.5,
       "timeline": {
+        "0.0": [
+          "@s fg:show_attack_visual"
+        ],
         "0.43": [
           "@s fg:switch_to_attack_double"
+        ],
+        "0.49": [
+          "@s fg:hide_attack_visual"
         ]
       }
     },
     "animation.fg_crab.switch_attack_double": {
       "animation_length": 0.66,
       "timeline": {
+        "0.0": [
+          "@s fg:show_attack_visual"
+        ],
         "0.57": [
           "@s fg:switch_to_attack_left"
+        ],
+        "0.65": [
+          "@s fg:hide_attack_visual"
         ]
       }
     }

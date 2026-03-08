@@ -11,19 +11,19 @@
           ],
           "transitions": [
             {
-              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+              "attack_left": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_left')"
             },
             {
-              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+              "attack_right": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_right')"
             },
             {
-              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+              "attack": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack')"
             },
             {
-              "walk_combat": "(query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "walk_combat": "(query.ground_speed > 0.01) && query.has_target"
             },
             {
-              "idle_combat": "query.has_target || query.is_angry || query.property('fg:combat_visual')"
+              "idle_combat": "query.has_target"
             },
             {
               "walk_sideways": "query.ground_speed > 0.01"
@@ -39,19 +39,19 @@
           ],
           "transitions": [
             {
-              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+              "attack_left": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_left')"
             },
             {
-              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+              "attack_right": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_right')"
             },
             {
-              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+              "attack": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack')"
             },
             {
-              "walk_combat": "(query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "walk_combat": "(query.ground_speed > 0.01) && query.has_target"
             },
             {
-              "idle_combat": "query.has_target || query.is_angry || query.property('fg:combat_visual')"
+              "idle_combat": "query.has_target"
             },
             {
               "idle_sideways": "query.ground_speed <= 0.01"
@@ -66,19 +66,19 @@
           ],
           "transitions": [
             {
-              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+              "attack_left": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_left')"
             },
             {
-              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+              "attack_right": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_right')"
             },
             {
-              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+              "attack": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack')"
             },
             {
               "walk_combat": "query.ground_speed > 0.01"
             },
             {
-              "idle_sideways": "!(query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "idle_sideways": "!(query.has_target)"
             }
           ],
           "blend_transition": 0.12,
@@ -90,19 +90,19 @@
           ],
           "transitions": [
             {
-              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+              "attack_left": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_left')"
             },
             {
-              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+              "attack_right": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack_right')"
             },
             {
-              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+              "attack": "query.property('fg:attack_visual') && (query.property('fg:attack_mode') == 'attack')"
             },
             {
               "idle_combat": "query.ground_speed <= 0.01"
             },
             {
-              "walk_sideways": "!(query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "walk_sideways": "!(query.has_target)"
             }
           ],
           "blend_transition": 0.12,
@@ -114,10 +114,10 @@
           ],
           "transitions": [
             {
-              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && query.has_target"
             },
             {
-              "idle_combat": "query.any_animation_finished && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "idle_combat": "query.any_animation_finished && (query.has_target)"
             },
             {
               "walk_sideways": "query.any_animation_finished && (query.ground_speed > 0.01)"
@@ -135,10 +135,10 @@
           ],
           "transitions": [
             {
-              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && query.has_target"
             },
             {
-              "idle_combat": "query.any_animation_finished && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "idle_combat": "query.any_animation_finished && (query.has_target)"
             },
             {
               "walk_sideways": "query.any_animation_finished && (query.ground_speed > 0.01)"
@@ -156,10 +156,10 @@
           ],
           "transitions": [
             {
-              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && query.has_target"
             },
             {
-              "idle_combat": "query.any_animation_finished && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+              "idle_combat": "query.any_animation_finished && (query.has_target)"
             },
             {
               "walk_sideways": "query.any_animation_finished && (query.ground_speed > 0.01)"
