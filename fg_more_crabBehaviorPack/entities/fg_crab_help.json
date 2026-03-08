@@ -21,7 +21,7 @@
         "fg:attack_personality": {
           "type": "enum",
           "values": [
-            "calm",
+            "calm", 
             "aggressive"
           ],
           "default": "calm",
@@ -52,11 +52,6 @@
             "combat"
           ],
           "default": "sideways",
-          "client_sync": true
-        },
-        "fg:combat_visual": {
-          "type": "bool",
-          "default": false,
           "client_sync": true
         },
         "fg:attack_visual": {
@@ -319,8 +314,7 @@
               "fg:attack_personality": "calm",
               "fg:social_mode": "help",
               "fg:crowd_state": "isolated",
-              "fg:combat_posture": "sideways",
-              "fg:combat_visual": false
+              "fg:combat_posture": "sideways"
             }
           },
           {
@@ -417,7 +411,6 @@
           },
           {
             "set_property": {
-              "fg:combat_visual": true,
               "fg:combat_posture": "combat"
             }
           },
@@ -459,7 +452,6 @@
           {
             "set_property": {
               "fg:combat_posture": "combat",
-              "fg:combat_visual": true,
               "fg:attack_visual": false
             }
           }
@@ -491,7 +483,6 @@
           {
             "set_property": {
               "fg:combat_posture": "sideways",
-              "fg:combat_visual": false,
               "fg:attack_visual": false
             }
           }
@@ -510,7 +501,6 @@
           {
             "set_property": {
               "fg:combat_posture": "sideways",
-              "fg:combat_visual": false,
               "fg:attack_visual": false
             }
           },
@@ -539,7 +529,6 @@
           {
             "set_property": {
               "fg:combat_posture": "combat",
-              "fg:combat_visual": true,
               "fg:attack_visual": false
             },
             "filters": {
@@ -599,7 +588,6 @@
           {
             "set_property": {
               "fg:combat_posture": "sideways",
-              "fg:combat_visual": false,
               "fg:attack_visual": false
             }
           },

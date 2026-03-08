@@ -7,13 +7,13 @@
         "default": {
           "transitions": [
             {
-              "attack_left": "query.is_delayed_attacking && query.has_target && (query.is_angry || query.property('fg:combat_visual')) && (query.property('fg:attack_mode') == 'attack_left')"
+              "attack_left": "query.is_delayed_attacking && query.has_target && query.is_angry && (query.property('fg:attack_mode') == 'attack_left')"
             },
             {
-              "attack_right": "query.is_delayed_attacking && query.has_target && (query.is_angry || query.property('fg:combat_visual')) && (query.property('fg:attack_mode') == 'attack_right')"
+              "attack_right": "query.is_delayed_attacking && query.has_target && query.is_angry && (query.property('fg:attack_mode') == 'attack_right')"
             },
             {
-              "attack": "query.is_delayed_attacking && query.has_target && (query.is_angry || query.property('fg:combat_visual')) && (query.property('fg:attack_mode') == 'attack')"
+              "attack": "query.is_delayed_attacking && query.has_target && query.is_angry && (query.property('fg:attack_mode') == 'attack')"
             }
           ]
         },
@@ -30,7 +30,7 @@
         "hold_left": {
           "transitions": [
             {
-              "default": "!query.is_delayed_attacking || !query.has_target || !(query.is_angry || query.property('fg:combat_visual'))"
+              "default": "!query.is_delayed_attacking || !query.has_target || !query.is_angry"
             }
           ]
         },
@@ -47,7 +47,7 @@
         "hold_right": {
           "transitions": [
             {
-              "default": "!query.is_delayed_attacking || !query.has_target || !(query.is_angry || query.property('fg:combat_visual'))"
+              "default": "!query.is_delayed_attacking || !query.has_target || !query.is_angry"
             }
           ]
         },
@@ -64,7 +64,7 @@
         "hold_attack": {
           "transitions": [
             {
-              "default": "!query.is_delayed_attacking || !query.has_target || !(query.is_angry || query.property('fg:combat_visual'))"
+              "default": "!query.is_delayed_attacking || !query.has_target || !query.is_angry"
             }
           ]
         }
