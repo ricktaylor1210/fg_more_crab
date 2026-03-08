@@ -10,6 +10,9 @@
         },
         "fg:crab_claws": {
             "textures": "textures/items/foods/crab_claws"
+        },
+        "fg:fg_crab_help": {
+            "textures": "textures/items/crab/fg_crab_red"
         }
     }
 }

@@ -2,7 +2,7 @@
     "format_version": "1.21.50",
     "minecraft:entity": {
         "description": {
-            "identifier": "fg:fg_crab",
+            "identifier": "fg:fg_crab_help",
             "spawn_category": "creature",
             "is_spawnable": true,
             "is_summonable": true,
@@ -51,7 +51,7 @@
                         "flee",
                         "help"
                     ],
-                    "default": "flee",
+                    "default": "help",
                     "client_sync": true
                 }
             }
@@ -63,7 +63,7 @@
                     "animal",
                     "crab",
                     "fg_crab",
-                    "fg_crab_flee"
+                    "fg_crab_help"
                 ]
             },
             "minecraft:nameable": {},
@@ -99,7 +99,7 @@
                 "is_pushable_by_piston": true
             },
             "minecraft:loot": {
-                "table": "loot_tables/entities/fg_crab.json"
+                "table": "loot_tables/entities/fg_crab_help.json"
             },
             "minecraft:damage_sensor": {
                 "triggers": [
@@ -110,7 +110,7 @@
                                 "domain": "fg:temper_state",
                                 "value": "calm"
                             },
-                            "event": "fg:on_first_hit"
+                            "event": "fg:on_assist_hit"
                         }
                     },
                     {
@@ -120,7 +120,7 @@
                                 "domain": "fg:temper_state",
                                 "value": "warning"
                             },
-                            "event": "fg:on_second_hit"
+                            "event": "fg:on_assist_hit"
                         }
                     },
                     {
@@ -228,7 +228,7 @@
             "groups:enraged": {
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 1,
-                    "alert_same_type": false
+                    "alert_same_type": true
                 },
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 2,
@@ -257,11 +257,13 @@
                 },
                 "minecraft:angry": {
                     "duration": 15,
-                    "broadcast_anger": false,
-                    "broadcast_anger_on_attack": false,
-                    "broadcast_anger_on_being_attacked": false,
+                    "broadcast_anger": true,
+                    "broadcast_anger_on_attack": true,
+                    "broadcast_anger_on_being_attacked": true,
                     "broadcast_range": 16,
-                    "broadcast_targets": []
+                    "broadcast_targets": [
+                        "fg_crab_help"
+                    ]
                 }
             },
             "groups:enrage_reset_timer": {
@@ -330,9 +332,9 @@
                     {
                         "set_property": {
                             "fg:temper_state": "calm",
-                            "fg:attack_pattern": "standard",
-                            "fg:attack_mode": "attack_left",
-                            "fg:swarm_mode": "flee"
+                            "fg:attack_pattern": "aggressive",
+                            "fg:attack_mode": "attack",
+                            "fg:swarm_mode": "help"
                         }
                     },
                     {
@@ -595,32 +597,31 @@
                     }
                 ]
             },
-            "fg:alert_escape": {
+            "fg:on_assist_hit": {
                 "sequence": [
                     {
                         "remove": {
                             "component_groups": [
                                 "groups:calm",
                                 "groups:warning",
-                                "groups:warning_reset_timer"
+                                "groups:warning_reset_timer",
+                                "groups:enraged",
+                                "groups:enrage_reset_timer"
                             ]
                         }
                     },
                     {
                         "set_property": {
-                            "fg:temper_state": "warning"
+                            "fg:temper_state": "enraged"
                         }
                     },
                     {
                         "add": {
                             "component_groups": [
-                                "groups:warning",
-                                "groups:warning_reset_timer"
+                                "groups:enraged",
+                                "groups:enrage_reset_timer"
                             ]
                         }
-                    },
-                    {
-                        "reset_target": {}
                     }
                 ]
             }

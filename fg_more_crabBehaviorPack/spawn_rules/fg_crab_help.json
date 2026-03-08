@@ -2,7 +2,7 @@
     "format_version": "1.8.0",
     "minecraft:spawn_rules": {
         "description": {
-            "identifier": "fg:fg_crab",
+            "identifier": "fg:fg_crab_help",
             "population_control": "animal"
         },
         "conditions": [
@@ -14,11 +14,11 @@
                     "adjust_for_weather": false
                 },
                 "minecraft:weight": {
-                    "default": 8
+                    "default": 3
                 },
                 "minecraft:herd": {
                     "min_size": 2,
-                    "max_size": 4
+                    "max_size": 3
                 },
                 "minecraft:biome_filter": {
                     "any_of": [

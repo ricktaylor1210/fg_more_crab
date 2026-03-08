@@ -6,6 +6,7 @@
             "states": {
                 "idle": {
                     "animations": [
+                        "sideways_orientation",
                         "idle"
                     ],
                     "transitions": [
@@ -27,6 +28,7 @@
                 },
                 "move": {
                     "animations": [
+                        "sideways_orientation",
                         "move"
                     ],
                     "transitions": [
@@ -48,6 +50,7 @@
                 },
                 "attack_left": {
                     "animations": [
+                        "sideways_orientation",
                         "attack_left"
                     ],
                     "transitions": [
@@ -63,6 +66,7 @@
                 },
                 "attack_right": {
                     "animations": [
+                        "sideways_orientation",
                         "attack_right"
                     ],
                     "transitions": [
@@ -78,6 +82,7 @@
                 },
                 "attack": {
                     "animations": [
+                        "sideways_orientation",
                         "attack"
                     ],
                     "transitions": [

@@ -2,12 +2,12 @@
     "format_version": "1.12.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "fg:fg_crab",
+            "identifier": "fg:fg_crab_help",
             "materials": {
                 "default": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/entity/crab/fg_crab_orange"
+                "default": "textures/entity/crab/fg_crab_red"
             },
             "geometry": {
                 "default": "geometry.crab"
@@ -31,7 +31,7 @@
                 "controller.render.mc_default"
             ],
             "spawn_egg": {
-                "texture": "fg:fg_crab",
+                "texture": "fg:fg_crab_help",
                 "texture_index": 0
             }
         }
