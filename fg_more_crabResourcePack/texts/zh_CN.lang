@@ -4,3 +4,4 @@ item.fg:crab_shell_powder.name=蟹壳碎片
 item.fg:crab_claws.name=生蟹肉
 itemCategory.name.more_crab=更多螃蟹
 entity.fg:fg_crab_help.name=基础螃蟹（护群型）
+entity.fg:fg_crab_aggressive.name=暴躁螃蟹（援护型）

@@ -1,102 +1,177 @@
 {
-    "format_version": "1.10.0",
-    "animation_controllers": {
-        "controller.animation.fg_crab.controller": {
-            "initial_state": "idle",
-            "states": {
-                "idle": {
-                    "animations": [
-                        "sideways_orientation",
-                        "idle"
-                    ],
-                    "transitions": [
-                        {
-                            "attack_left": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_left')"
-                        },
-                        {
-                            "attack_right": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_right')"
-                        },
-                        {
-                            "attack": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack')"
-                        },
-                        {
-                            "move": "query.ground_speed > 0.01"
-                        }
-                    ],
-                    "blend_transition": 0.12,
-                    "blend_via_shortest_path": true
-                },
-                "move": {
-                    "animations": [
-                        "sideways_orientation",
-                        "move"
-                    ],
-                    "transitions": [
-                        {
-                            "attack_left": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_left')"
-                        },
-                        {
-                            "attack_right": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_right')"
-                        },
-                        {
-                            "attack": "query.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack')"
-                        },
-                        {
-                            "idle": "query.ground_speed <= 0.01"
-                        }
-                    ],
-                    "blend_transition": 0.12,
-                    "blend_via_shortest_path": true
-                },
-                "attack_left": {
-                    "animations": [
-                        "sideways_orientation",
-                        "attack_left"
-                    ],
-                    "transitions": [
-                        {
-                            "move": "query.any_animation_finished && (query.ground_speed > 0.01)"
-                        },
-                        {
-                            "idle": "query.any_animation_finished"
-                        }
-                    ],
-                    "blend_transition": 0.08,
-                    "blend_via_shortest_path": true
-                },
-                "attack_right": {
-                    "animations": [
-                        "sideways_orientation",
-                        "attack_right"
-                    ],
-                    "transitions": [
-                        {
-                            "move": "query.any_animation_finished && (query.ground_speed > 0.01)"
-                        },
-                        {
-                            "idle": "query.any_animation_finished"
-                        }
-                    ],
-                    "blend_transition": 0.08,
-                    "blend_via_shortest_path": true
-                },
-                "attack": {
-                    "animations": [
-                        "sideways_orientation",
-                        "attack"
-                    ],
-                    "transitions": [
-                        {
-                            "move": "query.any_animation_finished && (query.ground_speed > 0.01)"
-                        },
-                        {
-                            "idle": "query.any_animation_finished"
-                        }
-                    ],
-                    "blend_transition": 0.08,
-                    "blend_via_shortest_path": true
-                }
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.fg_crab.base": {
+      "initial_state": "idle_sideways",
+      "states": {
+        "idle_sideways": {
+          "animations": [
+            "idle",
+            "sideways_pose"
+          ],
+          "transitions": [
+            {
+              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+            },
+            {
+              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+            },
+            {
+              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+            },
+            {
+              "walk_combat": "(query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "idle_combat": "query.has_target || query.is_angry || query.property('fg:combat_visual')"
+            },
+            {
+              "walk_sideways": "query.ground_speed > 0.01"
             }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "walk_sideways": {
+          "animations": [
+            "walk",
+            "sideways_pose"
+          ],
+          "transitions": [
+            {
+              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+            },
+            {
+              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+            },
+            {
+              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+            },
+            {
+              "walk_combat": "(query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "idle_combat": "query.has_target || query.is_angry || query.property('fg:combat_visual')"
+            },
+            {
+              "idle_sideways": "query.ground_speed <= 0.01"
+            }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "idle_combat": {
+          "animations": [
+            "idle"
+          ],
+          "transitions": [
+            {
+              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+            },
+            {
+              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+            },
+            {
+              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+            },
+            {
+              "walk_combat": "query.ground_speed > 0.01"
+            },
+            {
+              "idle_sideways": "!(query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "walk_combat": {
+          "animations": [
+            "walk_attack"
+          ],
+          "transitions": [
+            {
+              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+            },
+            {
+              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+            },
+            {
+              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
+            },
+            {
+              "idle_combat": "query.ground_speed <= 0.01"
+            },
+            {
+              "walk_sideways": "!(query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "attack_left": {
+          "animations": [
+            "attack_left"
+          ],
+          "transitions": [
+            {
+              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "idle_combat": "query.any_animation_finished && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "walk_sideways": "query.any_animation_finished && (query.ground_speed > 0.01)"
+            },
+            {
+              "idle_sideways": "query.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.08,
+          "blend_via_shortest_path": true
+        },
+        "attack_right": {
+          "animations": [
+            "attack_right"
+          ],
+          "transitions": [
+            {
+              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "idle_combat": "query.any_animation_finished && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "walk_sideways": "query.any_animation_finished && (query.ground_speed > 0.01)"
+            },
+            {
+              "idle_sideways": "query.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.08,
+          "blend_via_shortest_path": true
+        },
+        "attack": {
+          "animations": [
+            "attack"
+          ],
+          "transitions": [
+            {
+              "walk_combat": "query.any_animation_finished && (query.ground_speed > 0.01) && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "idle_combat": "query.any_animation_finished && (query.has_target || query.is_angry || query.property('fg:combat_visual'))"
+            },
+            {
+              "walk_sideways": "query.any_animation_finished && (query.ground_speed > 0.01)"
+            },
+            {
+              "idle_sideways": "query.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.08,
+          "blend_via_shortest_path": true
         }
+      }
     }
+  }
 }

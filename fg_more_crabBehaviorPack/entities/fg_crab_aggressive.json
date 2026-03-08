@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:entity": {
     "description": {
-      "identifier": "fg:fg_crab_help",
+      "identifier": "fg:fg_crab_aggressive",
       "spawn_category": "creature",
       "is_spawnable": true,
       "is_summonable": true,
@@ -15,7 +15,7 @@
             "attack_right",
             "attack"
           ],
-          "default": "attack_left",
+          "default": "attack",
           "client_sync": true
         },
         "fg:attack_personality": {
@@ -24,7 +24,7 @@
             "calm",
             "aggressive"
           ],
-          "default": "calm",
+          "default": "aggressive",
           "client_sync": false
         },
         "fg:social_mode": {
@@ -75,14 +75,14 @@
     "component_groups": {
       "groups:attack_left": {
         "minecraft:attack": {
-          "damage": 2
+          "damage": 3
         },
         "minecraft:behavior.delayed_attack": {
           "priority": 3,
-          "speed_multiplier": 1.15,
-          "reach_multiplier": 1.8,
+          "speed_multiplier": 1.2,
+          "reach_multiplier": 1.85,
           "attack_duration": 0.45,
-          "cooldown_time": 0.15,
+          "cooldown_time": 0.12,
           "hit_delay_pct": 0.52,
           "track_target": true,
           "attack_once": false
@@ -90,14 +90,14 @@
       },
       "groups:attack_right": {
         "minecraft:attack": {
-          "damage": 2
+          "damage": 3
         },
         "minecraft:behavior.delayed_attack": {
           "priority": 3,
-          "speed_multiplier": 1.15,
-          "reach_multiplier": 1.8,
+          "speed_multiplier": 1.2,
+          "reach_multiplier": 1.85,
           "attack_duration": 0.45,
-          "cooldown_time": 0.15,
+          "cooldown_time": 0.12,
           "hit_delay_pct": 0.52,
           "track_target": true,
           "attack_once": false
@@ -105,14 +105,14 @@
       },
       "groups:attack_double": {
         "minecraft:attack": {
-          "damage": 4
+          "damage": 6
         },
         "minecraft:behavior.delayed_attack": {
           "priority": 3,
-          "speed_multiplier": 1.2,
-          "reach_multiplier": 1.95,
+          "speed_multiplier": 1.24,
+          "reach_multiplier": 2.0,
           "attack_duration": 0.6,
-          "cooldown_time": 0.2,
+          "cooldown_time": 0.18,
           "hit_delay_pct": 0.58,
           "track_target": true,
           "attack_once": false
@@ -120,12 +120,12 @@
       },
       "groups:angry": {
         "minecraft:angry": {
-          "duration": 24,
+          "duration": 28,
           "duration_delta": 2,
           "broadcast_anger": true,
           "broadcast_anger_on_being_attacked": true,
           "broadcast_anger_on_attack": true,
-          "broadcast_range": 24,
+          "broadcast_range": 28,
           "calm_event": {
             "event": "fg:on_calm",
             "target": "self"
@@ -139,7 +139,7 @@
           "priority": 2,
           "reselect_targets": true,
           "scan_interval": 10,
-          "within_radius": 24,
+          "within_radius": 28,
           "must_reach": false,
           "entity_types": [
             {
@@ -148,7 +148,7 @@
                 "subject": "other",
                 "value": "player"
               },
-              "max_dist": 24,
+              "max_dist": 28,
               "must_see": false
             },
             {
@@ -157,7 +157,7 @@
                 "subject": "other",
                 "value": "monster"
               },
-              "max_dist": 20,
+              "max_dist": 24,
               "must_see": false
             }
           ]
@@ -199,7 +199,8 @@
           "mob",
           "animal",
           "crab",
-          "fg_crab"
+          "fg_crab",
+          "fg_crab_aggressive"
         ]
       },
       "minecraft:collision_box": {
@@ -207,11 +208,11 @@
         "height": 0.6
       },
       "minecraft:health": {
-        "value": 10,
-        "max": 10
+        "value": 12,
+        "max": 12
       },
       "minecraft:movement": {
-        "value": 0.15
+        "value": 0.17
       },
       "minecraft:movement.basic": {},
       "minecraft:navigation.walk": {
@@ -311,7 +312,7 @@
         "sequence": [
           {
             "set_property": {
-              "fg:attack_personality": "calm",
+              "fg:attack_personality": "aggressive",
               "fg:social_mode": "help",
               "fg:crowd_state": "isolated",
               "fg:combat_posture": "sideways",

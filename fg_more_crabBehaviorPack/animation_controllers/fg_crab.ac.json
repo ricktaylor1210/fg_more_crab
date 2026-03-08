@@ -1,53 +1,74 @@
 {
-    "format_version": "1.10.0",
-    "animation_controllers": {
-        "controller.animation.fg_crab.attack_switch": {
-            "initial_state": "default",
-            "states": {
-                "default": {
-                    "transitions": [
-                        {
-                            "attack_left": "q.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_left')"
-                        },
-                        {
-                            "attack_right": "q.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack_right')"
-                        },
-                        {
-                            "attack": "q.is_delayed_attacking && (q.property('fg:attack_mode') == 'attack')"
-                        }
-                    ]
-                },
-                "attack_left": {
-                    "transitions": [
-                        {
-                            "default": "q.is_delayed_attacking == 0"
-                        }
-                    ],
-                    "on_exit": [
-                        "@s fg:on_attack_left_complete"
-                    ]
-                },
-                "attack_right": {
-                    "transitions": [
-                        {
-                            "default": "q.is_delayed_attacking == 0"
-                        }
-                    ],
-                    "on_exit": [
-                        "@s fg:on_attack_right_complete"
-                    ]
-                },
-                "attack": {
-                    "transitions": [
-                        {
-                            "default": "q.is_delayed_attacking == 0"
-                        }
-                    ],
-                    "on_exit": [
-                        "@s fg:on_attack_complete"
-                    ]
-                }
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.fg_crab.attack_switch": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "attack_left": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_left')"
+            },
+            {
+              "attack_right": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack_right')"
+            },
+            {
+              "attack": "query.is_delayed_attacking && (query.property('fg:attack_mode') == 'attack')"
             }
+          ]
+        },
+        "attack_left": {
+          "animations": [
+            "switch_attack_left"
+          ],
+          "transitions": [
+            {
+              "hold_left": "query.all_animations_finished"
+            }
+          ]
+        },
+        "hold_left": {
+          "transitions": [
+            {
+              "default": "!query.is_delayed_attacking"
+            }
+          ]
+        },
+        "attack_right": {
+          "animations": [
+            "switch_attack_right"
+          ],
+          "transitions": [
+            {
+              "hold_right": "query.all_animations_finished"
+            }
+          ]
+        },
+        "hold_right": {
+          "transitions": [
+            {
+              "default": "!query.is_delayed_attacking"
+            }
+          ]
+        },
+        "attack": {
+          "animations": [
+            "switch_attack_double"
+          ],
+          "transitions": [
+            {
+              "hold_attack": "query.all_animations_finished"
+            }
+          ]
+        },
+        "hold_attack": {
+          "transitions": [
+            {
+              "default": "!query.is_delayed_attacking"
+            }
+          ]
         }
+      }
     }
+  }
 }

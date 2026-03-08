@@ -13,6 +13,9 @@
         },
         "fg:fg_crab_help": {
             "textures": "textures/items/crab/fg_crab_red"
+        },
+        "fg:fg_crab_aggressive": {
+            "textures": "textures/items/crab/fg_crab_pruple"
         }
     }
 }

@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "fg:fg_crab_help",
+      "identifier": "fg:fg_crab_aggressive",
       "population_control": "animal"
     },
     "conditions": [
@@ -23,11 +23,11 @@
           "max": 72
         },
         "minecraft:weight": {
-          "default": 4
+          "default": 2
         },
         "minecraft:herd": {
-          "min_size": 2,
-          "max_size": 4
+          "min_size": 1,
+          "max_size": 3
         },
         "minecraft:density_limit": {
           "surface": 4
