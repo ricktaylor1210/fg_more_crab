@@ -91,6 +91,53 @@
                     ]
                 }
             }
+        },
+        "controller.animation.fg_crab.reset_not_avoid": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "in_not_avoid": "query.property('fg:not_avoid')"
+                        }
+                    ]
+                },
+                "in_not_avoid": {
+                    "transitions": [
+                        {
+                            "default": "!query.has_target||!query.property('fg:not_avoid')"
+                        }
+                    ],
+                    "on_exit": [
+                        "@s fg:recover_not_avoid_event"
+                    ]
+                }
+            }
+        },
+        "controller.animation.fg_crab.hurt_event": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "in_avoid": "query.property('fg:in_avoid')"
+                        }
+                    ]
+                },
+                "in_avoid": {
+                    "animations": [
+                        "in_avoid_timeline"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.any_animation_finished"
+                        }
+                    ],
+                    "on_exit": [
+                        "/event entity @e[type=fg:fg_crab,r=16] fg:recover_avoid_event"
+                    ]
+                }
+            }
         }
     }
 }

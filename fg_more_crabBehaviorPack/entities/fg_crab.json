@@ -8,6 +8,14 @@
             "is_summonable": true,
             "is_experimental": false,
             "properties": {
+                "fg:not_avoid": {
+                    "type": "bool",
+                    "default": false
+                },
+                "fg:in_avoid": {
+                    "type": "bool",
+                    "default": false
+                },
                 "fg:attack_mode": {
                     "type": "enum",
                     "values": [
@@ -29,6 +37,9 @@
                 }
             },
             "animations": {
+                "hurt_event": "controller.animation.fg_crab.hurt_event",
+                "in_avoid_timeline": "animation.fg_crab.in_avoid_timeline",
+                "reset_not_avoid": "controller.animation.fg_crab.reset_not_avoid",
                 "reset_attack_model": "controller.animation.fg_crab.reset_attack_model",
                 "attack_switch": "controller.animation.fg_crab.attack_switch",
                 "switch_attack_left": "animation.fg_crab.switch_attack_left",
@@ -37,12 +48,54 @@
             },
             "scripts": {
                 "animate": [
+                    "hurt_event",
+                    "reset_not_avoid",
                     "reset_attack_model",
                     "attack_switch"
                 ]
             }
         },
         "component_groups": {
+            "groups:untamed_anger": {
+                "minecraft:angry": {
+                    "duration": 25,
+                    "broadcast_anger": false,
+                    "broadcast_anger_on_being_attacked": false
+                }
+            },
+            "groups:avoid_another_mob": {
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "fg_crab_normal"
+                                    }
+                                ]
+                            },
+                            "max_dist": 16,
+                            "max_flee": 16,
+                            "walk_speed_multiplier": 2.0,
+                            "sprint_speed_multiplier": 3.0
+                        }
+                    ]
+                }
+            },
+            "groups:untamed_on_hurt_avoid": {
+                "minecraft:on_hurt": {
+                    "event": "fg:on_hurt_event",
+                    "target": "self"
+                },
+                "minecraft:on_hurt_by_player": {
+                    "event": "fg:on_hurt_event",
+                    "target": "self"
+                }
+            },
             "groups:attack_left": {
                 "minecraft:attack": {
                     "damage": 2
@@ -158,8 +211,10 @@
             "minecraft:entity_spawned": {
                 "sequence": [
                     {
-                        "set_property": {
-                            "fg:attack_personality": "calm"
+                        "add": {
+                            "component_groups": [
+                                "groups:untamed_on_hurt_avoid"
+                            ]
                         }
                     },
                     {
@@ -173,6 +228,70 @@
                     },
                     {
                         "trigger": "fg:reset_attack_cycle_by_personality"
+                    }
+                ]
+            },
+            "fg:on_hurt_event": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "groups:untamed_anger"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "fg:not_avoid": true
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "event entity @e[type=fg:fg_crab,r=16,has_property={fg:not_avoid=false}] fg:avoid_another_mob"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:recover_not_avoid_event": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:not_avoid": false
+                        }
+                    }
+                ]
+            },
+            "fg:recover_avoid_event": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:in_avoid": false
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:avoid_another_mob"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:avoid_another_mob": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:in_avoid": true
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "groups:avoid_another_mob"
+                            ]
+                        }
                     }
                 ]
             },

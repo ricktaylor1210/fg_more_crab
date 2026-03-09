@@ -43,6 +43,17 @@
             }
         },
         "component_groups": {
+            "groups:untamed_anger": {
+                "minecraft:angry": {
+                    "duration": 25,
+                    "broadcast_anger": true,
+                    "broadcast_anger_on_being_attacked": true,
+                    "broadcast_range": 20,
+                    "broadcast_targets": [
+                        "fg_crab_aggressive"
+                    ]
+                }
+            },
             "groups:attack_left": {
                 "minecraft:attack": {
                     "damage": 3
@@ -158,8 +169,10 @@
             "minecraft:entity_spawned": {
                 "sequence": [
                     {
-                        "set_property": {
-                            "fg:attack_personality": "aggressive"
+                        "add": {
+                            "component_groups": [
+                                "groups:untamed_anger"
+                            ]
                         }
                     },
                     {

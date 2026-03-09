@@ -24,6 +24,9 @@
                     "@s fg:switch_to_attack_left"
                 ]
             }
+        },
+        "animation.fg_crab.in_avoid_timeline": {
+            "animation_length": 2.0
         }
     }
 }
