@@ -1,40 +1,49 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "fg:fg_crab",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/crab/fg_crab_orange"
-      },
-      "geometry": {
-        "default": "geometry.crab"
-      },
-      "animations": {
-        "controller": "controller.animation.fg_crab.base",
-        "idle": "animation.crab.idle",
-        "walk": "animation.crab.walk",
-        "walk_attack": "animation.crab.walk_attack",
-        "attack_left": "animation.crab.attack_left",
-        "attack_right": "animation.crab.attack_right",
-        "attack": "animation.crab.attack",
-        "sideways_pose": "animation.fg_crab.sideways_pose"
-      },
-      "scripts": {
-        "scale": "1.0",
-        "animate": [
-          "controller"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.mc_default"
-      ],
-      "spawn_egg": {
-        "texture": "fg:fg_crab",
-        "texture_index": 0
-      }
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "fg:fg_crab",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/crab/fg_crab_orange"
+            },
+            "geometry": {
+                "default": "geometry.crab"
+            },
+            "animations": {
+                "base_controller": "controller.animation.fg_crab.base",
+                "sideways_pose_controller": "controller.animation.fg_crab.sideways_pose",
+                "angry_par": "animation.crab.angry_par",
+                "idle": "animation.crab.idle",
+                "walk": "animation.crab.walk",
+                "walk_attack": "animation.crab.walk_attack",
+                "attack_left": "animation.crab.attack_left",
+                "attack_right": "animation.crab.attack_right",
+                "attack": "animation.crab.attack",
+                "sideways_pose": "animation.fg_crab.sideways_pose"
+            },
+            "scripts": {
+                "scale": "1.0",
+                "animate": [
+                    {
+                        "angry_par": "query.has_target"
+                    },
+                    "base_controller",
+                    "sideways_pose_controller"
+                ]
+            },
+            "particle_effects": {
+                "angry_par": "fg:crab_angry"
+            },
+            "render_controllers": [
+                "controller.render.mc_default"
+            ],
+            "spawn_egg": {
+                "texture": "fg:fg_crab",
+                "texture_index": 0
+            }
+        }
     }
-  }
 }

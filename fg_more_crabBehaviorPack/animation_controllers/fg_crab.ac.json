@@ -1,74 +1,96 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.fg_crab.attack_switch": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            {
-              "attack_left": "query.is_delayed_attacking && query.has_target && query.is_angry && (query.property('fg:attack_mode') == 'attack_left')"
-            },
-            {
-              "attack_right": "query.is_delayed_attacking && query.has_target && query.is_angry && (query.property('fg:attack_mode') == 'attack_right')"
-            },
-            {
-              "attack": "query.is_delayed_attacking && query.has_target && query.is_angry && (query.property('fg:attack_mode') == 'attack')"
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.fg_crab.attack_switch": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "attack_left": "query.is_delayed_attacking  && (query.property('fg:attack_mode') == 'attack_left')"
+                        },
+                        {
+                            "attack_right": "query.is_delayed_attacking  && (query.property('fg:attack_mode') == 'attack_right')"
+                        },
+                        {
+                            "attack": "query.is_delayed_attacking  && (query.property('fg:attack_mode') == 'attack')"
+                        }
+                    ]
+                },
+                "attack_left": {
+                    "animations": [
+                        "switch_attack_left"
+                    ],
+                    "transitions": [
+                        {
+                            "hold_left": "query.all_animations_finished"
+                        }
+                    ]
+                },
+                "hold_left": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking || !query.has_target"
+                        }
+                    ]
+                },
+                "attack_right": {
+                    "animations": [
+                        "switch_attack_right"
+                    ],
+                    "transitions": [
+                        {
+                            "hold_right": "query.all_animations_finished"
+                        }
+                    ]
+                },
+                "hold_right": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking || !query.has_target"
+                        }
+                    ]
+                },
+                "attack": {
+                    "animations": [
+                        "switch_attack_double"
+                    ],
+                    "transitions": [
+                        {
+                            "hold_attack": "query.all_animations_finished"
+                        }
+                    ]
+                },
+                "hold_attack": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking || !query.has_target"
+                        }
+                    ]
+                }
             }
-          ]
         },
-        "attack_left": {
-          "animations": [
-            "switch_attack_left"
-          ],
-          "transitions": [
-            {
-              "hold_left": "query.all_animations_finished"
+        "controller.animation.fg_crab.reset_attack_model": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "has_target": "query.has_target"
+                        }
+                    ]
+                },
+                "has_target": {
+                    "transitions": [
+                        {
+                            "default": "!query.has_target"
+                        }
+                    ],
+                    "on_exit": [
+                        "@s fg:reset_attack_cycle_by_personality"
+                    ]
+                }
             }
-          ]
-        },
-        "hold_left": {
-          "transitions": [
-            {
-              "default": "!query.is_delayed_attacking || !query.has_target || !query.is_angry"
-            }
-          ]
-        },
-        "attack_right": {
-          "animations": [
-            "switch_attack_right"
-          ],
-          "transitions": [
-            {
-              "hold_right": "query.all_animations_finished"
-            }
-          ]
-        },
-        "hold_right": {
-          "transitions": [
-            {
-              "default": "!query.is_delayed_attacking || !query.has_target || !query.is_angry"
-            }
-          ]
-        },
-        "attack": {
-          "animations": [
-            "switch_attack_double"
-          ],
-          "transitions": [
-            {
-              "hold_attack": "query.all_animations_finished"
-            }
-          ]
-        },
-        "hold_attack": {
-          "transitions": [
-            {
-              "default": "!query.is_delayed_attacking || !query.has_target || !query.is_angry"
-            }
-          ]
         }
-      }
     }
-  }
 }
