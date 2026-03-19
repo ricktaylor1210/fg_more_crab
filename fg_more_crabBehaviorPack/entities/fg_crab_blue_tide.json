@@ -1,0 +1,388 @@
+{
+    "format_version": "1.21.50",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fg:fg_crab_blue_tide",
+            "spawn_category": "creature",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "properties": {
+                "fg:not_avoid": { "type": "bool", "default": false },
+                "fg:in_avoid": { "type": "bool", "default": false },
+                "fg:is_tamed": { "type": "bool", "default": false },
+                "fg:has_backpack": { "type": "bool", "default": false },
+                "fg:attack_mode": {
+                    "type": "enum",
+                    "values": ["attack_left", "attack_right", "attack"],
+                    "default": "attack_left",
+                    "client_sync": true
+                },
+                "fg:attack_personality": {
+                    "type": "enum",
+                    "values": ["calm", "aggressive"],
+                    "default": "calm",
+                    "client_sync": false
+                }
+            },
+            "animations": {
+                "hurt_event": "controller.animation.fg_crab.hurt_event",
+                "in_avoid_timeline": "animation.fg_crab.in_avoid_timeline",
+                "reset_not_avoid": "controller.animation.fg_crab.reset_not_avoid",
+                "reset_attack_model": "controller.animation.fg_crab.reset_attack_model",
+                "attack_switch": "controller.animation.fg_crab.attack_switch",
+                "switch_attack_left": "animation.fg_crab.switch_attack_left",
+                "switch_attack_right": "animation.fg_crab.switch_attack_right",
+                "switch_attack_double": "animation.fg_crab.switch_attack_double"
+            },
+            "scripts": {
+                "animate": [
+                    "hurt_event",
+                    "reset_not_avoid",
+                    "reset_attack_model",
+                    "attack_switch"
+                ]
+            }
+        },
+        "component_groups": {
+            "groups:self_anger": {
+                "minecraft:angry": {
+                    "duration": 25,
+                    "broadcast_anger": false,
+                    "broadcast_anger_on_being_attacked": false
+                }
+            },
+            "groups:pack_anger": {
+                "minecraft:angry": {
+                    "duration": 25,
+                    "broadcast_anger": true,
+                    "broadcast_anger_on_being_attacked": true,
+                    "broadcast_range": 18,
+                    "broadcast_targets": ["fg_crab_blue_tide"]
+                }
+            },
+            "groups:avoid_another_mob": {
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "fg_crab_normal"
+                                    }
+                                ]
+                            },
+                            "max_dist": 16,
+                            "max_flee": 16,
+                            "walk_speed_multiplier": 2.0,
+                            "sprint_speed_multiplier": 3.0
+                        }
+                    ]
+                }
+            },
+            "groups:on_hurt_avoid": {
+                "minecraft:on_hurt": { "event": "fg:on_hurt_avoid", "target": "self" },
+                "minecraft:on_hurt_by_player": { "event": "fg:on_hurt_avoid", "target": "self" }
+            },
+            "groups:on_hurt_alert": {
+                "minecraft:on_hurt": { "event": "fg:on_hurt_alert", "target": "self" },
+                "minecraft:on_hurt_by_player": { "event": "fg:on_hurt_alert", "target": "self" }
+            },
+            "groups:attack_left": {
+                "minecraft:attack": { "damage": 2 },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3, "speed_multiplier": 1.15, "reach_multiplier": 1.8,
+                    "attack_duration": 0.45, "cooldown_time": 0.15, "hit_delay_pct": 0.52,
+                    "track_target": true, "attack_once": false
+                }
+            },
+            "groups:attack_right": {
+                "minecraft:attack": { "damage": 2 },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3, "speed_multiplier": 1.15, "reach_multiplier": 1.8,
+                    "attack_duration": 0.45, "cooldown_time": 0.15, "hit_delay_pct": 0.52,
+                    "track_target": true, "attack_once": false
+                }
+            },
+            "groups:attack_double": {
+                "minecraft:attack": { "damage": 4 },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3, "speed_multiplier": 1.2, "reach_multiplier": 1.95,
+                    "attack_duration": 0.6, "cooldown_time": 0.2, "hit_delay_pct": 0.58,
+                    "track_target": true, "attack_once": false
+                }
+            },
+            "groups:attack_left_aggressive": {
+                "minecraft:attack": { "damage": 3 },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3, "speed_multiplier": 1.2, "reach_multiplier": 1.85,
+                    "attack_duration": 0.45, "cooldown_time": 0.12, "hit_delay_pct": 0.52,
+                    "track_target": true, "attack_once": false
+                }
+            },
+            "groups:attack_right_aggressive": {
+                "minecraft:attack": { "damage": 3 },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3, "speed_multiplier": 1.2, "reach_multiplier": 1.85,
+                    "attack_duration": 0.45, "cooldown_time": 0.12, "hit_delay_pct": 0.52,
+                    "track_target": true, "attack_once": false
+                }
+            },
+            "groups:attack_double_aggressive": {
+                "minecraft:attack": { "damage": 6 },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3, "speed_multiplier": 1.24, "reach_multiplier": 2.0,
+                    "attack_duration": 0.6, "cooldown_time": 0.18, "hit_delay_pct": 0.58,
+                    "track_target": true, "attack_once": false
+                }
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": ["mob", "animal", "crab", "fg_crab", "fg_crab_normal", "fg_crab_blue_tide"]
+            },
+            "minecraft:collision_box": { "width": 0.95, "height": 0.6 },
+            "minecraft:health": { "value": 10, "max": 10 },
+            "minecraft:movement": { "value": 0.16 },
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.walk": {
+                "can_path_over_water": true,
+                "can_sink": false,
+                "can_float": true,
+                "avoid_water": false
+            },
+            "minecraft:jump.static": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": { "is_pushable": true, "is_pushable_by_piston": true },
+            "minecraft:nameable": {},
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
+            },
+            "minecraft:behavior.float": { "priority": 0 },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6, "speed_multiplier": 1.0, "xz_dist": 8, "y_dist": 2, "interval": 40
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7, "look_distance": 6, "probability": 0.04
+            },
+            "minecraft:behavior.random_look_around": { "priority": 8 },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/crab_normal.json"
+            },
+            "minecraft:behavior.hurt_by_target": { "priority": 1, "alert_same_type": false }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    { "set_property": { "fg:not_avoid": false, "fg:in_avoid": false } },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:self_anger", "groups:pack_anger", "groups:on_hurt_avoid",
+                                "groups:on_hurt_alert", "groups:avoid_another_mob", "groups:attack_left",
+                                "groups:attack_right", "groups:attack_double", "groups:attack_left_aggressive",
+                                "groups:attack_right_aggressive", "groups:attack_double_aggressive"
+                            ]
+                        }
+                    },
+                    { "add": { "component_groups": ["groups:on_hurt_avoid"] } },
+                    { "trigger": "fg:assign_attack_personality" }
+                ]
+            },
+            "fg:assign_attack_personality": {
+                "randomize": [
+                    { "weight": 80, "trigger": "fg:set_personality_calm" },
+                    { "weight": 20, "trigger": "fg:set_personality_aggressive" }
+                ]
+            },
+            "fg:set_personality_calm": {
+                "sequence": [
+                    { "set_property": { "fg:attack_personality": "calm" } },
+                    { "trigger": "fg:reset_attack_cycle_by_personality" }
+                ]
+            },
+            "fg:set_personality_aggressive": {
+                "sequence": [
+                    { "set_property": { "fg:attack_personality": "aggressive" } },
+                    { "trigger": "fg:reset_attack_cycle_by_personality" }
+                ]
+            },
+            "fg:on_hurt_avoid": {
+                "sequence": [
+                    { "add": { "component_groups": ["groups:self_anger"] } },
+                    { "set_property": { "fg:not_avoid": true } },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "event entity @e[type=fg:fg_crab_blue_tide,r=16,has_property={fg:not_avoid=false}] fg:enter_avoid_mode"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "fg:on_hurt_alert": {
+                "sequence": [
+                    { "set_property": { "fg:not_avoid": true } }
+                ]
+            },
+            "fg:recover_not_avoid_event": {
+                "sequence": [
+                    { "set_property": { "fg:not_avoid": false } },
+                    { "remove": { "component_groups": ["groups:self_anger"] } }
+                ]
+            },
+            "fg:recover_avoid_event": {
+                "sequence": [
+                    { "set_property": { "fg:in_avoid": false } },
+                    { "remove": { "component_groups": ["groups:avoid_another_mob"] } }
+                ]
+            },
+            "fg:enter_avoid_mode": {
+                "sequence": [
+                    { "set_property": { "fg:in_avoid": true } },
+                    { "add": { "component_groups": ["groups:avoid_another_mob"] } }
+                ]
+            },
+            "fg:reset_attack_cycle_by_personality": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:attack_left", "groups:attack_right", "groups:attack_double",
+                                "groups:attack_left_aggressive", "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
+                        "add": { "component_groups": ["groups:attack_left"] }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
+                        "set_property": { "fg:attack_mode": "attack_left" }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": { "component_groups": ["groups:attack_double_aggressive"] }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "set_property": { "fg:attack_mode": "attack" }
+                    }
+                ]
+            },
+            "fg:switch_to_attack_left": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:attack_left", "groups:attack_right", "groups:attack_double",
+                                "groups:attack_left_aggressive", "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": { "component_groups": ["groups:attack_left_aggressive"] }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
+                        "add": { "component_groups": ["groups:attack_left"] }
+                    },
+                    { "set_property": { "fg:attack_mode": "attack_left" } }
+                ]
+            },
+            "fg:switch_to_attack_right": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:attack_left", "groups:attack_right", "groups:attack_double",
+                                "groups:attack_left_aggressive", "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": { "component_groups": ["groups:attack_right_aggressive"] }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
+                        "add": { "component_groups": ["groups:attack_right"] }
+                    },
+                    { "set_property": { "fg:attack_mode": "attack_right" } }
+                ]
+            },
+            "fg:switch_to_attack_double": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:attack_left", "groups:attack_right", "groups:attack_double",
+                                "groups:attack_left_aggressive", "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": { "component_groups": ["groups:attack_double_aggressive"] }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
+                        "add": { "component_groups": ["groups:attack_double"] }
+                    },
+                    { "set_property": { "fg:attack_mode": "attack" } }
+                ]
+            }
+        }
+    }
+}

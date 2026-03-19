@@ -2,12 +2,12 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "fg:fg_crab_aggressive",
+            "identifier": "fg:fg_crab_moss_shell",
             "materials": {
                 "default": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/entity/crab/fg_crab_purple"
+                "default": "textures/entity/crab/fg_crab_experience"
             },
             "geometry": {
                 "default": "geometry.crab"
@@ -41,7 +41,7 @@
                 "controller.render.mc_default"
             ],
             "spawn_egg": {
-                "texture": "fg:fg_crab_aggressive",
+                "texture": "fg:fg_crab_moss_shell",
                 "texture_index": 0
             }
         }

@@ -2,9 +2,9 @@
     "format_version": "1.21.50",
     "minecraft:entity": {
         "description": {
-            "identifier": "fg:fg_crab",
+            "identifier": "fg:fg_crab_sandy",
             "spawn_category": "creature",
-            "is_spawnable": false,
+            "is_spawnable": true,
             "is_summonable": true,
             "is_experimental": false,
             "properties": {
@@ -13,6 +13,14 @@
                     "default": false
                 },
                 "fg:in_avoid": {
+                    "type": "bool",
+                    "default": false
+                },
+                "fg:is_tamed": {
+                    "type": "bool",
+                    "default": false
+                },
+                "fg:has_backpack": {
                     "type": "bool",
                     "default": false
                 },
@@ -56,11 +64,22 @@
             }
         },
         "component_groups": {
-            "groups:untamed_anger": {
+            "groups:self_anger": {
                 "minecraft:angry": {
                     "duration": 25,
                     "broadcast_anger": false,
                     "broadcast_anger_on_being_attacked": false
+                }
+            },
+            "groups:pack_anger": {
+                "minecraft:angry": {
+                    "duration": 25,
+                    "broadcast_anger": true,
+                    "broadcast_anger_on_being_attacked": true,
+                    "broadcast_range": 18,
+                    "broadcast_targets": [
+                        "fg_crab_sandy"
+                    ]
                 }
             },
             "groups:avoid_another_mob": {
@@ -86,13 +105,23 @@
                     ]
                 }
             },
-            "groups:untamed_on_hurt_avoid": {
+            "groups:on_hurt_avoid": {
                 "minecraft:on_hurt": {
-                    "event": "fg:on_hurt_event",
+                    "event": "fg:on_hurt_avoid",
                     "target": "self"
                 },
                 "minecraft:on_hurt_by_player": {
-                    "event": "fg:on_hurt_event",
+                    "event": "fg:on_hurt_avoid",
+                    "target": "self"
+                }
+            },
+            "groups:on_hurt_alert": {
+                "minecraft:on_hurt": {
+                    "event": "fg:on_hurt_alert",
+                    "target": "self"
+                },
+                "minecraft:on_hurt_by_player": {
+                    "event": "fg:on_hurt_alert",
                     "target": "self"
                 }
             },
@@ -140,6 +169,51 @@
                     "track_target": true,
                     "attack_once": false
                 }
+            },
+            "groups:attack_left_aggressive": {
+                "minecraft:attack": {
+                    "damage": 3
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.2,
+                    "reach_multiplier": 1.85,
+                    "attack_duration": 0.45,
+                    "cooldown_time": 0.12,
+                    "hit_delay_pct": 0.52,
+                    "track_target": true,
+                    "attack_once": false
+                }
+            },
+            "groups:attack_right_aggressive": {
+                "minecraft:attack": {
+                    "damage": 3
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.2,
+                    "reach_multiplier": 1.85,
+                    "attack_duration": 0.45,
+                    "cooldown_time": 0.12,
+                    "hit_delay_pct": 0.52,
+                    "track_target": true,
+                    "attack_once": false
+                }
+            },
+            "groups:attack_double_aggressive": {
+                "minecraft:attack": {
+                    "damage": 6
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.24,
+                    "reach_multiplier": 2.0,
+                    "attack_duration": 0.6,
+                    "cooldown_time": 0.18,
+                    "hit_delay_pct": 0.58,
+                    "track_target": true,
+                    "attack_once": false
+                }
             }
         },
         "components": {
@@ -149,7 +223,8 @@
                     "animal",
                     "crab",
                     "fg_crab",
-                    "fg_crab_normal"
+                    "fg_crab_normal",
+                    "fg_crab_sandy"
                 ]
             },
             "minecraft:collision_box": {
@@ -200,7 +275,7 @@
                 "priority": 8
             },
             "minecraft:loot": {
-                "table": "loot_tables/entities/fg_crab.json"
+                "table": "loot_tables/entities/crab_normal.json"
             },
             "minecraft:behavior.hurt_by_target": {
                 "priority": 1,
@@ -211,19 +286,57 @@
             "minecraft:entity_spawned": {
                 "sequence": [
                     {
-                        "add": {
-                            "component_groups": [
-                                "groups:untamed_on_hurt_avoid"
-                            ]
+                        "set_property": {
+                            "fg:not_avoid": false,
+                            "fg:in_avoid": false
                         }
                     },
                     {
                         "remove": {
                             "component_groups": [
+                                "groups:self_anger",
+                                "groups:pack_anger",
+                                "groups:on_hurt_avoid",
+                                "groups:on_hurt_alert",
+                                "groups:avoid_another_mob",
                                 "groups:attack_left",
                                 "groups:attack_right",
-                                "groups:attack_double"
+                                "groups:attack_double",
+                                "groups:attack_left_aggressive",
+                                "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
                             ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "groups:on_hurt_avoid"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "fg:assign_attack_personality"
+                    }
+                ]
+            },
+            "fg:assign_attack_personality": {
+                "randomize": [
+                    {
+                        "weight": 90,
+                        "trigger": "fg:set_personality_calm"
+                    },
+                    {
+                        "weight": 10,
+                        "trigger": "fg:set_personality_aggressive"
+                    }
+                ]
+            },
+            "fg:set_personality_calm": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:attack_personality": "calm"
                         }
                     },
                     {
@@ -231,12 +344,24 @@
                     }
                 ]
             },
-            "fg:on_hurt_event": {
+            "fg:set_personality_aggressive": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:attack_personality": "aggressive"
+                        }
+                    },
+                    {
+                        "trigger": "fg:reset_attack_cycle_by_personality"
+                    }
+                ]
+            },
+            "fg:on_hurt_avoid": {
                 "sequence": [
                     {
                         "add": {
                             "component_groups": [
-                                "groups:untamed_anger"
+                                "groups:self_anger"
                             ]
                         }
                     },
@@ -248,8 +373,17 @@
                     {
                         "queue_command": {
                             "command": [
-                                "event entity @e[type=fg:fg_crab,r=16,has_property={fg:not_avoid=false}] fg:avoid_another_mob"
+                                "event entity @e[type=fg:fg_crab_sandy,r=16,has_property={fg:not_avoid=false}] fg:enter_avoid_mode"
                             ]
+                        }
+                    }
+                ]
+            },
+            "fg:on_hurt_alert": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:not_avoid": true
                         }
                     }
                 ]
@@ -259,6 +393,13 @@
                     {
                         "set_property": {
                             "fg:not_avoid": false
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "groups:self_anger"
+                            ]
                         }
                     }
                 ]
@@ -279,7 +420,7 @@
                     }
                 ]
             },
-            "fg:avoid_another_mob": {
+            "fg:enter_avoid_mode": {
                 "sequence": [
                     {
                         "set_property": {
@@ -302,7 +443,10 @@
                             "component_groups": [
                                 "groups:attack_left",
                                 "groups:attack_right",
-                                "groups:attack_double"
+                                "groups:attack_double",
+                                "groups:attack_left_aggressive",
+                                "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
                             ]
                         }
                     },
@@ -336,7 +480,7 @@
                         },
                         "add": {
                             "component_groups": [
-                                "groups:attack_double"
+                                "groups:attack_double_aggressive"
                             ]
                         }
                     },
@@ -359,11 +503,31 @@
                             "component_groups": [
                                 "groups:attack_left",
                                 "groups:attack_right",
-                                "groups:attack_double"
+                                "groups:attack_double",
+                                "groups:attack_left_aggressive",
+                                "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
                             ]
                         }
                     },
                     {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "groups:attack_left_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
                         "add": {
                             "component_groups": [
                                 "groups:attack_left"
@@ -384,11 +548,31 @@
                             "component_groups": [
                                 "groups:attack_left",
                                 "groups:attack_right",
-                                "groups:attack_double"
+                                "groups:attack_double",
+                                "groups:attack_left_aggressive",
+                                "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
                             ]
                         }
                     },
                     {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "groups:attack_right_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
                         "add": {
                             "component_groups": [
                                 "groups:attack_right"
@@ -409,11 +593,31 @@
                             "component_groups": [
                                 "groups:attack_left",
                                 "groups:attack_right",
-                                "groups:attack_double"
+                                "groups:attack_double",
+                                "groups:attack_left_aggressive",
+                                "groups:attack_right_aggressive",
+                                "groups:attack_double_aggressive"
                             ]
                         }
                     },
                     {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "aggressive"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "groups:attack_double_aggressive"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "enum_property",
+                            "domain": "fg:attack_personality",
+                            "value": "calm"
+                        },
                         "add": {
                             "component_groups": [
                                 "groups:attack_double"

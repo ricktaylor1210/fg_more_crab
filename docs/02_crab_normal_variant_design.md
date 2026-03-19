@@ -12,7 +12,7 @@
 
 因此，普通螃蟹的不同类型不应该做成“技能怪”或“半 Boss”，而应当做成：
 
-- 同一基础实体 crab_normal 下的颜色/生态子类型
+- 继承基础实体 crab_normal 的行为下不同的颜色/生态子类型
 - 主要差异体现在 生成环境、性格倾向、掉落偏向、驯服偏好
 - 战斗差异只做轻度区分，避免抢走矿物螃蟹与 Boss 的设计空间
 
@@ -24,43 +24,44 @@
 
 | 资源文件               | 建议正式 ID     | 建议中文名 | 定位        |
 |--------------------|-------------|-------|-----------|
-| fg_crab_orange     | sandy       | 沙壳蟹   | 默认海滩型     |
-| fg_crab_red        | red_tide    | 赤潮蟹   | 偏好暖海岸、略好斗 |
-| fg_crab_blue       | blue_tide   | 蓝潮蟹   | 偏好浅水与礁岸   |
-| fg_crab_ice        | frost_shell | 霜壳蟹   | 偏好冰雪海岸    |
-| fg_crab_pink       | coral       | 珊瑚蟹   | 偏好暖海/珊瑚环境 |
-| fg_crab_pruple     | dusk_shell  | 暮潮蟹   | 偏夜行、偏稀有   |
-| fg_crab_experience | moss_shell  | 潮苔蟹   | 偏海草/红树林边缘 |
-
-> 说明 1：fg_crab_pruple 建议后续统一修正为 fg_crab_purple，但当前阶段可以保留旧资源路径做兼容。
->
-> 说明 2：fg_crab_experience 这个命名更像临时资源名，不适合作为正式玩法名。推荐在玩法层改名为 潮苔蟹，保留资源文件名不动。
+| fg_crab_orange     | fg_crab_sandy       | 沙壳蟹   | 默认海滩型     |
+| fg_crab_red        | fg_crab_red_tide    | 赤潮蟹   | 偏好暖海岸、略好斗 |
+| fg_crab_blue       | fg_crab_blue_tide   | 蓝潮蟹   | 偏好浅水与礁岸   |
+| fg_crab_ice        | fg_crab_frost_shell | 霜壳蟹   | 偏好冰雪海岸    |
+| fg_crab_pink       | fg_crab_coral       | 珊瑚蟹   | 偏好暖海/珊瑚环境 |
+| fg_crab_purple     | fg_crab_dusk_shell  | 暮潮蟹   | 偏夜行、偏稀有   |
+| fg_crab_experience | fg_crab_moss_shell  | 潮苔蟹   | 偏海草/红树林边缘 |
 
 ---
 
 ## 3. 总体设计原则
 
-### 3.1 一个实体，多种外观与生态标签
+### 3.1 继承一个实体，独立生物多种外观与生态标签
 
 普通螃蟹建议最终收口为：
 
-- crab_normal
+- 继承crab_normal
 - variant：颜色/生态子类型
 - temperament：性格（胆小 / 护群 / 暴躁）
 - is_tamed：是否已驯服
+
+最终有
+fg_crab_sandy
+fg_crab_red_tide
+fg_crab_blue_tide
+fg_crab_frost_shell
+fg_crab_coral
+fg_crab_dusk_shell
+fg_crab_moss_shell
+独立实体继承crab_normal的行为然后做出区分
 
 也就是说：
 
 - 颜色 ≠ 性格
 - 颜色 ≠ 是否攻击
 - 颜色只负责生态身份与轻度玩法偏向
-- 当前资源包中的 fg_crab / fg_crab_help / fg_crab_aggressive 更适合作为原型期实体，后续应尽量并回同一实体架构
+- 当前资源包中的 fg_crab / fg_crab_help / fg_crab_aggressive 是作为原型期实体，后续应尽量并回同一实体架构
 
-这样做的好处是：
-
-1. 后续驯服系统不会因为颜色数量增加而爆炸。
-2. 普通螃蟹可以自然扩展更多皮肤，不需要每种颜色做一个新实体。
-3. 逻辑层更贴合 spec 中“普通螃蟹是基础生态入口”的定位。
 
 ### 3.2 差异要让玩家“看环境就能猜”
 
@@ -87,7 +88,7 @@ Minecraft 的好设计通常满足：
 ### 4.1 沙壳蟹 sandy
 
 贴图来源：fg_crab_orange  
-定位：标准普通螃蟹，作为教程型变体。
+定位：标准普通螃蟹，会进行卧沙行为。
 
 #### 生态与生成
 
@@ -223,7 +224,7 @@ Minecraft 的好设计通常满足：
 
 ### 4.6 暮潮蟹 dusk_shell
 
-贴图来源：fg_crab_pruple  
+贴图来源：fg_crab_purple  
 定位：夜晚与礁岸环境中的稀有普通型。
 
 #### 生态与生成
@@ -338,10 +339,10 @@ Minecraft 的好设计通常满足：
 
 ```text
 entity: crab_normal
-- variant: sandy / red_tide / blue_tide / frost_shell / coral / dusk_shell / moss_shell
-- temperament: timid / social / aggressive
 - is_tamed: bool
 - has_backpack: bool
+- fg:attack_mode: attack_left/attack_right/attack
+- fg:attack_personality: calm/aggressive
 ```
 
 ### 7.2 贴图映射建议
@@ -352,7 +353,7 @@ red_tide    -> fg_crab_red
 blue_tide   -> fg_crab_blue
 frost_shell -> fg_crab_ice
 coral       -> fg_crab_pink
-dusk_shell  -> fg_crab_pruple   (后续可兼容 fg_crab_purple)
+dusk_shell  -> fg_crab_purple
 moss_shell  -> fg_crab_experience
 ```
 
@@ -375,9 +376,9 @@ moss_shell  -> fg_crab_experience
 
 ## 8. 最终结论
 
-普通螃蟹的颜色设计，最合理的方向不是“做成 7 个技能型怪物”，而是：
+普通螃蟹的颜色设计，应该是分成不同生态子类型：
 
-- 一个基础实体
+- 继承一个基础实体
 - 七种生态子类型
 - 轻度玩法差异
 - 明显的环境识别度
