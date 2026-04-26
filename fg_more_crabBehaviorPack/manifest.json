@@ -1,24 +1,44 @@
 {
-   "dependencies" : [
-      {
-         "uuid": "9a6adde3-71df-4916-bd6a-ea500bc55979",
-         "version" : [ 1, 0, 0 ]
-      }
-   ],
-   "format_version" : 1,
-   "header" : {
-      "description" : "Enjoy Your Time!",
-      "min_engine_version" : [ 1, 18, 0 ],
-      "name" : "fg_more_crabBehaviorPack",
-      "uuid": "1c5b9b56-93dd-447a-bc85-a3cef3eb5512",
-      "version" : [ 1, 0, 0 ]
-   },
-   "modules" : [
-      {
-         "min_engine_version" : [ 1, 18, 0 ],
-         "type" : "data",
-         "uuid": "2d99f08b-08f8-45dd-bd91-75fd14fecbe5",
-         "version" : [ 1, 0, 0 ]
-      }
-   ]
+    "dependencies": [
+        {
+            "uuid": "23762836-cf7f-4851-89da-de9a55af7389",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ],
+    "format_version": 2,
+    "header": {
+        "description": "Enjoy Your Time!",
+        "min_engine_version": [
+            1,
+            18,
+            0
+        ],
+        "name": "fg_more_crabBehaviorPack",
+        "uuid": "dbd89370-ad04-4145-a671-2681072e5d90",
+        "version": [
+            1,
+            0,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "min_engine_version": [
+                1,
+                18,
+                0
+            ],
+            "type": "data",
+            "uuid": "731b8784-5168-4ff7-b01e-d685f285cf9d",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
 }
