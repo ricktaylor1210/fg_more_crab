@@ -134,7 +134,7 @@
                         }
                     ],
                     "on_exit": [
-                        "/event entity @e[type=fg:fg_crab,r=16] fg:recover_avoid_event"
+                        "@s fg:recover_avoid_event"
                     ]
                 }
             }
