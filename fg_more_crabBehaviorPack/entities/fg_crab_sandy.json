@@ -278,8 +278,8 @@
             "minecraft:tameable": {
                 "probability": 0.4,
                 "tame_items": [
-                    "minecraft:cod",
-                    "minecraft:salmon"
+                    "fish",
+                    "salmon"
                 ],
                 "tame_event": {
                     "event": "fg:on_tame",
@@ -292,8 +292,44 @@
                 "within_radius": 8,
                 "can_get_scared": true,
                 "items": [
-                    "minecraft:cod",
-                    "minecraft:salmon"
+                    "fish",
+                    "salmon"
+                ]
+            },
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "use_item": true,
+                        "swing": true,
+                        "interact_text": "action.interact.feed",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    { "test": "is_family", "subject": "other", "value": "player" },
+                                    { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_tamed" },
+                                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "fish" }
+                                ]
+                            },
+                            "event": "fg:try_tame",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "use_item": true,
+                        "swing": true,
+                        "interact_text": "action.interact.feed",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    { "test": "is_family", "subject": "other", "value": "player" },
+                                    { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_tamed" },
+                                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "salmon" }
+                                ]
+                            },
+                            "event": "fg:try_tame",
+                            "target": "self"
+                        }
+                    }
                 ]
             },
             "minecraft:behavior.float": {
@@ -390,6 +426,27 @@
                     },
                     {
                         "trigger": "fg:reset_attack_cycle_by_personality"
+                    }
+                ]
+            },
+            "fg:try_tame": {
+                "randomize": [
+                    {
+                        "weight": 40,
+                        "trigger": "fg:on_tame"
+                    },
+                    {
+                        "weight": 60,
+                        "trigger": "fg:on_tame_failed"
+                    }
+                ]
+            },
+            "fg:on_tame_failed": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "fg:in_avoid": false
+                        }
                     }
                 ]
             },

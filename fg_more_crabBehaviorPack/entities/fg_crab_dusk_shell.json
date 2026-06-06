@@ -176,7 +176,7 @@
             },
             "minecraft:tameable": {
                 "probability": 0.25,
-                "tame_items": ["minecraft:rotten_flesh"],
+                "tame_items": ["rotten_flesh"],
                 "tame_event": { "event": "fg:on_tame", "target": "self" }
             },
             "minecraft:behavior.float": { "priority": 0 },
@@ -192,7 +192,7 @@
                 "speed_multiplier": 1.15,
                 "within_radius": 12,
                 "can_get_scared": true,
-                "items": ["minecraft:rotten_flesh"]
+                "items": ["rotten_flesh"]
             },
             "minecraft:loot": {
                 "table": "loot_tables/entities/crab_normal_dusk_shell.json"

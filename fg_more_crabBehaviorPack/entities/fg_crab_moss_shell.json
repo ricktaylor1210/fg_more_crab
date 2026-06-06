@@ -176,7 +176,7 @@
             },
             "minecraft:tameable": {
                 "probability": 0.6,
-                "tame_items": ["minecraft:kelp"],
+                "tame_items": ["dried_kelp"],
                 "tame_event": { "event": "fg:on_tame", "target": "self" }
             },
             "minecraft:behavior.float": { "priority": 0 },
@@ -192,7 +192,7 @@
                 "speed_multiplier": 1.2,
                 "within_radius": 14,
                 "can_get_scared": true,
-                "items": ["minecraft:kelp"]
+                "items": ["dried_kelp"]
             },
             "minecraft:loot": {
                 "table": "loot_tables/entities/crab_normal_moss_shell.json"

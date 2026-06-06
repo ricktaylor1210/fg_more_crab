@@ -179,7 +179,7 @@
             },
             "minecraft:tameable": {
                 "probability": 0.3,
-                "tame_items": ["minecraft:cod", "minecraft:salmon"],
+                "tame_items": ["fish", "salmon"],
                 "tame_event": { "event": "fg:on_tame", "target": "self" }
             },
             "minecraft:behavior.tempt": {
@@ -187,7 +187,7 @@
                 "speed_multiplier": 0.95,
                 "within_radius": 7,
                 "can_get_scared": true,
-                "items": ["minecraft:cod", "minecraft:salmon"]
+                "items": ["fish", "salmon"]
             },
             "minecraft:behavior.float": { "priority": 0 },
             "minecraft:behavior.random_stroll": {

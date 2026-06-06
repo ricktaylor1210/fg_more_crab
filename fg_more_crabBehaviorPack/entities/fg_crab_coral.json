@@ -176,7 +176,7 @@
             },
             "minecraft:tameable": {
                 "probability": 0.45,
-                "tame_items": ["minecraft:tropical_fish"],
+                "tame_items": ["clownfish"],
                 "tame_event": { "event": "fg:on_tame", "target": "self" }
             },
             "minecraft:behavior.tempt": {
@@ -184,7 +184,7 @@
                 "speed_multiplier": 1.05,
                 "within_radius": 10,
                 "can_get_scared": true,
-                "items": ["minecraft:tropical_fish"]
+                "items": ["clownfish"]
             },
             "minecraft:behavior.float": { "priority": 0 },
             "minecraft:behavior.random_stroll": {
