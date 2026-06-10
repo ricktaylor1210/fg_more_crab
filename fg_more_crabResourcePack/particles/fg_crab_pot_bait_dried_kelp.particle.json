@@ -1,0 +1,46 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "fg:crab_pot_bait_dried_kelp",
+			"basic_render_parameters": {
+				"material": "particles_blend",
+				"texture": "textures/particle/crab_pot_bait_dried_kelp"
+			}
+		},
+		"components": {
+			"minecraft:emitter_local_space": {
+				"position": true,
+				"rotation": false
+			},
+			"minecraft:emitter_rate_steady": {
+				"spawn_rate": 1,
+				"max_particles": 2
+			},
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 6
+			},
+			"minecraft:emitter_shape_point": {
+				"offset": ["math.random(-0.08,0.08)", "math.random(0.95,1.15)", "math.random(-0.08,0.08)"]
+			},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": 8
+			},
+			"minecraft:particle_initial_speed": 0,
+			"minecraft:particle_motion_dynamic": {},
+			"minecraft:particle_appearance_billboard": {
+				"size": ["0.22+math.sin(variable.particle_age*220)*0.015", "0.22+math.sin(variable.particle_age*220)*0.015"],
+				"facing_camera_mode": "rotate_xyz",
+				"uv": {
+					"texture_width": 16,
+					"texture_height": 16,
+					"uv": [0, 0],
+					"uv_size": [16, 16]
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": [1, 1, 1, 1]
+			}
+		}
+	}
+}

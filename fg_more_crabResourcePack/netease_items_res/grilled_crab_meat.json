@@ -1,0 +1,11 @@
+{
+    "format_version": "1.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fg:grilled_crab_meat"
+        },
+        "components": {
+            "minecraft:icon": "fg:grilled_crab_meat"
+        }
+    }
+}

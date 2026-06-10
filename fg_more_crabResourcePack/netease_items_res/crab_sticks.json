@@ -1,0 +1,11 @@
+{
+    "format_version": "1.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fg:crab_sticks"
+        },
+        "components": {
+            "minecraft:icon": "fg:crab_sticks"
+        }
+    }
+}

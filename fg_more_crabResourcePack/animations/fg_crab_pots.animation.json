@@ -31,24 +31,79 @@
 			}
 		},
 		"animation.crab_pots.shake": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 1.0417,
+			"loop": true,
+			"animation_length": 4,
 			"bones": {
 				"crab_pots": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.125": [0, 0, "math.sin(query.anim_time * 2160) * 10"],
 						"0.375": [0, 0, "math.sin(query.anim_time * 2160) * 20"],
-						"0.5": [0, 0, 0]
+						"0.5": [0, 0, 0],
+						"4.0": [0, 0, 0]
 					}
 				}
 			}
 		},
 		"animation.crab_pots.holding": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"bones": {
 				"crab_pots": {
 					"rotation": ["-math.sin(query.anim_time * 60) * 3", 0, "math.sin(query.anim_time * 120) * 5"]
+				}
+			}
+		},
+		"animation.crab_pots.bait_fish": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0": {
+					"effect": "bait_fish"
+				}
+			}
+		},
+		"animation.crab_pots.bait_salmon": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0": {
+					"effect": "bait_salmon"
+				}
+			}
+		},
+		"animation.crab_pots.bait_clownfish": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0": {
+					"effect": "bait_clownfish"
+				}
+			}
+		},
+		"animation.crab_pots.bait_rotten_flesh": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0": {
+					"effect": "bait_rotten_flesh"
+				}
+			}
+		},
+		"animation.crab_pots.bait_dried_kelp": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0": {
+					"effect": "bait_dried_kelp"
+				}
+			}
+		},
+		"animation.crab_pots.bait_kelp": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0": {
+					"effect": "bait_kelp"
 				}
 			}
 		}

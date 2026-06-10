@@ -1,0 +1,28 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "fg:fg_crab_pots_copper"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "CCC",
+            "CPC",
+            "CCC"
+        ],
+        "key": {
+            "C": {
+                "item": "minecraft:copper_ingot"
+            },
+            "P": {
+                "item": "fg:fg_crab_pots_ordinary"
+            }
+        },
+        "result": {
+            "item": "fg:fg_crab_pots_copper",
+            "count": 1
+        }
+    }
+}

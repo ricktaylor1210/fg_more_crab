@@ -32,6 +32,30 @@
         "fg:crab_claws": {
             "textures": "textures/items/foods/crab_claws"
         },
+        "fg:grilled_crab_meat": {
+            "textures": "textures/items/foods/grilled_crab_meat"
+        },
+        "fg:crab_sticks": {
+            "textures": "textures/items/foods/crab_sticks"
+        },
+        "fg:steamed_crab": {
+            "textures": "textures/items/foods/steamed_crab"
+        },
+        "fg:fg_crab_pots_ordinary": {
+            "textures": "textures/items/crab_pots/fg_crab_pots_ordinary"
+        },
+        "fg:fg_crab_pots_copper": {
+            "textures": "textures/items/crab_pots/fg_crab_pots_copper"
+        },
+        "fg:fg_crab_pots_iron": {
+            "textures": "textures/items/crab_pots/fg_crab_pots_iron"
+        },
+        "fg:fg_crab_pots_gold": {
+            "textures": "textures/items/crab_pots/fg_crab_pots_gold"
+        },
+        "fg:fg_crab_pots_diamond": {
+            "textures": "textures/items/crab_pots/fg_crab_pots_diamond"
+        },
         "fg:fg_crab_help": {
             "textures": "textures/items/crab/fg_crab_red"
         },

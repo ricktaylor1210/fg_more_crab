@@ -1,0 +1,31 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "fg:fg_crab_pots_ordinary"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SCS",
+            "CTC",
+            "SCS"
+        ],
+        "key": {
+            "S": {
+                "item": "minecraft:stick"
+            },
+            "C": {
+                "item": "fg:crab_shell_powder"
+            },
+            "T": {
+                "item": "minecraft:string"
+            }
+        },
+        "result": {
+            "item": "fg:fg_crab_pots_ordinary",
+            "count": 1
+        }
+    }
+}

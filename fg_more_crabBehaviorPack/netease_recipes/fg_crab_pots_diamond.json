@@ -1,0 +1,28 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "fg:fg_crab_pots_diamond"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "DDD",
+            "DPD",
+            "DDD"
+        ],
+        "key": {
+            "D": {
+                "item": "minecraft:diamond"
+            },
+            "P": {
+                "item": "fg:fg_crab_pots_gold"
+            }
+        },
+        "result": {
+            "item": "fg:fg_crab_pots_diamond",
+            "count": 1
+        }
+    }
+}

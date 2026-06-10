@@ -1,0 +1,1976 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "fg:fg_crab_pots_iron",
+      "spawn_category": "misc",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "fg:catch_state": {
+          "type": "enum",
+          "values": [
+            "waiting",
+            "ready"
+          ],
+          "default": "waiting",
+          "client_sync": true
+        },
+        "fg:bait_type": {
+          "type": "enum",
+          "values": [
+            "none",
+            "fish",
+            "salmon",
+            "clownfish",
+            "rotten_flesh",
+            "dried_kelp",
+            "kelp"
+          ],
+          "default": "none",
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "groups:normal_loot": {
+        "minecraft:loot": {
+          "table": "loot_tables/entities/fg_crab_pots_iron.json"
+        }
+      },
+      "groups:waiting_timer": {
+        "minecraft:timer": {
+          "looping": false,
+          "random_time_choices": [
+            {
+              "weight": 30,
+              "value": 45
+            },
+            {
+              "weight": 45,
+              "value": 65
+            },
+            {
+              "weight": 25,
+              "value": 90
+            }
+          ],
+          "time_down_event": {
+            "event": "fg:finish_waiting",
+            "target": "self"
+          }
+        }
+      },
+      "groups:broken_loot": {
+        "minecraft:loot": {
+          "table": "loot_tables/entities/fg_crab_pots_broken.json"
+        }
+      },
+      "groups:ready_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "swing": true,
+              "interact_text": "action.interact.collect",
+              "on_interact": {
+                "filters": {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                "event": "fg:collect_catch",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:set_bait_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "cod"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "salmon"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_salmon",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "clownfish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "tropical_fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "rotten_flesh"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "dried_kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.place_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:switch_bait_fish_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "salmon"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_salmon",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "clownfish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "tropical_fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "rotten_flesh"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "dried_kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:switch_bait_salmon_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "cod"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "clownfish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "tropical_fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "rotten_flesh"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "dried_kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:switch_bait_clownfish_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "cod"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "salmon"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_salmon",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "rotten_flesh"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "dried_kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:switch_bait_rotten_flesh_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "cod"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "salmon"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_salmon",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "clownfish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "tropical_fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "dried_kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:switch_bait_dried_kelp_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "cod"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "salmon"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_salmon",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "clownfish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "tropical_fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "rotten_flesh"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:switch_bait_kelp_interact": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "cod"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_fish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "salmon"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_salmon",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "clownfish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "tropical_fish"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_clownfish",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "rotten_flesh"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self"
+              }
+            },
+            {
+              "use_item": true,
+              "swing": true,
+              "interact_text": "action.interact.change_bait",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "dried_kelp"
+                    }
+                  ]
+                },
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "groups:ready_float": {
+        "minecraft:buoyant": {
+          "base_buoyancy": 1.0,
+          "apply_gravity": true,
+          "liquid_blocks": [
+            "minecraft:flowing_water",
+            "minecraft:water"
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "crab_pot",
+          "fg_crab_pot"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 1.0
+      },
+      "minecraft:health": {
+        "value": 12,
+        "max": 12
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:persistent": {},
+      "minecraft:nameable": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "trigger": "fg:reset_trap"
+          }
+        ]
+      },
+      "fg:finish_waiting": {
+        "randomize": [
+          {
+            "weight": 4,
+            "trigger": "fg:crab_breaks_pot"
+          },
+          {
+            "weight": 96,
+            "trigger": "fg:catch_ready"
+          }
+        ]
+      },
+      "fg:catch_ready": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:catch_state": "ready"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:waiting_timer",
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:ready_interact",
+                "groups:ready_float"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:crab_breaks_pot": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:normal_loot"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:broken_loot"
+              ]
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "kill @s"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:roll_no_bait": {
+        "randomize": [
+          {
+            "weight": 65,
+            "trigger": "fg:drop_catch_loot"
+          },
+          {
+            "weight": 35,
+            "trigger": "fg:release_caught_crab"
+          }
+        ]
+      },
+      "fg:drop_catch_loot": {
+        "queue_command": {
+          "command": [
+            "loot spawn ~ ~0.7 ~ loot \"gameplay/fg_crab_pot_iron\""
+          ]
+        }
+      },
+      "fg:release_caught_crab": {
+        "randomize": [
+          {
+            "weight": 70,
+            "trigger": "fg:release_sandy"
+          },
+          {
+            "weight": 30,
+            "trigger": "fg:release_coral"
+          }
+        ]
+      },
+      "fg:release_sandy": {
+        "queue_command": {
+          "command": [
+            "summon fg:fg_crab_sandy ~ ~0.7 ~"
+          ]
+        }
+      },
+      "fg:release_coral": {
+        "queue_command": {
+          "command": [
+            "summon fg:fg_crab_coral ~ ~0.7 ~"
+          ]
+        }
+      },
+      "fg:roll_tame_food_bait": {
+        "randomize": [
+          {
+            "weight": 50,
+            "trigger": "fg:drop_catch_loot"
+          },
+          {
+            "weight": 50,
+            "trigger": "fg:release_caught_crab"
+          }
+        ]
+      },
+      "fg:roll_catch_result": {
+        "sequence": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "none"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_no_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "none"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_no_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "fish"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "fish"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "salmon"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "salmon"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "clownfish"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "clownfish"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "rotten_flesh"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "rotten_flesh"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "dried_kelp"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "dried_kelp"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "kelp"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": true
+                }
+              ]
+            },
+            "trigger": "fg:roll_tame_food_bait"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "enum_property",
+                  "domain": "fg:bait_type",
+                  "value": "kelp"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "trigger": "fg:roll_land_tame_food_bait"
+          }
+        ]
+      },
+      "fg:roll_land_no_bait": {
+        "randomize": [
+          {
+            "weight": 65,
+            "trigger": "fg:drop_catch_loot"
+          },
+          {
+            "weight": 35,
+            "trigger": "fg:release_caught_crab"
+          },
+          {
+            "weight": 200,
+            "trigger": "fg:no_catch"
+          }
+        ]
+      },
+      "fg:roll_land_tame_food_bait": {
+        "randomize": [
+          {
+            "weight": 50,
+            "trigger": "fg:drop_catch_loot"
+          },
+          {
+            "weight": 50,
+            "trigger": "fg:release_caught_crab"
+          },
+          {
+            "weight": 200,
+            "trigger": "fg:no_catch"
+          }
+        ]
+      },
+      "fg:no_catch": {
+        "set_property": {
+          "fg:catch_state": "ready"
+        }
+      },
+      "fg:set_bait_fish": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:bait_type": "fish"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:switch_bait_fish_interact"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:set_bait_salmon": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:bait_type": "salmon"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:switch_bait_salmon_interact"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:set_bait_clownfish": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:bait_type": "clownfish"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:switch_bait_clownfish_interact"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:set_bait_rotten_flesh": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:bait_type": "rotten_flesh"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:switch_bait_rotten_flesh_interact"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:set_bait_dried_kelp": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:bait_type": "dried_kelp"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:switch_bait_dried_kelp_interact"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:set_bait_kelp": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:bait_type": "kelp"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:switch_bait_kelp_interact"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:clear_bait_visual": {
+        "set_property": {
+          "fg:bait_type": "none"
+        }
+      },
+      "fg:collect_catch": {
+        "sequence": [
+          {
+            "trigger": "fg:roll_catch_result"
+          },
+          {
+            "trigger": "fg:clear_bait_visual"
+          },
+          {
+            "trigger": "fg:reset_trap"
+          }
+        ]
+      },
+      "fg:reset_trap": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:catch_state": "waiting"
+            }
+          },
+          {
+            "set_property": {
+              "fg:bait_type": "none"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:ready_interact",
+                "groups:waiting_timer",
+                "groups:set_bait_interact",
+                "groups:switch_bait_fish_interact",
+                "groups:switch_bait_salmon_interact",
+                "groups:switch_bait_clownfish_interact",
+                "groups:switch_bait_rotten_flesh_interact",
+                "groups:switch_bait_dried_kelp_interact",
+                "groups:switch_bait_kelp_interact",
+                "groups:ready_float"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:normal_loot",
+                "groups:waiting_timer",
+                "groups:set_bait_interact"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

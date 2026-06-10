@@ -1,0 +1,69 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "fg:fg_crab_pots_gold",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/crab_pots/fg_crab_pots_gold"
+      },
+      "geometry": {
+        "default": "geometry.crab_pots"
+      },
+      "animations": {
+        "drop_down": "animation.crab_pots.drop_down",
+        "shake": "animation.crab_pots.shake",
+        "bait_fish": "animation.crab_pots.bait_fish",
+        "bait_salmon": "animation.crab_pots.bait_salmon",
+        "bait_clownfish": "animation.crab_pots.bait_clownfish",
+        "bait_rotten_flesh": "animation.crab_pots.bait_rotten_flesh",
+        "bait_dried_kelp": "animation.crab_pots.bait_dried_kelp",
+        "holding": "animation.crab_pots.holding",
+        "bait_kelp": "animation.crab_pots.bait_kelp"
+      },
+      "scripts": {
+        "scale": "0.75",
+        "animate": [
+          "drop_down",
+          {
+            "holding": "query.is_in_water && query.property('fg:catch_state') == 'ready'"
+          },
+          {
+            "shake": "query.property('fg:catch_state') == 'ready'"
+          },
+          {
+            "bait_fish": "query.property('fg:bait_type') == 'fish'"
+          },
+          {
+            "bait_salmon": "query.property('fg:bait_type') == 'salmon'"
+          },
+          {
+            "bait_clownfish": "query.property('fg:bait_type') == 'clownfish'"
+          },
+          {
+            "bait_rotten_flesh": "query.property('fg:bait_type') == 'rotten_flesh'"
+          },
+          {
+            "bait_dried_kelp": "query.property('fg:bait_type') == 'dried_kelp'"
+          },
+          {
+            "bait_kelp": "query.property('fg:bait_type') == 'kelp'"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.crab_pot_no_hurt"
+      ],
+      "particle_effects": {
+        "bait_fish": "fg:crab_pot_bait_fish",
+        "bait_salmon": "fg:crab_pot_bait_salmon",
+        "bait_clownfish": "fg:crab_pot_bait_clownfish",
+        "bait_rotten_flesh": "fg:crab_pot_bait_rotten_flesh",
+        "bait_dried_kelp": "fg:crab_pot_bait_dried_kelp",
+        "bait_kelp": "fg:crab_pot_bait_kelp"
+      }
+    }
+  }
+}

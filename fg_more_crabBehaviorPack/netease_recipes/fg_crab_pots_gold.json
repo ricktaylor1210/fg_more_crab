@@ -1,0 +1,28 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "fg:fg_crab_pots_gold"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "GGG",
+            "GPG",
+            "GGG"
+        ],
+        "key": {
+            "G": {
+                "item": "minecraft:gold_ingot"
+            },
+            "P": {
+                "item": "fg:fg_crab_pots_iron"
+            }
+        },
+        "result": {
+            "item": "fg:fg_crab_pots_gold",
+            "count": 1
+        }
+    }
+}

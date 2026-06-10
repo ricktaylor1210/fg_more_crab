@@ -1,0 +1,16 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "fg:grilled_crab_meat_from_crab_claws"
+        },
+        "tags": [
+            "furnace",
+            "smoker",
+            "campfire",
+            "soul_campfire"
+        ],
+        "input": "fg:crab_claws",
+        "output": "fg:grilled_crab_meat"
+    }
+}
