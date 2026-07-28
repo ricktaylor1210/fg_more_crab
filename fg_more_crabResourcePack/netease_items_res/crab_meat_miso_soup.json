@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:crab_meat_miso_soup"
+    },
+    "components": {
+      "minecraft:icon": "fg:crab_meat_miso_soup"
+    }
+  }
+}

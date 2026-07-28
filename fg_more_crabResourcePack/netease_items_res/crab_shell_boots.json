@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:crab_shell_boots"
+    },
+    "components": {
+      "minecraft:icon": "fg:crab_shell_boots"
+    }
+  }
+}

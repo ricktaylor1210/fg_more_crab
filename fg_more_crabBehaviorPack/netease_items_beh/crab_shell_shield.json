@@ -1,0 +1,22 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:crab_shell_shield",
+      "is_experimental": false,
+      "category": "more_crab",
+      "register_to_create_menu": true,
+      "custom_item_type": "shield"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "netease:allow_offhand": {
+        "value": true
+      },
+      "netease:customtips": {
+        "value": "蟹壳盾牌：潜行时进入盾牌抵挡，正面格挡并消耗耐久。"
+      },
+      "minecraft:max_damage": 180
+    }
+  }
+}

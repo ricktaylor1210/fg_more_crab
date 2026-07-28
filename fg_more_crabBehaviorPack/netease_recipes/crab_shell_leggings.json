@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:crab_shell_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "CCC",
+      "C C",
+      "C C"
+    ],
+    "key": {
+      "C": {
+        "item": "fg:crab_shell_powder"
+      }
+    },
+    "result": {
+      "item": "fg:crab_shell_leggings",
+      "count": 1
+    }
+  }
+}

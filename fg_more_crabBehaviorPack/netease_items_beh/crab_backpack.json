@@ -1,0 +1,17 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:crab_backpack",
+      "is_experimental": false,
+      "category": "more_crab",
+      "register_to_create_menu": true
+    },
+    "components": {
+      "minecraft:max_stack_size": 16,
+      "netease:customtips": {
+        "value": "蟹壳背包：潜行时对已驯服的普通螃蟹使用，可装备 27 格背包。卸下：清空背包后，潜行用剪刀右键螃蟹可以取下。"
+      }
+    }
+  }
+}

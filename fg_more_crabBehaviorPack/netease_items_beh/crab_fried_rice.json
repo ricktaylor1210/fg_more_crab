@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:crab_fried_rice",
+      "is_experimental": false,
+      "category": "more_crab",
+      "register_to_create_menu": true
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "netease:customtips": {
+        "value": "蟹肉炒饭"
+      },
+      "minecraft:use_duration": 24.0,
+      "minecraft:food": {
+        "nutrition": 9,
+        "saturation_modifier": "good",
+        "can_always_eat": false,
+        "effects": [
+          {
+            "name": "haste",
+            "chance": 1.0,
+            "duration": 30,
+            "amplifier": 0
+          }
+        ]
+      }
+    }
+  }
+}

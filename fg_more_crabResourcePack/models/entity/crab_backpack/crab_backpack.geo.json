@@ -12,7 +12,22 @@
 			},
 			"bones": [
 				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "crab",
+					"parent": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "crab",
+					"pivot": [0, 3.5, 0.5]
+				},
+				{
 					"name": "crab_backpack",
+					"parent": "body",
 					"pivot": [0, 6.09808, 3.09808],
 					"rotation": [-30, 0, 0],
 					"cubes": [
@@ -22,6 +37,183 @@
 						{"origin": [-4, 2.59808, -1.40192], "size": [2, 7, 9], "uv": [0, 14], "mirror": true},
 						{"origin": [-7, 4.09808, 0.09808], "size": [1, 4, 6], "uv": [22, 14], "mirror": true}
 					]
+				},
+				{
+					"name": "ore",
+					"parent": "body",
+					"pivot": [0.8125, 5.95921, 1.0644]
+				},
+				{
+					"name": "ore1",
+					"parent": "ore",
+					"pivot": [0, 7.26991, 0.85602]
+				},
+				{
+					"name": "ore2",
+					"parent": "ore",
+					"pivot": [-2.10571, 7.98124, -1.33031]
+				},
+				{
+					"name": "ore3",
+					"parent": "ore",
+					"pivot": [2.05148, 7.44099, 3.03209]
+				},
+				{
+					"name": "ore4",
+					"parent": "ore",
+					"pivot": [0, 10.48858, 1.01147]
+				},
+				{
+					"name": "ore5",
+					"parent": "ore",
+					"pivot": [3.25, 6, -2.5]
+				},
+				{
+					"name": "ore6",
+					"parent": "ore",
+					"pivot": [4.15152, 6.76736, -0.05]
+				},
+				{
+					"name": "ore7",
+					"parent": "ore",
+					"pivot": [-3.5, 6, 3.75]
+				},
+				{
+					"name": "ore8",
+					"parent": "ore",
+					"pivot": [-4.2038, 6.79341, -1.25]
+				},
+				{
+					"name": "rightmouth",
+					"parent": "body",
+					"pivot": [-1, 1.5, -3.75],
+					"rotation": [5, 0, 0]
+				},
+				{
+					"name": "leftmouth",
+					"parent": "body",
+					"pivot": [1, 1.5, -3.75],
+					"rotation": [5, 0, 0]
+				},
+				{
+					"name": "righteye",
+					"parent": "body",
+					"pivot": [-2.5, 5.5, -4]
+				},
+				{
+					"name": "lefteye",
+					"parent": "body",
+					"pivot": [2.5, 5.5, -4]
+				},
+				{
+					"name": "leftbeard",
+					"parent": "body",
+					"pivot": [1.25, 5.5, -4],
+					"rotation": [-15, 0, 0]
+				},
+				{
+					"name": "rightbeard",
+					"parent": "body",
+					"pivot": [-1.25, 5.5, -4],
+					"rotation": [-15, 0, 0]
+				},
+				{
+					"name": "rightpliers",
+					"parent": "body",
+					"pivot": [-6.91726, 4.04571, -3.53197],
+					"rotation": [14.26296, 40.67651, 6.69821]
+				},
+				{
+					"name": "bone2",
+					"parent": "rightpliers",
+					"pivot": [-7.41726, 2.54571, -5.53197]
+				},
+				{
+					"name": "bone3",
+					"parent": "rightpliers",
+					"pivot": [-7.41726, 2.54571, -5.53197]
+				},
+				{
+					"name": "rightpliers_ore",
+					"parent": "body",
+					"pivot": [-6.58455, 4.03308, -3.14577],
+					"rotation": [14.26296, 40.67651, 6.69821]
+				},
+				{
+					"name": "bone6",
+					"parent": "rightpliers_ore",
+					"pivot": [-10.08455, 2.53308, -5.14577]
+				},
+				{
+					"name": "bone7",
+					"parent": "rightpliers_ore",
+					"pivot": [-9.08455, 3.53308, -5.14577]
+				},
+				{
+					"name": "leftpliers",
+					"parent": "body",
+					"pivot": [6.91726, 4.04571, -3.53197],
+					"rotation": [14.26296, -40.67651, -6.69821]
+				},
+				{
+					"name": "bone4",
+					"parent": "leftpliers",
+					"pivot": [7.41726, 2.54571, -5.53197]
+				},
+				{
+					"name": "bone5",
+					"parent": "leftpliers",
+					"pivot": [7.41726, 2.54571, -5.53197]
+				},
+				{
+					"name": "rightleg",
+					"parent": "crab",
+					"pivot": [-5, 2, 0.5]
+				},
+				{
+					"name": "rightlegs",
+					"parent": "rightleg",
+					"pivot": [-6, 2, -2.5]
+				},
+				{
+					"name": "rightlegs2",
+					"parent": "rightleg",
+					"pivot": [-6, 2, -0.5]
+				},
+				{
+					"name": "rightlegs3",
+					"parent": "rightleg",
+					"pivot": [-6, 2, 1.5]
+				},
+				{
+					"name": "rightlegs5",
+					"parent": "rightleg",
+					"pivot": [-6, 2, 3.5]
+				},
+				{
+					"name": "leftleg",
+					"parent": "crab",
+					"pivot": [5, 2, 0.5]
+				},
+				{
+					"name": "leftlegs",
+					"parent": "leftleg",
+					"pivot": [6, 2, -2.5]
+				},
+				{
+					"name": "leftlegs2",
+					"parent": "leftleg",
+					"pivot": [6, 2, -0.5]
+				},
+				{
+					"name": "leftlegs3",
+					"parent": "leftleg",
+					"pivot": [6, 2, 1.5]
+				},
+				{
+					"name": "leftlegs5",
+					"parent": "leftleg",
+					"pivot": [6, 2, 3.5]
 				}
 			]
 		}

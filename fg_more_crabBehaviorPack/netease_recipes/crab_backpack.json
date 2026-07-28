@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:crab_backpack"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SLS",
+      "C C",
+      "SLS"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:string"
+      },
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "C": {
+        "item": "fg:crab_shell_powder"
+      }
+    },
+    "result": {
+      "item": "fg:crab_backpack",
+      "count": 1
+    }
+  }
+}

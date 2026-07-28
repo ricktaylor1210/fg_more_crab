@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:crab_shell_shield"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " C ",
+      "CIC",
+      " C "
+    ],
+    "key": {
+      "C": {
+        "item": "fg:crab_shell_powder"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "fg:crab_shell_shield",
+      "count": 1
+    }
+  }
+}

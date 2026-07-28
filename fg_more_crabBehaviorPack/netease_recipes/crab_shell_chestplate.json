@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:crab_shell_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "C C",
+      "CCC",
+      "CCC"
+    ],
+    "key": {
+      "C": {
+        "item": "fg:crab_shell_powder"
+      }
+    },
+    "result": {
+      "item": "fg:crab_shell_chestplate",
+      "count": 1
+    }
+  }
+}

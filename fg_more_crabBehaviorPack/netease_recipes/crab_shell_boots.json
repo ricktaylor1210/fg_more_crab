@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:crab_shell_boots"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "C C",
+      "C C"
+    ],
+    "key": {
+      "C": {
+        "item": "fg:crab_shell_powder"
+      }
+    },
+    "result": {
+      "item": "fg:crab_shell_boots",
+      "count": 1
+    }
+  }
+}

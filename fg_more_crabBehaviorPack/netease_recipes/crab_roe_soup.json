@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "fg:crab_roe_soup"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "fg:crab_claws"
+      },
+      {
+        "item": "minecraft:egg"
+      },
+      {
+        "item": "minecraft:bowl"
+      }
+    ],
+    "result": {
+      "item": "fg:crab_roe_soup",
+      "count": 1
+    }
+  }
+}
