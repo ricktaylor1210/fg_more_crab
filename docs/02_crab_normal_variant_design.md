@@ -36,31 +36,33 @@
 
 ## 3. 总体设计原则
 
-### 3.1 继承一个实体，独立生物多种外观与生态标签
+### 3.1 设计抽象一致，当前实现为七个独立实体
 
-普通螃蟹建议最终收口为：
+普通螃蟹的设计抽象建议收口为：
 
 - 继承crab_normal
 - variant：颜色/生态子类型
 - temperament：性格（胆小 / 护群 / 暴躁）
 - is_tamed：是否已驯服
 
-最终有
-fg_crab_sandy
-fg_crab_red_tide
-fg_crab_blue_tide
-fg_crab_frost_shell
-fg_crab_coral
-fg_crab_dusk_shell
-fg_crab_moss_shell
-独立实体继承crab_normal的行为然后做出区分
+当前实现为了更贴合 Bedrock / 网易包体的维护方式，已经落地为 7 个正式独立实体：
+
+- `fg:crab_sandy`
+- `fg:crab_red_tide`
+- `fg:crab_blue_tide`
+- `fg:crab_frost_shell`
+- `fg:crab_coral`
+- `fg:crab_dusk_shell`
+- `fg:crab_moss_shell`
+
+这些实体复用基础螃蟹行为骨架，并通过独立实体、生成规则、资源入口和掉落表做生态区分。
 
 也就是说：
 
 - 颜色 ≠ 性格
 - 颜色 ≠ 是否攻击
 - 颜色只负责生态身份与轻度玩法偏向
-- 当前资源包中的 fg_crab / fg_crab_help / fg_crab_aggressive 是作为原型期实体，后续应尽量并回同一实体架构
+- 当前资源包中的 `fg_crab` / `fg_crab_help` / `fg_crab_aggressive` 作为原型期实体保留，用于兼容和调试；正式展示以 7 个普通生态变体为主。
 
 
 ### 3.2 差异要让玩家“看环境就能猜”
@@ -341,9 +343,12 @@ Minecraft 的好设计通常满足：
 entity: crab_normal
 - is_tamed: bool
 - has_backpack: bool
+- follow_state: follow/stay
 - fg:attack_mode: attack_left/attack_right/attack
 - fg:attack_personality: calm/aggressive
 ```
+
+当前 7 个正式普通生态实体已经落地 `fg:is_tamed`、`fg:has_backpack` 和 `fg:follow_state`。驯服后默认进入 `follow`，玩家可右键切换到 `stay`；蟹壳背包通过 Shift+右键装备 / 卸下。
 
 ### 7.2 贴图映射建议
 
@@ -359,9 +364,11 @@ moss_shell  -> fg_crab_experience
 
 ### 7.3 掉落表建议
 
-- 基础掉落表：统一使用普通螃蟹主表
-- 子类型差异：通过附加权重控制
-- 不建议为 7 个普通型拆 7 张完全独立 loot table，维护成本太高
+- 基础掉落结构：保持普通螃蟹主表的资源语义
+- 子类型差异：通过独立掉落表里的权重和数量控制
+- 不建议为 7 个普通型拆 7 张结构完全不同的 loot table，维护成本太高
+
+当前实现已经为 7 个正式普通变体拆出独立掉落表，以便直接控制肉偏向、壳偏向和稀有变体收益。后续新增普通变体时，应继续保持“独立掉落表但结构一致”的方式，避免把平衡差异写回实体 AI。
 
 ### 7.4 驯服系统建议
 
