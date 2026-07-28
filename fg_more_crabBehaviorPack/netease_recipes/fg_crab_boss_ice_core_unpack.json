@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "fg:crab_boss_ice_core_unpack"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "fg:crab_boss_ice_core"
+      }
+    ],
+    "result": {
+      "item": "fg:crab_shell_powder",
+      "count": 8
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:lava_battle_axe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MM ",
+      "MC ",
+      " S "
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:blaze_rod"
+      },
+      "C": {
+        "item": "fg:crab_boss_lava_core"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "fg:lava_battle_axe",
+      "count": 1
+    }
+  }
+}

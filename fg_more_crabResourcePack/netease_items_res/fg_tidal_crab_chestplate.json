@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:tidal_crab_chestplate"
+    },
+    "components": {
+      "minecraft:icon": "fg:tidal_crab_chestplate",
+      "minecraft:hover_text_color": "Aqua"
+    }
+  }
+}

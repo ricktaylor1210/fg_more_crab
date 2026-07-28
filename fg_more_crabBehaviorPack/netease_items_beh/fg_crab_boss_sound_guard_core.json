@@ -1,0 +1,17 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:crab_boss_sound_guard_core",
+      "is_experimental": false,
+      "category": "more_crab",
+      "register_to_create_menu": true
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "netease:customtips": {
+        "value": "回音守卫蟹王核心"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:swamp_poison_pliers"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "M M",
+      " C ",
+      " S "
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:slime_ball"
+      },
+      "C": {
+        "item": "fg:crab_boss_poisonous_swamp_core"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "fg:swamp_poison_pliers",
+      "count": 1
+    }
+  }
+}

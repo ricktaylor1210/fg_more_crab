@@ -1,0 +1,361 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "fg:crab_boss_poisonous_swamp",
+      "spawn_category": "monster",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "reset_attack_model": "controller.animation.fg_crab.reset_attack_model",
+        "attack_switch": "controller.animation.fg_crab.attack_switch",
+        "switch_attack_left": "animation.fg_crab.switch_attack_left",
+        "switch_attack_right": "animation.fg_crab.switch_attack_right",
+        "switch_attack_double": "animation.fg_crab.switch_attack_double"
+      },
+      "scripts": {
+        "animate": [
+          "reset_attack_model",
+          "attack_switch"
+        ]
+      },
+      "properties": {
+        "fg:attack_mode": {
+          "type": "enum",
+          "values": [
+            "attack_left",
+            "attack_right",
+            "attack"
+          ],
+          "default": "attack_left",
+          "client_sync": true
+        },
+        "fg:boss_phase": {
+          "type": "enum",
+          "values": [
+            "phase_1",
+            "phase_2",
+            "phase_3"
+          ],
+          "default": "phase_1",
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "groups:attack_left": {
+        "minecraft:attack": {
+          "damage": 9,
+          "effect_duration": 0.0
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.0,
+          "attack_duration": 1.0,
+          "attack_once": false,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 1.35,
+          "cooldown_time": 1.4,
+          "hit_delay_pct": 0.48
+        }
+      },
+      "groups:attack_right": {
+        "minecraft:attack": {
+          "damage": 9,
+          "effect_duration": 0.0
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.0,
+          "attack_duration": 1.0,
+          "attack_once": false,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 1.35,
+          "cooldown_time": 1.4,
+          "hit_delay_pct": 0.48
+        }
+      },
+      "groups:attack_double": {
+        "minecraft:attack": {
+          "damage": 13,
+          "effect_duration": 0.0
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.0,
+          "attack_duration": 1.25,
+          "attack_once": false,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 1.7,
+          "cooldown_time": 2.0,
+          "hit_delay_pct": 0.55
+        }
+      },
+      "groups:boss_phase_2": {
+        "minecraft:movement": {
+          "value": 0.202
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.55
+        }
+      },
+      "groups:boss_phase_3": {
+        "minecraft:movement": {
+          "value": 0.225
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.75
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "mob",
+          "monster",
+          "crab",
+          "fg_crab",
+          "fg_crab_boss",
+          "fg_crab_boss_poisonous_swamp",
+          "boss"
+        ]
+      },
+      "minecraft:boss": {
+        "hud_range": 64,
+        "name": "毒沼蟹王",
+        "should_darken_sky": false
+      },
+      "minecraft:collision_box": {
+        "width": 3.0,
+        "height": 1.6
+      },
+      "minecraft:health": {
+        "value": 175,
+        "max": 175
+      },
+      "minecraft:scale": {
+        "value": 1.0
+      },
+      "minecraft:movement": {
+        "value": 0.18
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_pass_doors": false,
+        "can_path_over_water": true,
+        "can_path_from_air": true,
+        "avoid_water": false
+      },
+      "minecraft:jump.static": {
+        "jump_power": 0.42
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:nameable": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:experience_reward": {
+        "on_death": "Math.Random(18,30)"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/fg_crab_boss_poisonous_swamp.json"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 28,
+        "must_see": true,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 28
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.55,
+        "xz_dist": 8,
+        "y_dist": 4
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 16.0,
+        "probability": 0.05
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.45
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:attack_left",
+                "groups:attack_right",
+                "groups:attack_double",
+                "groups:boss_phase_2",
+                "groups:boss_phase_3"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:attack_left"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "fg:attack_mode": "attack_left",
+              "fg:boss_phase": "phase_1"
+            }
+          }
+        ]
+      },
+      "fg:switch_to_attack_left": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:attack_right",
+                "groups:attack_double"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:attack_left"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "fg:attack_mode": "attack_left"
+            }
+          }
+        ]
+      },
+      "fg:switch_to_attack_right": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:attack_left",
+                "groups:attack_double"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:attack_right"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "fg:attack_mode": "attack_right"
+            }
+          }
+        ]
+      },
+      "fg:switch_to_attack_double": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:attack_left",
+                "groups:attack_right"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:attack_double"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "fg:attack_mode": "attack"
+            }
+          }
+        ]
+      },
+      "fg:boss_phase_2": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:boss_phase_3"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:boss_phase_2"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "fg:boss_phase": "phase_2"
+            }
+          }
+        ]
+      },
+      "fg:boss_phase_3": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "groups:boss_phase_2"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:boss_phase_3"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "fg:boss_phase": "phase_3"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

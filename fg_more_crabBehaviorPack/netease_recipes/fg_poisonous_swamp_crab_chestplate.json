@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:poisonous_swamp_crab_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "P P",
+      "MCM",
+      "PPP"
+    ],
+    "key": {
+      "P": {
+        "item": "fg:crab_shell_powder"
+      },
+      "C": {
+        "item": "fg:crab_boss_poisonous_swamp_core"
+      },
+      "M": {
+        "item": "minecraft:slime_ball"
+      }
+    },
+    "result": {
+      "item": "fg:poisonous_swamp_crab_chestplate",
+      "count": 1
+    }
+  }
+}

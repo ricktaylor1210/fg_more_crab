@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "fg:crab_boss_sound_guard",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/crab_boss/fg_crab_boss_sound_guard"
+      },
+      "geometry": {
+        "default": "geometry.crab_boss"
+      },
+      "animations": {
+        "scale_large": "animation.crab_boss.scale_large",
+        "idle": "animation.crab_boss.idle",
+        "walk": "animation.crab_boss.walk",
+        "walk_attack": "animation.crab_boss.walk_attack",
+        "attack": "animation.crab_boss.heavy_attack",
+        "attack_left": "animation.crab_boss.attack_pincer_left",
+        "attack_right": "animation.crab_boss.attack_pincer_right",
+        "base_controller": "controller.animation.fg_crab.base"
+      },
+      "scripts": {
+        "animate": [
+          "scale_large",
+          "base_controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.mc_default"
+      ],
+      "spawn_egg": {
+        "texture": "fg:crab_boss_sound_guard",
+        "texture_index": 0
+      }
+    }
+  }
+}

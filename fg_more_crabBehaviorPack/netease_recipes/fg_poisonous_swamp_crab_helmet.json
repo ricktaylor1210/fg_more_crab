@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:poisonous_swamp_crab_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MMM",
+      "PCP"
+    ],
+    "key": {
+      "P": {
+        "item": "fg:crab_shell_powder"
+      },
+      "C": {
+        "item": "fg:crab_boss_poisonous_swamp_core"
+      },
+      "M": {
+        "item": "minecraft:slime_ball"
+      }
+    },
+    "result": {
+      "item": "fg:poisonous_swamp_crab_helmet",
+      "count": 1
+    }
+  }
+}

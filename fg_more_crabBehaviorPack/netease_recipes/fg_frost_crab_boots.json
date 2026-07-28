@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:frost_crab_boots"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "P P",
+      "MCM"
+    ],
+    "key": {
+      "P": {
+        "item": "fg:crab_shell_powder"
+      },
+      "C": {
+        "item": "fg:crab_boss_ice_core"
+      },
+      "M": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    "result": {
+      "item": "fg:frost_crab_boots",
+      "count": 1
+    }
+  }
+}

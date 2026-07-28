@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fg:frost_crystal_crab_spear"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "  M",
+      " C ",
+      "S  "
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:packed_ice"
+      },
+      "C": {
+        "item": "fg:crab_boss_ice_core"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "fg:frost_crystal_crab_spear",
+      "count": 1
+    }
+  }
+}

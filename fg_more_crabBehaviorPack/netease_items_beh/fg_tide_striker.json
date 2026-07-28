@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fg:tide_striker",
+      "is_experimental": false,
+      "category": "more_crab",
+      "register_to_create_menu": true,
+      "custom_item_type": "weapon"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:max_damage": 1000,
+      "netease:weapon": {
+        "type": "sword",
+        "level": 5,
+        "speed": 8,
+        "attack_damage": 10,
+        "enchantment": 18
+      },
+      "netease:fire_resistant": {
+        "value": true
+      },
+      "netease:customtips": {
+        "value": "Boss 武器：命中水浪击退；右键释放潮汐牵引区，冷却 12 秒。"
+      }
+    }
+  }
+}
