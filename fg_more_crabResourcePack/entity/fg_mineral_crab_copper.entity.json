@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "fg:mineral_crab_copper",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/crab_mineral/fg_mineral_crab_copper"
+      },
+      "geometry": {
+        "default": "geometry.crab"
+      },
+      "animations": {
+        "idle": "animation.crab.idle",
+        "walk": "animation.crab.walk",
+        "walk_attack": "animation.crab.walk_attack",
+        "attack": "animation.crab.attack",
+        "attack_left": "animation.crab.attack_left",
+        "attack_right": "animation.crab.attack_right",
+        "base_controller": "controller.animation.fg_crab.base",
+        "sideways_pose_controller": "controller.animation.fg_crab.sideways_pose",
+        "sideways_pose": "animation.fg_crab.sideways_pose"
+      },
+      "scripts": {
+        "animate": [
+          "base_controller",
+          "sideways_pose_controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.mc_default"
+      ],
+      "spawn_egg": {
+        "texture": "fg:mineral_crab_copper",
+        "texture_index": 0
+      }
+    }
+  }
+}

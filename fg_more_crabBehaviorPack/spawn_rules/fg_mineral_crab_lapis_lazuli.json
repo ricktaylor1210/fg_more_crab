@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "fg:mineral_crab_lapis_lazuli",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:weight": {
+          "default": 5
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
+        },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": false
+        },
+        "minecraft:height_filter": {
+          "min": -64,
+          "max": 40
+        },
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:stone",
+          "minecraft:deepslate",
+          "minecraft:tuff",
+          "minecraft:andesite",
+          "minecraft:diorite",
+          "minecraft:granite"
+        ],
+        "minecraft:biome_filter": {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "river"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "ocean"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

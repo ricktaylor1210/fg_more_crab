@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "fg:pirate_crab_sailor",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/pirate_crab/fg_pirate_crab_sailor"
+      },
+      "geometry": {
+        "default": "geometry.pirate_crab_sailor"
+      },
+      "animations": {
+        "idle": "animation.pirate_crab_sailor.idle",
+        "walk": "animation.pirate_crab_sailor.walk",
+        "walk_attack": "animation.pirate_crab_sailor.walk_attack",
+        "attack": "animation.pirate_crab_sailor.attack",
+        "attack_left": "animation.pirate_crab_sailor.attack_left",
+        "attack_right": "animation.pirate_crab_sailor.attack_right",
+        "base_controller": "controller.animation.fg_crab.base"
+      },
+      "scripts": {
+        "scale": "0.92",
+        "animate": [
+          "base_controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.mc_default"
+      ],
+      "spawn_egg": {
+        "texture": "fg:pirate_crab_sailor",
+        "texture_index": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "fg:mineral_crab_iron",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:weight": {
+          "default": 6
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
+        },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": false
+        },
+        "minecraft:height_filter": {
+          "min": -32,
+          "max": 80
+        },
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:stone",
+          "minecraft:deepslate",
+          "minecraft:tuff",
+          "minecraft:andesite",
+          "minecraft:diorite",
+          "minecraft:granite"
+        ],
+        "minecraft:biome_filter": {
+          "none_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "nether"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
