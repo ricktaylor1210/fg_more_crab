@@ -37,7 +37,8 @@
 				{
 					"name": "crab_backpack",
 					"parent": "body",
-					"pivot": [0, 3.5, 0.5]
+					"pivot": [0, 6.09808, 3.09808],
+					"rotation": [-30, 0, 0]
 				},
 				{
 					"name": "ore",

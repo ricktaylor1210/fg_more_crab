@@ -5,7 +5,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "fg:fg_crab_pots_iron",
+                    "name": "fg:crab_pots_iron",
                     "functions": [
                         {
                             "function": "set_count",

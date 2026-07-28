@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "fg:fg_crab_pots_diamond",
+      "identifier": "fg:crab_pots_diamond",
       "materials": {
         "default": "entity_alphatest"
       },

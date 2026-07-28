@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "fg:fg_crab_moss_shell",
+      "identifier": "fg:crab_moss_shell",
       "population_control": "animal"
     },
     "conditions": [

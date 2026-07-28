@@ -1,49 +1,54 @@
 {
-    "format_version": "1.10.0",
-    "minecraft:client_entity": {
-        "description": {
-            "identifier": "fg:fg_crab_frost_shell",
-            "materials": {
-                "default": "entity_alphatest"
-            },
-            "textures": {
-                "default": "textures/entity/crab/fg_crab_ice"
-            },
-            "geometry": {
-                "default": "geometry.crab"
-            },
-            "animations": {
-                "base_controller": "controller.animation.fg_crab.base",
-                "sideways_pose_controller": "controller.animation.fg_crab.sideways_pose",
-                "angry_par": "animation.crab.angry_par",
-                "idle": "animation.crab.idle",
-                "walk": "animation.crab.walk",
-                "walk_attack": "animation.crab.walk_attack",
-                "attack_left": "animation.crab.attack_left",
-                "attack_right": "animation.crab.attack_right",
-                "attack": "animation.crab.attack",
-                "sideways_pose": "animation.fg_crab.sideways_pose"
-            },
-            "scripts": {
-                "scale": "1.0",
-                "animate": [
-                    {
-                        "angry_par": "query.has_target"
-                    },
-                    "base_controller",
-                    "sideways_pose_controller"
-                ]
-            },
-            "particle_effects": {
-                "angry_par": "fg:crab_angry"
-            },
-            "render_controllers": [
-                "controller.render.mc_default"
-            ],
-            "spawn_egg": {
-                "texture": "fg:fg_crab_frost_shell",
-                "texture_index": 0
-            }
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "fg:crab_frost_shell",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/crab/fg_crab_ice",
+        "crab_backpack": "textures/entity/crab_backpack/crab_backpack"
+      },
+      "geometry": {
+        "default": "geometry.crab",
+        "crab_backpack": "geometry.crab_backpack"
+      },
+      "animations": {
+        "base_controller": "controller.animation.fg_crab.base",
+        "sideways_pose_controller": "controller.animation.fg_crab.sideways_pose",
+        "angry_par": "animation.crab.angry_par",
+        "idle": "animation.crab.idle",
+        "walk": "animation.crab.walk",
+        "walk_attack": "animation.crab.walk_attack",
+        "attack_left": "animation.crab.attack_left",
+        "attack_right": "animation.crab.attack_right",
+        "attack": "animation.crab.attack",
+        "sideways_pose": "animation.fg_crab.sideways_pose"
+      },
+      "scripts": {
+        "scale": "1.0",
+        "animate": [
+          {
+            "angry_par": "query.has_target"
+          },
+          "base_controller",
+          "sideways_pose_controller"
+        ]
+      },
+      "particle_effects": {
+        "angry_par": "fg:crab_angry"
+      },
+      "render_controllers": [
+        "controller.render.fg_crab",
+        {
+          "controller.render.crab_backpack": "query.property('fg:has_backpack')"
         }
+      ],
+      "spawn_egg": {
+        "texture": "fg:crab_frost_shell",
+        "texture_index": 0
+      }
     }
+  }
 }

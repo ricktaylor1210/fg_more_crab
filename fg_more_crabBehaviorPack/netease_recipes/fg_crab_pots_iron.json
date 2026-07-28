@@ -2,7 +2,7 @@
     "format_version": "1.12",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "fg:fg_crab_pots_iron"
+            "identifier": "fg:crab_pots_iron"
         },
         "tags": [
             "crafting_table"
@@ -17,11 +17,11 @@
                 "item": "minecraft:iron_ingot"
             },
             "P": {
-                "item": "fg:fg_crab_pots_copper"
+                "item": "fg:crab_pots_copper"
             }
         },
         "result": {
-            "item": "fg:fg_crab_pots_iron",
+            "item": "fg:crab_pots_iron",
             "count": 1
         }
     }

@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:entity": {
     "description": {
-      "identifier": "fg:fg_crab_dusk_shell",
+      "identifier": "fg:crab_dusk_shell",
       "spawn_category": "creature",
       "is_spawnable": true,
       "is_summonable": true,
@@ -22,7 +22,8 @@
         },
         "fg:has_backpack": {
           "type": "bool",
-          "default": false
+          "default": false,
+          "client_sync": true
         },
         "fg:attack_mode": {
           "type": "enum",
@@ -41,6 +42,15 @@
             "aggressive"
           ],
           "default": "calm",
+          "client_sync": false
+        },
+        "fg:follow_state": {
+          "type": "enum",
+          "values": [
+            "follow",
+            "stay"
+          ],
+          "default": "follow",
           "client_sync": false
         }
       },
@@ -61,7 +71,8 @@
           "reset_attack_model",
           "attack_switch"
         ]
-      }
+      },
+      "display_name": "entity.fg:crab_dusk_shell.name"
     },
     "component_groups": {
       "groups:self_anger": {
@@ -132,12 +143,6 @@
         },
         "minecraft:behavior.owner_hurt_target": {
           "priority": 2
-        },
-        "minecraft:behavior.follow_owner": {
-          "priority": 4,
-          "speed_multiplier": 1.15,
-          "start_distance": 8,
-          "stop_distance": 2
         }
       },
       "groups:attack_left": {
@@ -229,6 +234,26 @@
           "track_target": true,
           "attack_once": false
         }
+      },
+      "groups:tamed_follow": {
+        "minecraft:behavior.follow_owner": {
+          "priority": 4,
+          "speed_multiplier": 1.15,
+          "start_distance": 8,
+          "stop_distance": 2
+        }
+      },
+      "groups:tamed_stay": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      },
+      "groups:crab_backpack_inventory": {
+        "minecraft:inventory": {
+          "inventory_size": 27,
+          "container_type": "container",
+          "restrict_to_owner": true
+        }
       }
     },
     "components": {
@@ -312,6 +337,207 @@
       },
       "minecraft:loot": {
         "table": "loot_tables/entities/crab_normal_dusk_shell.json"
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "swing": true,
+            "interact_text": "action.interact.equip_backpack",
+            "on_interact": {
+              "event": "fg:equip_backpack",
+              "target": "self",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_component",
+                    "subject": "self",
+                    "value": "minecraft:is_tamed"
+                  },
+                  {
+                    "test": "bool_property",
+                    "subject": "self",
+                    "domain": "fg:has_backpack",
+                    "operator": "==",
+                    "value": false
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "fg:crab_backpack"
+                  },
+                  {
+                    "test": "is_sneaking",
+                    "subject": "other",
+                    "operator": "==",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            "use_item": true
+          },
+          {
+            "swing": true,
+            "interact_text": "action.interact.unequip_backpack",
+            "on_interact": {
+              "event": "fg:request_unequip_backpack",
+              "target": "self",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "shears"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_component",
+                    "subject": "self",
+                    "value": "minecraft:is_tamed"
+                  },
+                  {
+                    "test": "bool_property",
+                    "subject": "self",
+                    "domain": "fg:has_backpack",
+                    "operator": "==",
+                    "value": true
+                  },
+                  {
+                    "test": "is_sneaking",
+                    "subject": "other",
+                    "operator": "==",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "swing": true,
+            "interact_text": "action.interact.stay",
+            "on_interact": {
+              "event": "fg:set_stay",
+              "target": "self",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  },
+                  {
+                    "test": "is_sneaking",
+                    "subject": "other",
+                    "value": false
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_component",
+                    "subject": "self",
+                    "value": "minecraft:is_tamed"
+                  },
+                  {
+                    "test": "enum_property",
+                    "subject": "self",
+                    "domain": "fg:follow_state",
+                    "value": "follow"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "rotten_flesh"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "kelp"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "swing": true,
+            "interact_text": "action.interact.follow",
+            "on_interact": {
+              "event": "fg:set_follow",
+              "target": "self",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  },
+                  {
+                    "test": "is_sneaking",
+                    "subject": "other",
+                    "value": false
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_component",
+                    "subject": "self",
+                    "value": "minecraft:is_tamed"
+                  },
+                  {
+                    "test": "enum_property",
+                    "subject": "self",
+                    "domain": "fg:follow_state",
+                    "value": "stay"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "rotten_flesh"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "kelp"
+                  }
+                ]
+              }
+            }
+          }
+        ]
       }
     },
     "events": {
@@ -320,7 +546,9 @@
           {
             "set_property": {
               "fg:not_avoid": false,
-              "fg:in_avoid": false
+              "fg:in_avoid": false,
+              "fg:has_backpack": false,
+              "fg:follow_state": "follow"
             }
           },
           {
@@ -337,7 +565,10 @@
                 "groups:attack_double",
                 "groups:attack_left_aggressive",
                 "groups:attack_right_aggressive",
-                "groups:attack_double_aggressive"
+                "groups:attack_double_aggressive",
+                "groups:tamed_follow",
+                "groups:tamed_stay",
+                "groups:crab_backpack_inventory"
               ]
             }
           },
@@ -395,7 +626,8 @@
             "set_property": {
               "fg:is_tamed": true,
               "fg:not_avoid": true,
-              "fg:in_avoid": false
+              "fg:in_avoid": false,
+              "fg:follow_state": "follow"
             }
           },
           {
@@ -405,14 +637,17 @@
                 "groups:pack_anger",
                 "groups:on_hurt_avoid",
                 "groups:on_hurt_alert",
-                "groups:avoid_another_mob"
+                "groups:avoid_another_mob",
+                "groups:tamed_stay",
+                "groups:tamed_follow"
               ]
             }
           },
           {
             "add": {
               "component_groups": [
-                "groups:tamed_behavior"
+                "groups:tamed_behavior",
+                "groups:tamed_follow"
               ]
             }
           },
@@ -432,7 +667,7 @@
           {
             "queue_command": {
               "command": [
-                "event entity @e[type=fg:fg_crab_dusk_shell,r=18,has_property={fg:not_avoid=false,fg:in_avoid=false}] fg:enter_avoid_mode"
+                "event entity @e[type=fg:crab_dusk_shell,r=18,has_property={fg:not_avoid=false,fg:in_avoid=false}] fg:enter_avoid_mode"
               ]
             }
           }
@@ -687,6 +922,102 @@
           {
             "set_property": {
               "fg:attack_mode": "attack"
+            }
+          }
+        ]
+      },
+      "fg:set_stay": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:follow_state": "stay"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:tamed_follow"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:tamed_stay"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:set_follow": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:follow_state": "follow"
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:tamed_stay"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:tamed_follow"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:equip_backpack": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:has_backpack": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "groups:crab_backpack_inventory"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:unequip_backpack": {
+        "sequence": [
+          {
+            "set_property": {
+              "fg:has_backpack": false
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "loot spawn ~ ~0.7 ~ loot \"gameplay/fg_crab_backpack_drop\""
+              ]
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "groups:crab_backpack_inventory"
+              ]
+            }
+          }
+        ]
+      },
+      "fg:request_unequip_backpack": {
+        "sequence": [
+          {
+            "queue_command": {
+              "command": [
+                "particle minecraft:basic_smoke_particle ~ ~0.8 ~"
+              ]
             }
           }
         ]

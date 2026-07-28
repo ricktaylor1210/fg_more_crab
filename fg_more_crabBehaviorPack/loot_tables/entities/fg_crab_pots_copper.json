@@ -5,7 +5,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "fg:fg_crab_pots_copper",
+                    "name": "fg:crab_pots_copper",
                     "functions": [
                         {
                             "function": "set_count",

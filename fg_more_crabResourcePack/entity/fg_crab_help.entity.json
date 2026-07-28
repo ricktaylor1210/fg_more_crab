@@ -2,7 +2,7 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "fg:fg_crab_help",
+            "identifier": "fg:crab_help",
             "materials": {
                 "default": "entity_alphatest"
             },
@@ -41,7 +41,7 @@
                 "controller.render.mc_default"
             ],
             "spawn_egg": {
-                "texture": "fg:fg_crab_help",
+                "texture": "fg:crab_help",
                 "texture_index": 0
             }
         }

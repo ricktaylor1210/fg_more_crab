@@ -2,7 +2,7 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "fg:fg_crab_aggressive",
+            "identifier": "fg:crab_aggressive",
             "materials": {
                 "default": "entity_alphatest"
             },
@@ -41,7 +41,7 @@
                 "controller.render.mc_default"
             ],
             "spawn_egg": {
-                "texture": "fg:fg_crab_aggressive",
+                "texture": "fg:crab_aggressive",
                 "texture_index": 0
             }
         }

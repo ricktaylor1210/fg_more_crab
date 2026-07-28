@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "fg:fg_crab_sandy",
+      "identifier": "fg:crab_sandy",
       "population_control": "animal"
     },
     "conditions": [

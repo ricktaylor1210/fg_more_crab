@@ -2,10 +2,10 @@
     "format_version": "1.10",
     "minecraft:item": {
         "description": {
-            "identifier": "fg:fg_crab_pots_ordinary"
+            "identifier": "fg:crab_pots_ordinary"
         },
         "components": {
-            "minecraft:icon": "fg:fg_crab_pots_ordinary"
+            "minecraft:icon": "fg:crab_pots_ordinary"
         }
     }
 }

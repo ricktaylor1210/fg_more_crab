@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "fg:fg_crab_red_tide",
+      "identifier": "fg:crab_red_tide",
       "population_control": "animal"
     },
     "conditions": [

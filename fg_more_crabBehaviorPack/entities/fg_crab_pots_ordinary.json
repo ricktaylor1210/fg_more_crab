@@ -2,10 +2,10 @@
   "format_version": "1.21.50",
   "minecraft:entity": {
     "description": {
-      "identifier": "fg:fg_crab_pots_ordinary",
+      "identifier": "fg:crab_pots_ordinary",
       "spawn_category": "misc",
-      "is_spawnable": true,
-      "is_summonable": true,
+      "is_spawnable": false,
+      "is_summonable": false,
       "is_experimental": false,
       "properties": {
         "fg:catch_state": {
@@ -74,13 +74,13 @@
               "swing": true,
               "interact_text": "action.interact.collect",
               "on_interact": {
+                "event": "fg:collect_catch",
+                "target": "self",
                 "filters": {
                   "test": "is_family",
                   "subject": "other",
                   "value": "player"
-                },
-                "event": "fg:collect_catch",
-                "target": "self"
+                }
               }
             }
           ]
@@ -94,6 +94,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -108,9 +110,7 @@
                       "value": "fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -118,6 +118,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -132,9 +134,7 @@
                       "value": "cod"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -142,6 +142,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_salmon",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -156,9 +158,7 @@
                       "value": "salmon"
                     }
                   ]
-                },
-                "event": "fg:set_bait_salmon",
-                "target": "self"
+                }
               }
             },
             {
@@ -166,6 +166,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -180,9 +182,7 @@
                       "value": "clownfish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -190,6 +190,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -204,9 +206,7 @@
                       "value": "tropical_fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -214,6 +214,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -228,9 +230,7 @@
                       "value": "rotten_flesh"
                     }
                   ]
-                },
-                "event": "fg:set_bait_rotten_flesh",
-                "target": "self"
+                }
               }
             },
             {
@@ -238,6 +238,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -252,9 +254,7 @@
                       "value": "dried_kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_dried_kelp",
-                "target": "self"
+                }
               }
             },
             {
@@ -262,6 +262,8 @@
               "swing": true,
               "interact_text": "action.interact.place_bait",
               "on_interact": {
+                "event": "fg:set_bait_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -276,9 +278,7 @@
                       "value": "kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -292,6 +292,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_salmon",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -306,9 +308,7 @@
                       "value": "salmon"
                     }
                   ]
-                },
-                "event": "fg:set_bait_salmon",
-                "target": "self"
+                }
               }
             },
             {
@@ -316,6 +316,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -330,9 +332,7 @@
                       "value": "clownfish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -340,6 +340,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -354,9 +356,7 @@
                       "value": "tropical_fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -364,6 +364,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -378,9 +380,7 @@
                       "value": "rotten_flesh"
                     }
                   ]
-                },
-                "event": "fg:set_bait_rotten_flesh",
-                "target": "self"
+                }
               }
             },
             {
@@ -388,6 +388,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -402,9 +404,7 @@
                       "value": "dried_kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_dried_kelp",
-                "target": "self"
+                }
               }
             },
             {
@@ -412,6 +412,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -426,9 +428,7 @@
                       "value": "kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -442,6 +442,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -456,9 +458,7 @@
                       "value": "fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -466,6 +466,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -480,9 +482,7 @@
                       "value": "cod"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -490,6 +490,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -504,9 +506,7 @@
                       "value": "clownfish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -514,6 +514,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -528,9 +530,7 @@
                       "value": "tropical_fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -538,6 +538,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -552,9 +554,7 @@
                       "value": "rotten_flesh"
                     }
                   ]
-                },
-                "event": "fg:set_bait_rotten_flesh",
-                "target": "self"
+                }
               }
             },
             {
@@ -562,6 +562,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -576,9 +578,7 @@
                       "value": "dried_kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_dried_kelp",
-                "target": "self"
+                }
               }
             },
             {
@@ -586,6 +586,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -600,9 +602,7 @@
                       "value": "kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -616,6 +616,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -630,9 +632,7 @@
                       "value": "fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -640,6 +640,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -654,9 +656,7 @@
                       "value": "cod"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -664,6 +664,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_salmon",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -678,9 +680,7 @@
                       "value": "salmon"
                     }
                   ]
-                },
-                "event": "fg:set_bait_salmon",
-                "target": "self"
+                }
               }
             },
             {
@@ -688,6 +688,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -702,9 +704,7 @@
                       "value": "rotten_flesh"
                     }
                   ]
-                },
-                "event": "fg:set_bait_rotten_flesh",
-                "target": "self"
+                }
               }
             },
             {
@@ -712,6 +712,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -726,9 +728,7 @@
                       "value": "dried_kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_dried_kelp",
-                "target": "self"
+                }
               }
             },
             {
@@ -736,6 +736,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -750,9 +752,7 @@
                       "value": "kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -766,6 +766,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -780,9 +782,7 @@
                       "value": "fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -790,6 +790,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -804,9 +806,7 @@
                       "value": "cod"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -814,6 +814,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_salmon",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -828,9 +830,7 @@
                       "value": "salmon"
                     }
                   ]
-                },
-                "event": "fg:set_bait_salmon",
-                "target": "self"
+                }
               }
             },
             {
@@ -838,6 +838,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -852,9 +854,7 @@
                       "value": "clownfish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -862,6 +862,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -876,9 +878,7 @@
                       "value": "tropical_fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -886,6 +886,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -900,9 +902,7 @@
                       "value": "dried_kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_dried_kelp",
-                "target": "self"
+                }
               }
             },
             {
@@ -910,6 +910,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -924,9 +926,7 @@
                       "value": "kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -940,6 +940,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -954,9 +956,7 @@
                       "value": "fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -964,6 +964,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -978,9 +980,7 @@
                       "value": "cod"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -988,6 +988,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_salmon",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1002,9 +1004,7 @@
                       "value": "salmon"
                     }
                   ]
-                },
-                "event": "fg:set_bait_salmon",
-                "target": "self"
+                }
               }
             },
             {
@@ -1012,6 +1012,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1026,9 +1028,7 @@
                       "value": "clownfish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -1036,6 +1036,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1050,9 +1052,7 @@
                       "value": "tropical_fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -1060,6 +1060,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1074,9 +1076,7 @@
                       "value": "rotten_flesh"
                     }
                   ]
-                },
-                "event": "fg:set_bait_rotten_flesh",
-                "target": "self"
+                }
               }
             },
             {
@@ -1084,6 +1084,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1098,9 +1100,7 @@
                       "value": "kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -1114,6 +1114,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1128,9 +1130,7 @@
                       "value": "fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -1138,6 +1138,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_fish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1152,9 +1154,7 @@
                       "value": "cod"
                     }
                   ]
-                },
-                "event": "fg:set_bait_fish",
-                "target": "self"
+                }
               }
             },
             {
@@ -1162,6 +1162,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_salmon",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1176,9 +1178,7 @@
                       "value": "salmon"
                     }
                   ]
-                },
-                "event": "fg:set_bait_salmon",
-                "target": "self"
+                }
               }
             },
             {
@@ -1186,6 +1186,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1200,9 +1202,7 @@
                       "value": "clownfish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -1210,6 +1210,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_clownfish",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1224,9 +1226,7 @@
                       "value": "tropical_fish"
                     }
                   ]
-                },
-                "event": "fg:set_bait_clownfish",
-                "target": "self"
+                }
               }
             },
             {
@@ -1234,6 +1234,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_rotten_flesh",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1248,9 +1250,7 @@
                       "value": "rotten_flesh"
                     }
                   ]
-                },
-                "event": "fg:set_bait_rotten_flesh",
-                "target": "self"
+                }
               }
             },
             {
@@ -1258,6 +1258,8 @@
               "swing": true,
               "interact_text": "action.interact.change_bait",
               "on_interact": {
+                "event": "fg:set_bait_dried_kelp",
+                "target": "self",
                 "filters": {
                   "all_of": [
                     {
@@ -1272,9 +1274,7 @@
                       "value": "dried_kelp"
                     }
                   ]
-                },
-                "event": "fg:set_bait_dried_kelp",
-                "target": "self"
+                }
               }
             }
           ]
@@ -1303,8 +1303,8 @@
         "height": 1.0
       },
       "minecraft:health": {
-        "value": 6,
-        "max": 6
+        "value": 3,
+        "max": 3
       },
       "minecraft:physics": {},
       "minecraft:pushable": {
@@ -1412,7 +1412,7 @@
       "fg:release_caught_crab": {
         "queue_command": {
           "command": [
-            "summon fg:fg_crab_sandy ~ ~0.7 ~"
+            "summon fg:crab_sandy ~ ~0.7 ~"
           ]
         }
       },
@@ -1693,10 +1693,6 @@
           {
             "weight": 25,
             "trigger": "fg:release_caught_crab"
-          },
-          {
-            "weight": 200,
-            "trigger": "fg:no_catch"
           }
         ]
       },
@@ -1709,17 +1705,8 @@
           {
             "weight": 40,
             "trigger": "fg:release_caught_crab"
-          },
-          {
-            "weight": 200,
-            "trigger": "fg:no_catch"
           }
         ]
-      },
-      "fg:no_catch": {
-        "set_property": {
-          "fg:catch_state": "ready"
-        }
       },
       "fg:set_bait_fish": {
         "sequence": [
