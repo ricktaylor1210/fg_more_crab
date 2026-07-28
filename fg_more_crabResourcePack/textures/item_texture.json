@@ -1,66 +1,249 @@
 {
-    "resource_pack_name": "team_items",
-    "texture_name": "atlas.items",
-    "texture_data": {
-        "fg:fg_crab_sandy": {
-            "textures": "textures/items/crab/fg_crab_orange"
-        },
-        "fg:fg_crab_red_tide": {
-            "textures": "textures/items/crab/fg_crab_red"
-        },
-        "fg:fg_crab_blue_tide": {
-            "textures": "textures/items/crab/fg_crab_blue"
-        },
-        "fg:fg_crab_frost_shell": {
-            "textures": "textures/items/crab/fg_crab_ice"
-        },
-        "fg:fg_crab_coral": {
-            "textures": "textures/items/crab/fg_crab_pink"
-        },
-        "fg:fg_crab_dusk_shell": {
-            "textures": "textures/items/crab/fg_crab_purple"
-        },
-        "fg:fg_crab_moss_shell": {
-            "textures": "textures/items/crab/fg_crab_experience"
-        },
-        "fg:fg_crab": {
-            "textures": "textures/items/crab/fg_crab_orange"
-        },
-        "fg:crab_shell_powder": {
-            "textures": "textures/items/foods/crab_shell_powder"
-        },
-        "fg:crab_claws": {
-            "textures": "textures/items/foods/crab_claws"
-        },
-        "fg:grilled_crab_meat": {
-            "textures": "textures/items/foods/grilled_crab_meat"
-        },
-        "fg:crab_sticks": {
-            "textures": "textures/items/foods/crab_sticks"
-        },
-        "fg:steamed_crab": {
-            "textures": "textures/items/foods/steamed_crab"
-        },
-        "fg:fg_crab_pots_ordinary": {
-            "textures": "textures/items/crab_pots/fg_crab_pots_ordinary"
-        },
-        "fg:fg_crab_pots_copper": {
-            "textures": "textures/items/crab_pots/fg_crab_pots_copper"
-        },
-        "fg:fg_crab_pots_iron": {
-            "textures": "textures/items/crab_pots/fg_crab_pots_iron"
-        },
-        "fg:fg_crab_pots_gold": {
-            "textures": "textures/items/crab_pots/fg_crab_pots_gold"
-        },
-        "fg:fg_crab_pots_diamond": {
-            "textures": "textures/items/crab_pots/fg_crab_pots_diamond"
-        },
-        "fg:fg_crab_help": {
-            "textures": "textures/items/crab/fg_crab_red"
-        },
-        "fg:fg_crab_aggressive": {
-            "textures": "textures/items/crab/fg_crab_purple"
-        }
+  "resource_pack_name": "team_items",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "fg:crab_sandy": {
+      "textures": "textures/items/crab/fg_crab_orange"
+    },
+    "fg:crab_red_tide": {
+      "textures": "textures/items/crab/fg_crab_red"
+    },
+    "fg:crab_blue_tide": {
+      "textures": "textures/items/crab/fg_crab_blue"
+    },
+    "fg:crab_frost_shell": {
+      "textures": "textures/items/crab/fg_crab_ice"
+    },
+    "fg:crab_coral": {
+      "textures": "textures/items/crab/fg_crab_pink"
+    },
+    "fg:crab_dusk_shell": {
+      "textures": "textures/items/crab/fg_crab_purple"
+    },
+    "fg:crab_moss_shell": {
+      "textures": "textures/items/crab/fg_crab_experience"
+    },
+    "fg:crab": {
+      "textures": "textures/items/crab/fg_crab_orange"
+    },
+    "fg:crab_shell_powder": {
+      "textures": "textures/items/foods/crab_shell_powder"
+    },
+    "fg:crab_claws": {
+      "textures": "textures/items/foods/crab_claws"
+    },
+    "fg:grilled_crab_meat": {
+      "textures": "textures/items/foods/grilled_crab_meat"
+    },
+    "fg:crab_sticks": {
+      "textures": "textures/items/foods/crab_sticks"
+    },
+    "fg:steamed_crab": {
+      "textures": "textures/items/foods/steamed_crab"
+    },
+    "fg:crab_backpack": {
+      "textures": "textures/items/crab_backpack/crab_backpack"
+    },
+    "fg:crab_shell_shield": {
+      "textures": "textures/items/crab_shell_shield/crab_shell_shield"
+    },
+    "fg:crab_pots_ordinary": {
+      "textures": "textures/items/crab_pots/fg_crab_pots_ordinary"
+    },
+    "fg:crab_pots_copper": {
+      "textures": "textures/items/crab_pots/fg_crab_pots_copper"
+    },
+    "fg:crab_pots_iron": {
+      "textures": "textures/items/crab_pots/fg_crab_pots_iron"
+    },
+    "fg:crab_pots_gold": {
+      "textures": "textures/items/crab_pots/fg_crab_pots_gold"
+    },
+    "fg:crab_pots_diamond": {
+      "textures": "textures/items/crab_pots/fg_crab_pots_diamond"
+    },
+    "fg:mineral_crab_coal": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_coal"
+    },
+    "fg:mineral_crab_copper": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_copper"
+    },
+    "fg:mineral_crab_iron": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_iron"
+    },
+    "fg:mineral_crab_gold": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_gold"
+    },
+    "fg:mineral_crab_redstone": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_redstone"
+    },
+    "fg:mineral_crab_lapis_lazuli": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_lapis_lazuli"
+    },
+    "fg:mineral_crab_emerald": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_emerald"
+    },
+    "fg:mineral_crab_diamond": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_diamond"
+    },
+    "fg:mineral_crab_quartz": {
+      "textures": "textures/items/carb_mineral/fg_mineral_crab_quartz"
+    },
+    "fg:pirate_crab_sailor": {
+      "textures": "textures/items/pirate_crab/fg_pirate_crab_sailor"
+    },
+    "fg:pirate_crab_captain": {
+      "textures": "textures/items/pirate_crab/fg_pirate_crab_captain"
+    },
+    "fg:pirate_crab_artillery": {
+      "textures": "textures/items/pirate_crab/fg_pirate_crab_artillery"
+    },
+    "fg:crab_help": {
+      "textures": "textures/items/crab/fg_crab_red"
+    },
+    "fg:crab_aggressive": {
+      "textures": "textures/items/crab/fg_crab_purple"
+    },
+    "fg:chilli": {
+      "textures": "textures/items/foods/chilli"
+    },
+    "fg:spicy_crab_claws": {
+      "textures": "textures/items/foods/spicy_crab_claws"
+    },
+    "fg:crab_sushi": {
+      "textures": "textures/items/foods/crab_sushi"
+    },
+    "fg:crab_roe_soup": {
+      "textures": "textures/items/foods/crab_roe_soup"
+    },
+    "fg:coconut_crab_soup": {
+      "textures": "textures/items/foods/coconut_crab_soup"
+    },
+    "fg:crab_fried_rice": {
+      "textures": "textures/items/foods/crab_fried_rice"
+    },
+    "fg:crab_sandwich": {
+      "textures": "textures/items/foods/crab_sandwich"
+    },
+    "fg:crab_meat_miso_soup": {
+      "textures": "textures/items/foods/crab_meat_miso_soup"
+    },
+    "fg:crab_shell_helmet": {
+      "textures": "textures/items/foods/crab_shell_powder"
+    },
+    "fg:crab_shell_chestplate": {
+      "textures": "textures/items/foods/crab_shell_powder"
+    },
+    "fg:crab_shell_leggings": {
+      "textures": "textures/items/foods/crab_shell_powder"
+    },
+    "fg:crab_shell_boots": {
+      "textures": "textures/items/foods/crab_shell_powder"
+    },
+    "fg:crab_boss_lava": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_lava"
+    },
+    "fg:crab_boss_lava_core": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_lava"
+    },
+    "fg:crab_boss_ice": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_ice"
+    },
+    "fg:crab_boss_ice_core": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_ice"
+    },
+    "fg:crab_boss_poisonous_swamp": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_poisonous_swamp"
+    },
+    "fg:crab_boss_poisonous_swamp_core": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_poisonous_swamp"
+    },
+    "fg:crab_boss_tidal": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_tidal"
+    },
+    "fg:crab_boss_tidal_core": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_tidal"
+    },
+    "fg:crab_boss_sound_guard": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_sound_guard"
+    },
+    "fg:crab_boss_sound_guard_core": {
+      "textures": "textures/items/crab_boss/fg_crab_boss_sound_guard"
+    },
+    "fg:frost_crab_helmet": {
+      "textures": "textures/entity/frost_armor/fg_frost_armor"
+    },
+    "fg:frost_crab_chestplate": {
+      "textures": "textures/entity/frost_armor/fg_frost_armor"
+    },
+    "fg:frost_crab_leggings": {
+      "textures": "textures/entity/frost_armor/fg_frost_armor"
+    },
+    "fg:frost_crab_boots": {
+      "textures": "textures/entity/frost_armor/fg_frost_armor"
+    },
+    "fg:poisonous_swamp_crab_helmet": {
+      "textures": "textures/entity/poisonous_swamp_armor/fg_poisonous_swamp_armor"
+    },
+    "fg:poisonous_swamp_crab_chestplate": {
+      "textures": "textures/entity/poisonous_swamp_armor/fg_poisonous_swamp_armor"
+    },
+    "fg:poisonous_swamp_crab_leggings": {
+      "textures": "textures/entity/poisonous_swamp_armor/fg_poisonous_swamp_armor"
+    },
+    "fg:poisonous_swamp_crab_boots": {
+      "textures": "textures/entity/poisonous_swamp_armor/fg_poisonous_swamp_armor"
+    },
+    "fg:tidal_crab_helmet": {
+      "textures": "textures/entity/tidal_armor/fg_tidal_armor"
+    },
+    "fg:tidal_crab_chestplate": {
+      "textures": "textures/entity/tidal_armor/fg_tidal_armor"
+    },
+    "fg:tidal_crab_leggings": {
+      "textures": "textures/entity/tidal_armor/fg_tidal_armor"
+    },
+    "fg:tidal_crab_boots": {
+      "textures": "textures/entity/tidal_armor/fg_tidal_armor"
+    },
+    "fg:blazing_crab_helmet": {
+      "textures": "textures/entity/blazing_armor/fg_blazing_armor"
+    },
+    "fg:blazing_crab_chestplate": {
+      "textures": "textures/entity/blazing_armor/fg_blazing_armor"
+    },
+    "fg:blazing_crab_leggings": {
+      "textures": "textures/entity/blazing_armor/fg_blazing_armor"
+    },
+    "fg:blazing_crab_boots": {
+      "textures": "textures/entity/blazing_armor/fg_blazing_armor"
+    },
+    "fg:abyssal_echo_crab_helmet": {
+      "textures": "textures/entity/abyssal_echo_armor/fg_abyssal_echo_armor"
+    },
+    "fg:abyssal_echo_crab_chestplate": {
+      "textures": "textures/entity/abyssal_echo_armor/fg_abyssal_echo_armor"
+    },
+    "fg:abyssal_echo_crab_leggings": {
+      "textures": "textures/entity/abyssal_echo_armor/fg_abyssal_echo_armor"
+    },
+    "fg:abyssal_echo_crab_boots": {
+      "textures": "textures/entity/abyssal_echo_armor/fg_abyssal_echo_armor"
+    },
+    "fg:frost_crystal_crab_spear": {
+      "textures": "textures/entity/frost_armor/fg_frost_crystal_crab_spear"
+    },
+    "fg:swamp_poison_pliers": {
+      "textures": "textures/entity/swamp_poison_pliers/fg_swamp_poison_pliers"
+    },
+    "fg:tide_striker": {
+      "textures": "textures/entity/tidal_armor/fg_tide_striker"
+    },
+    "fg:lava_battle_axe": {
+      "textures": "textures/entity/lava_battle_axe/fg_lava_battle_axe"
+    },
+    "fg:sound_following_giant_blade": {
+      "textures": "textures/entity/sound_following_giant_blade/fg_sound_following_giant_blade"
     }
+  }
 }

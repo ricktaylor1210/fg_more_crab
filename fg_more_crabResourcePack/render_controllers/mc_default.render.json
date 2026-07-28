@@ -1,38 +1,76 @@
 {
-	"format_version": "1.8.0",
-	"render_controllers": {
-		"controller.render.mc_default": {
-			"geometry": "Geometry.default",
-			"materials": [
-				{
-					"*": "Material.default"
-				}
-			],
-			"textures": ["Texture.default"]
-		},
-		"controller.render.crab_pot_no_hurt": {
-			"geometry": "Geometry.default",
-			"materials": [
-				{
-					"*": "Material.default"
-				}
-			],
-			"textures": ["Texture.default"],
-			"is_hurt_color": {
-				"r": 1.0,
-				"g": 1.0,
-				"b": 1.0,
-				"a": 0.0
-			}
-		},
-		"controller.render.dummy": {
-			"geometry": "Geometry.default",
-			"textures": ["Texture.default"],
-			"materials": [
-				{
-					"*": "Material.default"
-				}
-			]
-		}
-	}
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.mc_default": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ]
+    },
+    "controller.render.crab_backpack": {
+      "geometry": "Geometry.crab_backpack",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.crab_backpack"
+      ],
+      "part_visibility": [
+        {
+          "*": "query.property('fg:has_backpack')"
+        }
+      ]
+    },
+    "controller.render.crab_pot_no_hurt": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "is_hurt_color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      }
+    },
+    "controller.render.dummy": {
+      "geometry": "Geometry.default",
+      "textures": [
+        "Texture.default"
+      ],
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ]
+    },
+    "controller.render.fg_crab": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "part_visibility": [
+        {
+          "crab_backpack": "0.0"
+        }
+      ]
+    }
+  }
 }
