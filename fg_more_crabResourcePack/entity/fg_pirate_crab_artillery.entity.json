@@ -16,7 +16,7 @@
         "idle": "animation.pirate_crab_artillery.idle",
         "walk": "animation.pirate_crab_artillery.walk",
         "walk_attack": "animation.pirate_crab_artillery.walk_attack",
-        "attack": "animation.pirate_crab_artillery.attack",
+        "attack": "animation.pirate_crab_artillery.attack_shot",
         "attack_left": "animation.pirate_crab_artillery.attack_left",
         "attack_right": "animation.pirate_crab_artillery.attack_right",
         "base_controller": "controller.animation.fg_crab.base"

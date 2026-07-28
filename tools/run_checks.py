@@ -202,6 +202,64 @@ def check_render_controller_molang_quotes():
     return "render controller query.property strings use single quotes"
 
 
+def check_client_animation_references():
+    animation_ids = set()
+    controller_ids = set()
+    missing = []
+
+    for path in sorted((RP / "animations").rglob("*.json")):
+        animations = _load_json(path).get("animations", {})
+        if isinstance(animations, dict):
+            animation_ids.update(animations.keys())
+
+    for path in sorted((RP / "animation_controllers").rglob("*.json")):
+        controllers = _load_json(path).get("animation_controllers", {})
+        if isinstance(controllers, dict):
+            controller_ids.update(controllers.keys())
+
+    for path in sorted((RP / "entity").glob("*.json")):
+        animations = _client_entity_description(_load_json(path)).get("animations", {})
+        if not isinstance(animations, dict):
+            continue
+        for alias, target in animations.items():
+            if not isinstance(target, str):
+                continue
+            if target.startswith("controller.animation.") and target not in controller_ids:
+                missing.append("%s:%s -> %s" % (path.name, alias, target))
+            elif target.startswith("animation.") and target not in animation_ids:
+                missing.append("%s:%s -> %s" % (path.name, alias, target))
+
+    if missing:
+        raise AssertionError("client animation targets are missing: %s" % missing)
+    return "client entity animation aliases resolve to defined animations and controllers"
+
+
+def check_sound_definition_files():
+    path = RP / "sounds" / "sound_definitions.json"
+    if not path.exists():
+        return "no custom sound definitions file"
+
+    missing = []
+    for event_name, definition in _load_json(path).items():
+        if not isinstance(definition, dict):
+            continue
+        for sound in definition.get("sounds", []):
+            sound_name = sound.get("name") if isinstance(sound, dict) else sound
+            if not isinstance(sound_name, str):
+                continue
+            sound_path = ROOT / "fg_more_crabResourcePack" / sound_name
+            if sound_path.suffix:
+                exists = sound_path.exists()
+            else:
+                exists = any(sound_path.with_suffix(extension).exists() for extension in (".ogg", ".wav", ".mp3", ".fsb"))
+            if not exists:
+                missing.append("%s -> %s" % (event_name, sound_name))
+
+    if missing:
+        raise AssertionError("sound definitions reference missing audio files: %s" % missing)
+    return "custom sound definitions reference existing audio files"
+
+
 def check_no_double_fg_namespace_prefix():
     bad_prefix = "fg:" + "fg_"
     offenders = []
@@ -714,10 +772,30 @@ def check_acceptance_docs():
     return "acceptance checklist documents current validation scope"
 
 
+def check_expansion_task_roadmap():
+    roadmap_path = ROOT / "docs" / "07_dev_roadmap.md"
+    acceptance_path = ROOT / "docs" / "TASK_01_15_acceptance_checklist.md"
+    roadmap = _read_text(roadmap_path)
+    acceptance = _read_text(acceptance_path)
+
+    for task_id in range(16, 24):
+        token = "TASK-%s" % task_id
+        if token not in roadmap:
+            raise AssertionError("roadmap missing expansion task: %s" % token)
+    for token in ("双线并行", "TASK-16~23"):
+        if token not in roadmap:
+            raise AssertionError("roadmap missing expansion policy: %s" % token)
+    if "TASK-16~23" not in acceptance or "并行" not in acceptance:
+        raise AssertionError("acceptance checklist must allow the parallel expansion task line")
+    return "TASK-16 through TASK-23 are numbered and allowed to run in parallel"
+
+
 CHECKS = [
     ("json", check_all_json),
     ("interact_filter_schema", check_interact_filter_schema),
     ("render_controller_molang", check_render_controller_molang_quotes),
+    ("client_animation_references", check_client_animation_references),
+    ("sound_definition_files", check_sound_definition_files),
     ("no_double_fg_namespace_prefix", check_no_double_fg_namespace_prefix),
     ("behavior_resource_id_links", check_behavior_resource_id_links),
     ("python_ast", check_python_ast),
@@ -741,6 +819,7 @@ CHECKS = [
     ("boss_armor_effects", check_boss_armor_runtime_effects),
     ("item_name_fallbacks", check_item_name_fallbacks),
     ("acceptance_docs", check_acceptance_docs),
+    ("expansion_task_roadmap", check_expansion_task_roadmap),
 ]
 
 

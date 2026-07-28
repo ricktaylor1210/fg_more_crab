@@ -1,15 +1,1 @@
-{
-    "music.fg.fg_crab": {
-        "category": "neutral",
-        "min_distance": 1.0,
-        "max_distance": 48.0,
-        "sounds": [
-            {
-                "name": "sounds/fg_crab",
-                "stream": false,
-                "volume": 1.0,
-                "load_on_low_memory": true
-            }
-        ]
-    }
-}
+{}
