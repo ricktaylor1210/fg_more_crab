@@ -22,4 +22,3 @@ class ModMain(object):
             return
         self.ServerMainSystem = None
         server_main_system.DestroySystem()
-

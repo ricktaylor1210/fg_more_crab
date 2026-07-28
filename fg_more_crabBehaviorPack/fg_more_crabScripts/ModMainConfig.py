@@ -38,4 +38,3 @@ def SetDevelopmentMessage(level, message, *args):
     except Exception:
         if IN_DEVELOPMENT:
             raise
-
